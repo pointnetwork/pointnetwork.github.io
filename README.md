@@ -19,4 +19,11 @@ Documentation files are stored in the [docs](./docs) directory as Markdown files
 
 ## Deployment
 
-TODO
+To deploy, run the following command (replacing `<GIT_USER>` with your Point Network team Git username). For details, please refer to the [Docusaurus Deployment Docs](https://docusaurus.io/docs/en/publishing#deploying-to-github-pages)
+
+```
+GIT_USER=<GIT_USER> \
+  CURRENT_BRANCH=main \
+  USE_SSH=true \
+  npm run publish-gh-pages
+```
