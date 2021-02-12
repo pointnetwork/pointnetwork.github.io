@@ -1,5 +1,5 @@
 {
   "docs": {
-    "Introduction": ["welcome", "modules", "deploy"]
+    "Introduction": ["welcome", "modules", "deploy", "storage"]
   }
 }
