@@ -309,4 +309,4 @@ Truffle
 
 ### Modifications
 
-Utility / helper methods such as _isValidHandle and _toLower can be imported from utility libraries of which OpenZeppelin being a very popular solution to use for example [Utilities](https://docs.openzeppelin.com/contracts/3.x/utilities).
+Utility / helper methods such as _isValidHandle and _toLower can be imported from utility libraries of which OpenZeppelin being a very popular solution to use for example [Utilities](https://docs.openzeppelin.com/contracts/3.x/utilities)
