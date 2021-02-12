@@ -5,7 +5,7 @@ title: Deploy
 
 # File Deployment Process
 
-This document outlines a high level overview of the process of deploying files to Point Network via the `point cli`. This document follows the journey of a file as it is uploaded, parsed and finally passed onto the Point Network storage layer for distributed among Point Network nodes.
+This document outlines a high level overview of the process of deploying files to Point Network via the `point cli`. This document follows the journey of a file as it is uploaded, parsed and finally passed onto the Point Network storage layer for distribution among Point Network nodes.
 
 ## Step 1: Initialization
 
