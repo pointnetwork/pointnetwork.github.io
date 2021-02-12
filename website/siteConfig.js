@@ -24,7 +24,7 @@ const siteConfig = {
   title: 'Point Network', // Title for your website.
   tagline: 'Web 3.0 Implementation',
   url: 'https://pointnetwork.github.io', // Your website URL
-  baseUrl: '/docs/', // Base URL for your project */
+  baseUrl: '/', // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
