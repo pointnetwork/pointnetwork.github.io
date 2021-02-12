@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Introduction": ["welcome"],
+    "Introduction": ["welcome", "modules"],
     "API": ["api/api_intro"],
     "Client": ["client/client_intro"]
   }
