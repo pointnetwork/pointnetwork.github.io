@@ -37,4 +37,3 @@ Below is a list of modules that are used for the Point Network Node prototype im
 * Node Server
 * API Server
 * Smart Contracts
-
