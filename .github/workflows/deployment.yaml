@@ -30,8 +30,8 @@ jobs:
           GIT_USER: git
         run: |
           cd website
-          git config user.email "docs.deployment@pointnetwork.io"
-          git config user.name "Pointnetwork deployment action"
+          git config --global user.email "docs.deployment@pointnetwork.io"
+          git config --global user.name "Pointnetwork deployment action"
           GIT_USER="docs.deployment@pointnetwork.io"
           CURRENT_BRANCH=main
           USE_SSH=true
