@@ -49,3 +49,7 @@ This document outlines a high level overview of the process of deploying files t
 1. Next any `link` and `img` tags in the template are processed recursively so that all these are also replaced with the file id reference in the parsed template. Again the result is that the human readable referenced filename with parsed file id but this time referencing the storage table in the LevelDB and including the file extension. So one example of a parsed img tag might look like this:` <img src="/_storage/7de460700a2b69c8241e76593165e76ca29bc3ef.png"> `
 
 1. Finally, once the template has been fully parsed, it is sent to the Point Network Storage Layer for persistence across the network.
+
+## Tests step
+
+1. Test
