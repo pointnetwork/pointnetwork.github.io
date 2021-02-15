@@ -23,12 +23,13 @@ To deploy, run the following command (replacing `<GIT_USER>` with your Point Net
 
 ```
 cd website
+
 GIT_USER=<GIT_USER> \
-  CURRENT_BRANCH=main \
-  USE_SSH=true \
-  npm run publish-gh-pages
+CURRENT_BRANCH=main \
+USE_SSH=true \
+npm run publish-gh-pages
 ```
 
 ## Live Site
 
-The live documentation site should be published here: [https://pointnetwork.github.io/docs](https://pointnetwork.github.io/docs).
+The live documentation site should be published here: [https://pointnetwork.github.io](https://pointnetwork.github.io).
