@@ -22,13 +22,42 @@ stateDiagram-v2
 
 ## Chunk States
 
-| ![alt-text](assets/chunk-states.png) |
-| ------ |
+```mermaid
+stateDiagram-v2
+  [*] --> Created: createChunkFromFile
+  Created --> Uploading: check state
+  Uploading --> Uploading: chunk conditions \nNOT satisfied
+  Uploading --> Uploaded: chunk conditions satisfied
+  Uploaded --> [*]
+```
 
 ## Storage Link States
 
-| ![alt-text](assets/storage-link-states.png) |
-| ------ |
+NOTE: Yellow boxes represent communication to the linked node.
+
+```mermaid
+stateDiagram-v2
+  [*] --> Created
+  Created --> Agreed
+  Created --> Failed
+  note left of Created: STORE_CHUNK_REQUEST
+  Agreed --> Encrypting
+  Encrypting --> Encrypted
+  Encrypting --> Failed
+  Encrypted --> SendingSegmentMap
+  note left of SendingSegmentMap: STORE_CHUNK_SEGMENTS
+  SendingSegmentMap --> SendingData
+  note left of SendingData: STORE_CHUNK_DATA
+  SendingSegmentMap --> Failed
+  SendingData --> DataReceived
+  SendingData --> Failed
+  DataReceived --> AskingForSignature
+  AskingForSignature --> Signed
+  AskingForSignature --> Failed
+  note left of AskingForSignature: STORE_CHUNK_SIGNATURE_REQUEST
+  Failed --> [*]
+  Signed --> [*]
+```
 
 ## Process: upload and chunkify file
 
