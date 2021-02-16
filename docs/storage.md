@@ -11,8 +11,14 @@ Firstly we can outline this using high level state machine diagrams for `File`, 
 
 ## File States
 
-| ![alt-text](assets/file-states.png) |
-| ------ |
+```mermaid
+stateDiagram-v2
+  [*] --> Created: putFile
+  Created --> Uploading: chunkify
+  Uploading --> Uploaded: chunks_uploading==0
+  Uploading --> Uploading: chunks_uploading>0
+  Uploaded --> [*]
+```
 
 ## Chunk States
 

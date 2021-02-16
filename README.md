@@ -17,6 +17,24 @@ npm start
 
 Documentation files are stored in the [docs](./docs) directory as Markdown files. Simply edit any of these files and save to update the local site.
 
+## Diagrams using Mermaid
+
+Mermaid diagrams need to be added using a *markdown fence* using the identifier `mermaid` as shown below (or check out any of the markdown docs using Mermaid diagrams).
+
+```
+  ```mermaid
+  # Valid mermaid markdown
+    ```
+```
+
+To preview Mermaid diagrams in VS Code, I recommend installing the [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) extension. Then you can open a preview window beside the markdown file (using the shortcut `cmd-k v`) which greatly helps when building these diagrams.
+
+The Mermaid diagrams are automatically rendered in Docusaurus so there is no other special action required.
+
+For the curious, the diagrams are rendered using the `mermaidjs` library that is loaded into the Docusaurus instance via the `scripts` tag in the [./website/siteConfig.js](./website/siteConfig.js) file and registered as a new markdown plugin.
+
+For more information about Mermaid, please visit the [Mermaid Docs](https://mermaid-js.github.io/mermaid/#/)
+
 ## Deployment
 
 To deploy, run the following command (replacing `<GIT_USER>` with your Point Network team Git username). For details, please refer to the [Docusaurus Deployment Docs](https://docusaurus.io/docs/en/publishing#deploying-to-github-pages)
