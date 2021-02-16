@@ -37,6 +37,8 @@ For more information about Mermaid, please visit the [Mermaid Docs](https://merm
 
 ## Deployment
 
+This site should automatically deploy via [Github Actions](https://github.com/features/actions). If it does not then you can try deploying the site manually as follows:
+
 To deploy, run the following command (replacing `<GIT_USER>` with your Point Network team Git username). For details, please refer to the [Docusaurus Deployment Docs](https://docusaurus.io/docs/en/publishing#deploying-to-github-pages)
 
 ```
