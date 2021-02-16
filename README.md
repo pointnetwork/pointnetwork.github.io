@@ -19,7 +19,7 @@ Documentation files are stored in the [docs](./docs) directory as Markdown files
 
 ## Diagrams using Mermaid
 
-Mermaid diagrams need to be added using a *markdown fence* using the identifier `mermaid` as shown below (or check out any of the markdown docs using Mermaid diagrams).
+Mermaid diagrams need to be added using a *markdown fence* using the identifier `mermaid` as shown below (or check out any of the markdown docs that [contain Mermaid diagrams](./docs/storage.md)).
 
 ```
   ```mermaid
