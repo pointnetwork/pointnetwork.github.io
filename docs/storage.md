@@ -41,7 +41,9 @@ stateDiagram-v2
   Created --> Agreed
   Created --> Failed
   note left of Created: STORE_CHUNK_REQUEST
-  Agreed --> Encrypting
+  Agreed --> Establish_payment_channel:Payment channel does not exists
+  Agreed --> Encrypting:Payment channel already exists
+  Establish_payment_channel --> Encrypting
   Encrypting --> Encrypted
   Encrypting --> Failed
   Encrypted --> SendingSegmentMap
@@ -57,6 +59,7 @@ stateDiagram-v2
   note left of AskingForSignature: STORE_CHUNK_SIGNATURE_REQUEST
   Failed --> [*]
   Signed --> [*]
+  note left of Signed: SEND_MICROPAYMENT_FOR_CHUNK
 ```
 
 ## Process: upload and chunkify file
@@ -83,7 +86,9 @@ The function proceeds as follows:
 
 1. `StorageLink.STATUS_CREATED`: If additional Storage Providers are required then one is chosen using `chooseProviderCandidate()` function. The process of choosing a provider candidate is detailed elsewhere in the docs. A new Storage Link is created and the provider, **redkeyId**, and **chunk id** is set on this new instance.
 
-1. `StorageLink.STATUS_AGREED`: A `STORE_CHUNK_REQUEST` call is made to the linked Storage Provider and if agreed the status is update to `StorageLink.STATUS_AGREED `otherwise its updated to `StorageLink.STATUS_FAILED`. The `STORE_CHUNK_REQUEST` call is handled using a custom Kademlia plugin or middleware that defines this handler (more on networking in a separate section of the documentation). Note this is a request to another node to store the chunk and at this point the actual chunk data is not sent to the other node - only the id, length and expiry parameters are sent.
+1. `StorageLink.STATUS_AGREED`: A `STORE_CHUNK_REQUEST` call is made to the linked Storage Provider and if agreed a check to determine if there is an existing payment channel between the client and the storage provider is carried out using `checkExistingChannel()` function. If a channel exists the status is updated to `StorageLink.STATUS_AGREED` otherwise it is updated to `StorageLink.STATUS_ESTABLISH_PAYMENT_CHANNEL` if the `STORE_CHUNK_REQUEST` call fails it is updated to `StorageLink.STATUS_FAILED`. The `STORE_CHUNK_REQUEST` call is handled using a custom Kademlia plugin or middleware that defines this handler (more on networking in a separate section of the documentation). Note this is a request to another node to store the chunk and at this point the actual chunk data is not sent to the other node - only the id, length and expiry parameters are sent.
+
+1. `StorageLink.STATUS_ESTABLISH_PAYMENT_CHANNEL`: The function then checks in the  `StorageLink.STATUS_ESTABLISH_PAYMENT_CHANNEL` state and creates a payment channel with the Storage Provider using `createChannel()` function. if successful the status is updated to `StorageLink.STATUS_AGREED`.
 
 1. `StorageLink.STATUS_ENCRYPTING`: The function then checks all the Storage Links in the `StorageLink.STATUS_AGREED` state and begins the encryption process. The Storage Link state is first updated to `StorageLink.STATUS_ENCRYPTING`  and then the encryption process is performed by a forked child process that returns a message to the parent process when the encryption is complete.
 
@@ -93,4 +98,4 @@ The function proceeds as follows:
 
 1. `StorageLink.STATUS_SENDING_DATA`: The function then checks all the Storage Links in the `StorageLink.STATUS_SENDING_DATA` state and then prepares the data to be sent to the linked Storage Provider (which includes checking if chunks should be retransmitted due to a timeout condition). Once the data is prepared it calls `STORE_CHUNK_DATA`  which will invoke the equivalent function on the linked Storage Provider instance which will then store the data sent. On successful transmission of the data the Storage Link status is updated to `StorageLink.STATUS_DATA_RECEIVED` otherwise it is updated to `StorageLink.STATUS_FAILED`.
 
-1. `StorageLink.STATUS_DATA_RECEIVED`: The function then checks all the Storage Links in the `StorageLink.STATUS_DATA_RECEIVED` state and updates the state to `StorageLink.STATUS_ASKING_FOR_SIGNATURE` and then sends a request to the linked Storage Provider for it to sign the chunk. Once it is successfully signed the status is changed to `StorageLink.STATUS_SIGNED` otherwise it is updated to `StorageLink.STATUS_FAILED`.
+1. `StorageLink.STATUS_DATA_RECEIVED`: The function then checks all the Storage Links in the `StorageLink.STATUS_DATA_RECEIVED` state and updates the state to `StorageLink.STATUS_ASKING_FOR_SIGNATURE` and then sends a request to the linked Storage Provider for it to sign the chunk. Once it is successfully signed the status is changed to `StorageLink.STATUS_SIGNED` and the agreed micropayment is made to the Storage Provider using the makePayment() function. otherwise it is updated to `StorageLink.STATUS_FAILED`.
