@@ -2,7 +2,7 @@
 
 ## Docusaurus Docs
 
-Full details on how to modify this site can be found on the [Docusaurus Documentation Website](https://docusaurus.io/docs/en/installation).
+Full details on how to modify this site can be found on the [Docusaurus Documentation Website](https://docusaurus.io/docs/installation).
 
 ## Getting Started
 
