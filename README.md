@@ -4,14 +4,13 @@
 
 Full details on how to modify this site can be found on the [Docusaurus Documentation Website](https://docusaurus.io/docs/installation).
 
-## Getting Started
+## Quick Start
 
-To run this site locally, clone this repo and run:
-
-```
-cd website
-npm start
-```
+* Clone the [this repo](https://github.com/pointnetwork/pointnetwork.github.io).
+* Run the site locally `cd website && npm start`
+* Open an editor and add, edit or remove any of the Markdown files in the [`/docs`](./docs) directory
+* Commit and push the changes. [Github Actions](https://github.com/pointnetwork/pointnetwork.github.io/actions) will take care of the deployment automatically.
+* Live site will be updated [here](https://pointnetwork.github.io/docs/welcome.html) once Github Actions completes the build.
 
 ## Editing documentation
 
@@ -37,18 +36,7 @@ For more information about Mermaid, please visit the [Mermaid Docs](https://merm
 
 ## Deployment
 
-This site should automatically deploy via [Github Actions](https://github.com/features/actions). If it does not then you can try deploying the site manually as follows:
-
-To deploy, run the following command (replacing `<GIT_USER>` with your Point Network team Git username). For details, please refer to the [Docusaurus Deployment Docs](https://docusaurus.io/docs/en/publishing#deploying-to-github-pages)
-
-```
-cd website
-
-GIT_USER=<GIT_USER> \
-CURRENT_BRANCH=main \
-USE_SSH=true \
-npm run publish-gh-pages
-```
+This site should automatically deploy via [Github Actions](https://github.com/features/actions) so all you need to do is commit your changes and the site will be built and deployed automatically.
 
 ## Live Site
 
