@@ -147,7 +147,7 @@ paths:
           headers:
             X-POINT-CONTRACT-ADDRESS:
               type: string
-              description: The address of the contract.
+              description: The address of the loaded contract.
 
         404:
           description: Contract Not Found

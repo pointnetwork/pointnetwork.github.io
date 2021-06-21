@@ -16,3 +16,13 @@ docker run -d -p 80:8080 -e SWAGGER_FILE=/api/pointnetwork.yaml -v $(pwd)/swagge
 **WARNING** the Swagger Editor tool does **not auto save** the yaml file to the local drive. Make sure to always save this manually using the `File` -> `Save as YAML` option!
 
 NOTE: You can [open any valid OpenAPI document](https://github.com/swagger-api/swagger-editor/blob/master/docs/import.md) into this editor.
+
+### Publishing Point Network API Docs
+
+To publish Point Network API Docs you will first need to export the documentation as JSON using the Swagger Editor tool (above).
+
+Once you have exported the JSON file, for example if you save the file `./swagger/api/pointnetwork.json`, then its possible to use the Swagger UI tool using the following `Docker` command from the root of this project to publish this JSON file:
+
+```
+docker run -p 80:8080 -e SWAGGER_JSON=/api/pointnetwork.json -v $(pwd)/swagger/api:/api swaggerapi/swagger-ui
+```
