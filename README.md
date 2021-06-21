@@ -4,6 +4,10 @@
 
 Full details on how to modify this site can be found on the [Docusaurus Documentation Website](https://docusaurus.io/docs/installation).
 
+## Swagger Docs
+
+Please refer to the [README](./swagger/) in the Swagger folder.
+
 ## Quick Start
 
 * Clone the [this repo](https://github.com/pointnetwork/pointnetwork.github.io).
