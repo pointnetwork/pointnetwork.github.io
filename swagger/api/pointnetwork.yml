@@ -488,10 +488,6 @@ securityDefinitions:
 security:
   - WalletSecurity: []
 
-# Added by API Auto Mocking Plugin
-host: virtserver.swaggerhub.com
-basePath: /Point-Network/pointnetwork-node-api/1.0.0
-
 # Point Network Host and basePath settings
-# host: example.z
-# basePath: /v1/api
+host: example.z
+basePath: /v1/api
