@@ -150,12 +150,7 @@ paths:
               description: The address of the loaded contract.
 
         404:
-          description: Contract Not Found
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
+          $ref: '#/responses/NotFound'
 
   /contract/call:
     post:
@@ -335,6 +330,95 @@ paths:
 
         404:
           $ref: '#/responses/NotFound'
+
+  /identity/sign:
+    post:
+      tags:
+        - Identity
+      description: Returns the content signed by the nodes default identity private key
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: data
+          description: The data payload to sign
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                example: {'any': 'data'}
+
+      responses:
+        200:
+          description: Successfully signed the data
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  signed:
+                    type: object
+
+          headers:
+            X-POINT-OWNER-ADDRESS:
+              type: string
+              description: The address of the default identity account that signed the payload
+
+        400:
+          $ref: '#/responses/InvalidRequest'
+
+  /identity/verify/{owner}:
+    post:
+      tags:
+        - Identity
+      description: Returns verification that the content was indeed signed by the provided owner address
+      produces:
+        - application/json
+      parameters:
+        - name: owner
+          in: path
+          type: string
+          required: true
+          description: The owner address to verify the signed content. For example '0x4f5877E51067d0d68784aA74C39871cb2eF2D9eB'
+        - in: body
+          name: data
+          description: The data payload to verify
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  signed:
+                    type: object
+
+      responses:
+        200:
+          description: Successfully verified content
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  verified:
+                    type: boolean
+
+          headers:
+            X-POINT-OWNER-ADDRESS:
+              type: string
+              description: The address of the default identity account that was verified
+
+        400:
+          $ref: '#/responses/InvalidRequest'
+
+        404:
+          $ref: '#/responses/NotFound'
+
 
   /storage/get:
     get:
