@@ -767,6 +767,98 @@
         }
       }
     },
+    "/storage/files": {
+      "get": {
+        "tags": [
+          "Storage"
+        ],
+        "description": "Returns a list of metadata about all the files recorded in the node database",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "files": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "example": {
+                      "id": "288ac655fb9aa15abc790d57d862f3c85c5fa9b1d0fb8c6d9d6f50447587356f",
+                      "localPath": "/Users/developer/.point/test2/data/deployer_cache/a40acf739591f4260467e3ba06aa4c1cf076ea2fc3b1fa66cd3fadec0e9788cc",
+                      "size": 25,
+                      "redundancy": 1,
+                      "expires": 1624260434171,
+                      "autorenew": true,
+                      "chunkCount": 1
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "X-POINT-ENCODING": {
+                "type": "string",
+                "description": "The encoding of the requeted file"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/InvalidRequest"
+          }
+        }
+      }
+    },
+    "/storage/file/{id}": {
+      "get": {
+        "tags": [
+          "Storage"
+        ],
+        "description": "Returns a single files metadata loaded from the nodes database",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "file": {
+                  "type": "object",
+                  "example": {
+                    "localPath": "/Users/developer/.point/test2/data/deployer_cache/a40acf739591f4260467e3ba06aa4c1cf076ea2fc3b1fa66cd3fadec0e9788cc",
+                    "size": 25,
+                    "chunkIds": [
+                      "a40acf739591f4260467e3ba06aa4c1cf076ea2fc3b1fa66cd3fadec0e9788cc"
+                    ],
+                    "id": "288ac655fb9aa15abc790d57d862f3c85c5fa9b1d0fb8c6d9d6f50447587356f",
+                    "redundancy": 1,
+                    "expires": 1624260434171,
+                    "autorenew": true,
+                    "ul_status": "us99"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/responses/NotFound"
+          }
+        }
+      }
+    },
     "/wallet/address": {
       "get": {
         "tags": [
