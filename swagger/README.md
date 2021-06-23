@@ -7,7 +7,7 @@ Point Network API is defined using `OpenAPI 2.0` Specifications using Swagger.
 To edit the Point Network OpenAPI Docs, open the Swagger Editor using the following `Docker` command from the root of this project:
 
 ```
-docker run -d -p 80:8080 -e SWAGGER_FILE=/api/pointnetwork.yaml -v $(pwd)/swagger/api:/api swaggerapi/swagger-editor
+docker run -p 80:8080 -e SWAGGER_FILE=/api/pointnetwork.yaml -v $(pwd)/swagger/api:/api swaggerapi/swagger-editor
 ```
 
 1. Now edit the file to make the changes that you want.

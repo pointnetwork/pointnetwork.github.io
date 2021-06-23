@@ -530,6 +530,124 @@
         }
       }
     },
+    "/identity/encrypt": {
+      "post": {
+        "tags": [
+          "Identity"
+        ],
+        "description": "Returns the content encrypted by the nodes default identity private key",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "data",
+            "description": "The data payload to encrypt",
+            "schema": {
+              "type": "object",
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "example": {
+                    "any": "data"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully signed the data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "signed": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "X-POINT-OWNER-ADDRESS": {
+                "type": "string",
+                "description": "The address of the default identity account that signed the payload"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/InvalidRequest"
+          }
+        }
+      }
+    },
+    "/identity/decrypt": {
+      "post": {
+        "tags": [
+          "Identity"
+        ],
+        "description": "Returns the content decrypted by the nodes default identity private key",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "data",
+            "description": "The data payload to decrypt",
+            "schema": {
+              "type": "object",
+              "required": [
+                "data"
+              ],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "example": {
+                    "any": "data"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully decryped the data",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "signed": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "X-POINT-OWNER-ADDRESS": {
+                "type": "string",
+                "description": "The address of the default identity account that decrypted the payload"
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/responses/InvalidRequest"
+          }
+        }
+      }
+    },
     "/identity/verify/{owner}": {
       "post": {
         "tags": [
