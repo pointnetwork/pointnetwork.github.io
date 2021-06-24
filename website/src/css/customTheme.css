@@ -7,3 +7,8 @@
   --ifm-color-primary-darker: #13265C;
   --ifm-color-primary-darkest: #0F1F4C;
 }
+
+html[data-theme='dark'] {
+  --ifm-color-primary: #e8de4e;
+  /* any other colors you wish to overwrite */
+}

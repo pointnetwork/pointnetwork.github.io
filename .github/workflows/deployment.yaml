@@ -36,4 +36,4 @@ jobs:
           CURRENT_BRANCH=main
           USE_SSH=true
           npm ci
-          npm run publish-gh-pages
+          npm run deploy

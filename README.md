@@ -11,18 +11,18 @@ Please refer to the [README](./swagger/) in the Swagger folder.
 ## Quick Start
 
 * Clone the [this repo](https://github.com/pointnetwork/pointnetwork.github.io).
-* Run the site locally `cd website && npm start`
-* Open an editor and add, edit or remove any of the Markdown files in the [`/docs`](./docs) directory
+* Run the site locally `cd website && npm start` which will open the development site in a browser.
+* Open an editor and add, edit or remove any of the Markdown files in the [`/website//docs`](./website//docs) directory
 * Commit and push the changes. [Github Actions](https://github.com/pointnetwork/pointnetwork.github.io/actions) will take care of the deployment automatically.
-* Live site will be updated [here](https://pointnetwork.github.io/docs/welcome.html) once Github Actions completes the build.
+* Live site will be updated [here](https://pointnetwork.github.io/website/docs/welcome.html) once Github Actions completes the build.
 
 ## Editing documentation
 
-Documentation files are stored in the [docs](./docs) directory as Markdown files. Simply edit any of these files and save to update the local site.
+Documentation files are stored in the [docs](./website//docs) directory as Markdown files. Simply edit any of these files and save to update the local site.
 
 ## Diagrams using Mermaid
 
-Mermaid diagrams need to be added using a *markdown fence* using the identifier `mermaid` as shown below (or check out any of the markdown docs that [contain Mermaid diagrams](./docs/storage.md)).
+Mermaid diagrams need to be added using a *markdown fence* using the identifier `mermaid` as shown below (or check out any of the markdown docs that [contain Mermaid diagrams](./website//docs/storage.md)).
 
 ```
   ```mermaid

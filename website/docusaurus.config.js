@@ -5,10 +5,6 @@ module.exports={
   "baseUrl": "/",
   "organizationName": "pointnetwork",
   "projectName": "docs",
-  "scripts": [
-    "https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.9.0/mermaid.min.js",
-    "/init.js"
-  ],
   "favicon": "img/favicon.ico",
   "customFields": {
     "markdownPlugins": [
@@ -23,14 +19,10 @@ module.exports={
       "@docusaurus/preset-classic",
       {
         "docs": {
-          "homePageId": "welcome",
           "showLastUpdateAuthor": true,
           "showLastUpdateTime": true,
           "path": "docs",
           "sidebarPath": "../website/sidebars.json"
-        },
-        "blog": {
-          "path": "blog"
         },
         "theme": {
           "customCss": "../src/css/customTheme.css"
@@ -43,7 +35,8 @@ module.exports={
     "navbar": {
       "title": "Point Network",
       "logo": {
-        "src": "img/favicon.ico"
+        "src": "img/favicon.ico",
+        "href": 'https://pointnetwork.io/'
       },
       "items": [
         {

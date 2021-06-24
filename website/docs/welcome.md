@@ -1,6 +1,7 @@
 ---
 id: welcome
 title: Getting Started
+slug: /
 ---
 # Introduction
 
