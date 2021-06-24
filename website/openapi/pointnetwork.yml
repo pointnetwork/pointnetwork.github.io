@@ -31,7 +31,6 @@ paths:
             properties:
               message:
                 type: string
-
   /status/meta:
     get:
       tags:
@@ -582,8 +581,7 @@ paths:
             properties:
               file:
                 type: object
-                example:
-                  {
+                example: {
                     "localPath": "/Users/developer/.point/test2/data/deployer_cache/a40acf739591f4260467e3ba06aa4c1cf076ea2fc3b1fa66cd3fadec0e9788cc",
                     "size": 25,
                     "chunkIds": [
@@ -621,7 +619,7 @@ paths:
                       "redundancy": 1,
                       "expires": 1624260423041,
                       "autorenew": true
-                  }
+                    }
 
         400:
           $ref: '#/responses/InvalidRequest'
@@ -649,22 +647,21 @@ paths:
                 example: {
                   "chunk": {
                     "belongsToFiles": [
-                        [
-                          "e86226f43b01ae4787eba0bc5bc09c5a68f502da324c62446a4b9c0f22269521",
-                          0,
-                          "/Users/developer/.point/test2/data/deployer_cache/0f1a97888f3c63318bceedd0461c8efe2778a3e1a49934045ee8314d94e335be"
-                        ]
-                    ],
-                    "ul_status": "us99",
-                    "id": "0f1a97888f3c63318bceedd0461c8efe2778a3e1a49934045ee8314d94e335be",
-                    "redundancy": 1,
-                    "expires": 1624260423041,
-                    "autorenew": true,
-                    "dl_status": "ds99",
-                    "length": 120554
+                      [
+                        "e86226f43b01ae4787eba0bc5bc09c5a68f502da324c62446a4b9c0f22269521",
+                        0,
+                        "/Users/developer/.point/test2/data/deployer_cache/0f1a97888f3c63318bceedd0461c8efe2778a3e1a49934045ee8314d94e335be"
+                      ]
+                      ],
+                      "ul_status": "us99",
+                      "id": "0f1a97888f3c63318bceedd0461c8efe2778a3e1a49934045ee8314d94e335be",
+                      "redundancy": 1,
+                      "expires": 1624260423041,
+                      "autorenew": true,
+                      "dl_status": "ds99",
+                      "length": 120554
+                  }
                 }
-              }
-
 
         404:
           $ref: '#/responses/NotFound'

@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports={
   "title": "Point Network",
   "tagline": "Web 3.0 Implementation",
@@ -28,9 +30,19 @@ module.exports={
           "customCss": "../src/css/customTheme.css"
         }
       }
-    ]
+    ],
+    [
+      'redocusaurus',
+      {
+        "specs": [
+          {
+            spec: 'openapi/pointnetwork.yml',
+            routePath: '/api/',
+          },
+        ]
+      }
+    ],
   ],
-  "plugins": [],
   "themeConfig": {
     "navbar": {
       "title": "Point Network",
@@ -42,6 +54,11 @@ module.exports={
         {
           "to": "docs/",
           "label": "Getting Started",
+          "position": "left"
+        },
+        {
+          "to": "api/",
+          "label": "API",
           "position": "left"
         }
       ]
