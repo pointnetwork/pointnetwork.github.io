@@ -4,6 +4,18 @@ Point Network API is defined using `OpenAPI 2.0` Specifications using Swagger.
 
 ### Editing Point Network OpenAPI Docs
 
+#### Using OpenAPI Editor VS Code Plugin
+
+The easiest way is to install the [OpenAPI Editor VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi) and use that as follows:
+
+* Install the OpenAPI Editor VS Code Plugin (link above)
+* Open the [OpenAPI spec file](./api/pointnetwork.yml) for the Point Network API into VS Code.
+* Open the VS Code context menu (`CMD + SHIFT + P ` on a Mac) and select __"OpenAPI: show preview using Swagger UI"__
+
+This will open the Swagger UI preview in a side window. As you edit the file in place the preview will update in real time.
+
+#### Using Swagger Editor Docker Container
+
 To edit the Point Network OpenAPI Docs, open the Swagger Editor using the following `Docker` command from the root of this project:
 
 ```
