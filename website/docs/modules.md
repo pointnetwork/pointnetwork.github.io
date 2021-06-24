@@ -2,7 +2,6 @@
 id: modules
 title: Modules
 ---
-
 # Point Network Modules
 
 Below is a list of modules that are used for the Point Network Node prototype implementation.
@@ -19,18 +18,18 @@ Used as a 1 to 1 endpoint for a Point Network client to communicate with a singl
 
 In the prototype each demo node has this API running on different ports as follows:
 
-* **Demo 1**: Port 2468 (http://localhost:2468/ping)
-* **Demo 2**: Port 2469 (http://localhost:2469/ping)
-* **Demo 3**: Port 24469 (http://localhost:24469/ping)
+-   **Demo 1**: Port 2468 (http://localhost:2468/ping)
+-   **Demo 2**: Port 2469 (http://localhost:2469/ping)
+-   **Demo 3**: Port 24469 (http://localhost:24469/ping)
 
 ### Input Sources
 
-* Console Module
-* Point CLI (which calls the API Module through a Console Module wrapper)
+-   Console Module
+-   Point CLI (which calls the API Module through a Console Module wrapper)
 
 ### Output Destinations
 
-* JSON Response Payloads specific to each request returned to caller
+-   JSON Response Payloads specific to each request returned to caller
 
 ### Libraries
 
@@ -56,21 +55,21 @@ When the request enters the ZProxy server with a ZWeb domain (ending in .z) the 
 
 In the prototype each demo node has the ZProxy server running on different ports as follows:
 
-* **Demo 1**: Port 8666 (http://localhost:8666/)
-* **Demo 2**: Port 65500 (http://localhost:65500/)
-* **Demo 3**: Port 65501 (http://localhost:65501/)
+-   **Demo 1**: Port 8666 (http://localhost:8666/)
+-   **Demo 2**: Port 65500 (http://localhost:65500/)
+-   **Demo 3**: Port 65501 (http://localhost:65501/)
 
 ### Input Sources
 
-* Point Network Browser HTTP requests to proxy such that .z domains will be routed to the ZProxy endpoint. This makes the *host* of the .z domain the Point Network Identity that is used. So *example.z* will have the identity lookup of  ‘example’.
+-   Point Network Browser HTTP requests to proxy such that .z domains will be routed to the ZProxy endpoint. This makes the _host_ of the .z domain the Point Network Identity that is used. So _example.z_ will have the identity lookup of  ‘example’.
 
 ### Output Destinations
 
-* The (sanitized) rendered HTML.
+-   The (sanitized) rendered HTML.
 
 ### Libraries
 
-The module uses the Node http package for request / response. The *sanitize-html* library is also used. Sanitizing is an option (for the demo). There is a config (sanitizing-config.js) which defines the allowed tags, attributes etc.
+The module uses the Node http package for request / response. The _sanitize-html_ library is also used. Sanitizing is an option (for the demo). There is a config (sanitizing-config.js) which defines the allowed tags, attributes etc.
 
 ### Modifications
 
@@ -88,12 +87,12 @@ Provides uploading, chunking, encrypting, storing and caching of files. Mostly f
 
 ### Input Sources
 
-* Point CLI deploy command
+-   Point CLI deploy command
 
 ### Output Destinations
 
-* Once uploaded successfully a JSON response *{ status: 'success' }* is returned.
-* Stored file chunks are saved in a local [LevelDB](https://github.com/google/leveldb) via the DB Module
+-   Once uploaded successfully a JSON response _{"{"} status: 'success' {"}"}_ is returned.
+-   Stored file chunks are saved in a local [LevelDB](https://github.com/google/leveldb) via the DB Module
 
 ### Libraries
 
@@ -115,11 +114,11 @@ Uploads templates, parses each template for sub templates recursively, deploys t
 
 ### Input Sources
 
-* Via the Point Network CLI deploy command
+-   Via the Point Network CLI deploy command
 
 ### Output Destinations
 
-* Lots of output relating to the chunking of files as well as updates to the blockchain, transaction receipts and so on.
+-   Lots of output relating to the chunking of files as well as updates to the blockchain, transaction receipts and so on.
 
 ### Libraries
 
@@ -141,11 +140,11 @@ Renders ZHTML templates into HTML output for returning to the browser.
 
 ### Input Sources
 
-* The ZHTML template
+-   The ZHTML template
 
 ### Output Destinations
 
-* HTML content
+-   HTML content
 
 ### Libraries
 
@@ -167,11 +166,11 @@ Provides a way to interact with a Point Network node via a REPL terminal.
 
 ### Input Sources
 
-* Start the Console (./point attach) and interact with a node via commands (api ping).
+-   Start the Console (./point attach) and interact with a node via commands (api ping).
 
 ### Output Destinations
 
-* Output from calls to the API Module (when the command is prefixed with ‘api’ - see example input above).
+-   Output from calls to the API Module (when the command is prefixed with ‘api’ - see example input above).
 
 ### Libraries
 
@@ -193,11 +192,11 @@ Provides wrappers to main libraries for deployment as well as initialization of 
 
 ### Input Sources
 
-* Point Executable
+-   Point Executable
 
 ### Output Destinations
 
-* Various based on the libraries and modules called.
+-   Various based on the libraries and modules called.
 
 ### Libraries
 
@@ -219,11 +218,11 @@ Provides database schema, persistence logic using LevelDB wrapper.
 
 ### Input Sources
 
-* Client Storage Module
+-   Client Storage Module
 
 ### Output Destinations
 
-* Any module that needs to fetch stored files.
+-   Any module that needs to fetch stored files.
 
 ### Libraries
 
@@ -245,11 +244,11 @@ Includes DHT network (kademlia js), key value management and a bridge to the blo
 
 ### Input Sources
 
-* Kademlia peer nodes, ZWeb Client.
+-   Kademlia peer nodes, ZWeb Client.
 
 ### Output Destinations
 
-* Ethereum Blockchain, LevelDB and other Kademlia peer nodes using RPC.
+-   Ethereum Blockchain, LevelDB and other Kademlia peer nodes using RPC.
 
 ### Libraries
 
@@ -271,11 +270,11 @@ For encryption / decryption process
 
 ### Input Sources
 
-* Encrypted files from the storage layer
+-   Encrypted files from the storage layer
 
 ### Output Destinations
 
-* Decrypted files
+-   Decrypted files
 
 ### Libraries
 
@@ -297,11 +296,11 @@ Provides Blockchain layer data for Point Network such as Identity, File Hashes, 
 
 ### Input Sources
 
-* Storage Layer, Client
+-   Storage Layer, Client
 
 ### Output Destinations
 
-* Hashes back to the Point Network Node.
+-   Hashes back to the Point Network Node.
 
 ### Libraries
 
@@ -309,4 +308,4 @@ Truffle
 
 ### Modifications
 
-Utility / helper methods such as _isValidHandle and _toLower can be imported from utility libraries of which OpenZeppelin being a very popular solution to use for example [Utilities](https://docs.openzeppelin.com/contracts/3.x/utilities)
+Utility / helper methods such as \_isValidHandle and \_toLower can be imported from utility libraries of which OpenZeppelin being a very popular solution to use for example [Utilities](https://docs.openzeppelin.com/contracts/3.x/utilities)

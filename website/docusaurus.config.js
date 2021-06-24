@@ -26,7 +26,7 @@ module.exports={
           "homePageId": "welcome",
           "showLastUpdateAuthor": true,
           "showLastUpdateTime": true,
-          "path": "../docs",
+          "path": "docs",
           "sidebarPath": "../website/sidebars.json"
         },
         "blog": {
