@@ -46,14 +46,14 @@ const siteConfig = {
   // users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/favicon.ico',
-  footerIcon: 'img/favicon.ico',
-  favicon: 'img/favicon.ico',
+  headerIcon: 'img/pointlogowhite.png',
+  footerIcon: 'img/pointlogowhite.png',
+  favicon: 'img/favicon-32x32.png',
 
   /* Colors for website */
   colors: {
-    primaryColor: '#162d6c',
-    secondaryColor: '#d4e0f9',
+    primaryColor: '#1f0858',
+    secondaryColor: '#bcb2ff',
   },
 
   /* Custom fonts for website */
