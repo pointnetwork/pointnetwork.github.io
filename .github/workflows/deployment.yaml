@@ -36,3 +36,4 @@ jobs:
           CURRENT_BRANCH=main
           USE_SSH=true
           npm ci
+          npm run deploy

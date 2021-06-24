@@ -47,7 +47,7 @@ module.exports={
     "navbar": {
       "title": "Point Network",
       "logo": {
-        "src": "img/favicon.ico",
+        "src": "img/pointlogo.png",
         "href": 'https://pointnetwork.io/'
       },
       "items": [
@@ -67,7 +67,7 @@ module.exports={
       "links": [],
       "copyright": "Copyright © 2021 Point Network Limited",
       "logo": {
-        "src": "img/favicon.ico"
+        "src": "img/pointlogo.png"
       }
     }
   }
