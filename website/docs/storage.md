@@ -10,62 +10,60 @@ Firstly we can outline this using high level state machine diagrams for `File`, 
 
 ## File States
 
-```mermaid
+import Mermaid from '@theme/mermaid';
 
-stateDiagram-v2
-  [*]  Created: putFile
-  Created --&gt; Uploading: chunkify
-  Uploading --&gt; Uploaded: chunks_uploading==0
-  Uploading --&gt; Uploading: chunks_uploading&gt;0
-  Uploaded --&gt; [*]--&gt;
-
-```
+<Mermaid chart={`
+  stateDiagram-v2
+    [*] --> Created: putFile
+    Created --> Uploading: chunkify
+    Uploading --> Uploaded: chunks_uploading==0
+    Uploading --> Uploading: chunks_uploading>0
+    Uploaded --> [*]
+`}/>
 
 ## Chunk States
 
-```mermaid
-
-stateDiagram-v2
-  [*]  Created: createChunkFromFile
-  Created --&gt; Uploading: check state
-  Uploading --&gt; Uploading: chunk conditions \nNOT satisfied
-  Uploading --&gt; Uploaded: chunk conditions satisfied
-  Uploaded --&gt; [*]--&gt;
-
-```
+<Mermaid chart={`
+  stateDiagram-v2
+    [*] --> Created: createChunkFromFile
+    Created --> Uploading: check state
+    Uploading --> Uploading: chunk conditions \nNOT satisfied
+    Uploading --> Uploaded: chunk conditions satisfied
+    Uploaded --> [*]
+`}/>
 
 ## Storage Link States
 
+<Mermaid chart={`
+  stateDiagram-v2
+    [*] --> Created
+    Created --> Agreed
+    Created --> Failed
+    note left of Created: STORE_CHUNK_REQUEST
+    Agreed --> Establish_payment_channel:Payment channel does not exists
+    Agreed --> Encrypting:Payment channel already exists
+    Establish_payment_channel --> Encrypting
+    Encrypting --> Encrypted
+    Encrypting --> Failed
+    Encrypted --> SendingSegmentMap
+    note left of SendingSegmentMap: STORE_CHUNK_SEGMENTS
+    SendingSegmentMap --> SendingData
+    note left of SendingData: STORE_CHUNK_DATA
+    SendingSegmentMap --> Failed
+    SendingData --> DataReceived
+    SendingData --> Failed
+    DataReceived --> AskingForSignature
+    AskingForSignature --> Signed
+    AskingForSignature --> Failed
+    note left of AskingForSignature: STORE_CHUNK_SIGNATURE_REQUEST
+    Failed --> [*]
+    Signed --> [*]
+    note left of Signed: SEND_MICROPAYMENT_FOR_CHUNK
+`}/>
+
 NOTE: Yellow boxes represent communication to the linked node.
 
-```mermaid
 
-stateDiagram-v2
-  [*]  Created
-  Created --&gt; Agreed
-  Created --&gt; Failed
-  note left of Created: STORE_CHUNK_REQUEST
-  Agreed --&gt; Establish_payment_channel:Payment channel does not exists
-  Agreed --&gt; Encrypting:Payment channel already exists
-  Establish_payment_channel --&gt; Encrypting
-  Encrypting --&gt; Encrypted
-  Encrypting --&gt; Failed
-  Encrypted --&gt; SendingSegmentMap
-  note left of SendingSegmentMap: STORE_CHUNK_SEGMENTS
-  SendingSegmentMap --&gt; SendingData
-  note left of SendingData: STORE_CHUNK_DATA
-  SendingSegmentMap --&gt; Failed
-  SendingData --&gt; DataReceived
-  SendingData --&gt; Failed
-  DataReceived --&gt; AskingForSignature
-  AskingForSignature --&gt; Signed
-  AskingForSignature --&gt; Failed
-  note left of AskingForSignature: STORE_CHUNK_SIGNATURE_REQUEST
-  Failed --&gt; [*]
-  Signed --&gt; [*]
-  note left of Signed: SEND_MICROPAYMENT_FOR_CHUNK--&gt;
-
-```
 
 ## Process: upload and chunkify file
 
