@@ -4,21 +4,22 @@
 
 Full details on how to modify this site can be found on the [Docusaurus Documentation Website](https://docusaurus.io/docs/installation).
 
-## Open API Docs
-
-Please refer to the [README](./website/openapi/) in the OpenAPI Docs folder.
-
 ## Quick Start
 
 * Clone the [this repo](https://github.com/pointnetwork/pointnetwork.github.io).
 * Run the site locally `cd website && npm start` which will open the development site in a browser.
-* Open an editor and add, edit or remove any of the Markdown files in the [`/website//docs`](./website//docs) directory
+* Open an editor and add, edit or remove any of the Markdown files in the [`/website/docs`](./website//docs) directory
+* Open an editor and edit the OpenAPI specifications in the  [`/website/openapi`](./website/openapi) directory
 * Commit and push the changes. [Github Actions](https://github.com/pointnetwork/pointnetwork.github.io/actions) will take care of the deployment automatically.
-* Live site will be updated [here](https://pointnetwork.github.io/website/docs/welcome.html) once Github Actions completes the build.
+* Live site will be updated [here](https://pointnetwork.github.io/) once Github Actions completes the build.
 
-## Editing documentation
+## Editing Docs
 
 Documentation files are stored in the [docs](./website//docs) directory as Markdown files. Simply edit any of these files and save to update the local site.
+
+## Editing OpenAPI Docs
+
+Please refer to the [README](./website/openapi/) in the OpenAPI Docs folder.
 
 ## Diagrams using Mermaid
 
