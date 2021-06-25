@@ -4,9 +4,9 @@
 
 Full details on how to modify this site can be found on the [Docusaurus Documentation Website](https://docusaurus.io/docs/installation).
 
-## Swagger Docs
+## Open API Docs
 
-Please refer to the [README](./swagger/) in the Swagger folder.
+Please refer to the [README](./website/openapi/) in the OpenAPI Docs folder.
 
 ## Quick Start
 
@@ -22,25 +22,28 @@ Documentation files are stored in the [docs](./website//docs) directory as Markd
 
 ## Diagrams using Mermaid
 
-Mermaid diagrams need to be added using a *markdown fence* using the identifier `mermaid` as shown below (or check out any of the markdown docs that [contain Mermaid diagrams](./website//docs/storage.md)).
+Mermaid diagrams can to be added using React Component style as shown below (or check out any of the markdown docs that [contain Mermaid diagrams](./website//docs/storage.md)).
 
 ```
-  ```mermaid
-  # Valid mermaid markdown
-    ```
+  import Mermaid from '@theme/mermaid';
+
+  <Mermaid chart={`
+    graph LR
+      id1(Start)-->id2(Stop)
+  `}/>
 ```
 
 To preview Mermaid diagrams in VS Code, I recommend installing the [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) extension. Then you can open a preview window beside the markdown file (using the shortcut `cmd-k v`) which greatly helps when building these diagrams.
 
-The Mermaid diagrams are automatically rendered in Docusaurus so there is no other special action required.
+You can also use the [Mermaid Live Editor](https://mermaid-js.github.io/mermaid-live-editor/) if you want to quickly and easily explore all the options available with Mermaid.
 
-For the curious, the diagrams are rendered using the `mermaidjs` library that is loaded into the Docusaurus instance via the `scripts` tag in the [./website/siteConfig.js](./website/siteConfig.js) file and registered as a new markdown plugin.
+The Mermaid diagrams are automatically rendered in Docusaurus so there is no other special action required.
 
 For more information about Mermaid, please visit the [Mermaid Docs](https://mermaid-js.github.io/mermaid/#/)
 
 ## Deployment
 
-This site should automatically deploy via [Github Actions](https://github.com/features/actions) so all you need to do is commit your changes and the site will be built and deployed automatically.
+This site should automatically deploy via [Github Actions](https://github.com/features/actions) so all you need to do is commit your changes and the site will be built and deployed automatically. This includes all docs, all mermaid charts and all OpenAPI specifications.
 
 ## Live Site
 

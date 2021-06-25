@@ -36,8 +36,8 @@ module.exports={
       {
         "specs": [
           {
-            spec: 'openapi/pointnetwork.yml',
-            routePath: '/api/',
+            "spec": 'openapi/pointnetwork.yml',
+            "routePath": '/api/',
           },
         ]
       }
@@ -47,8 +47,11 @@ module.exports={
     "navbar": {
       "title": "Point Network",
       "logo": {
+        "alt": 'Point Network',
         "src": "img/pointlogo.png",
-        "href": 'https://pointnetwork.io/'
+        "srcDark": 'img/pointlogowhite.png',
+        "href": 'https://pointnetwork.io/',
+        "target": '_self'
       },
       "items": [
         {
@@ -67,8 +70,9 @@ module.exports={
       "links": [],
       "copyright": "Copyright © 2021 Point Network Limited",
       "logo": {
-        "src": "img/pointlogo.png"
-      }
+        "src": "img/pointlogo.png",
+        "srcDark": 'img/pointlogowhite.png',
+      },
     }
   }
 }

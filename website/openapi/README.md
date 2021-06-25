@@ -1,10 +1,10 @@
-## Point Network Swagger Docs
+## Point Network OpenAPI Docs
 
 Point Network API is defined using `OpenAPI 2.0` Specifications using Swagger.
 
 ### Editing Point Network OpenAPI Docs
 
-#### Using OpenAPI Editor VS Code Plugin
+#### Using OpenAPI Editor VS Code Plugin (preferred)
 
 The easiest way is to install the [OpenAPI Editor VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi) and use that as follows:
 
@@ -14,7 +14,7 @@ The easiest way is to install the [OpenAPI Editor VS Code Plugin](https://market
 
 This will open the Swagger UI preview in a side window. As you edit the file in place the preview will update in real time.
 
-#### Using Swagger Editor Docker Container
+#### Using Swagger Editor Docker Container (optional)
 
 To edit the Point Network OpenAPI Docs, open the Swagger Editor using the following `Docker` command from the root of this project:
 
@@ -31,10 +31,4 @@ NOTE: You can [open any valid OpenAPI document](https://github.com/swagger-api/s
 
 ### Publishing Point Network API Docs
 
-To publish Point Network API Docs you will first need to export the documentation as JSON using the Swagger Editor tool (above).
-
-Once you have exported the JSON file, for example if you save the file `./swagger/api/pointnetwork.json`, then its possible to use the Swagger UI tool using the following `Docker` command from the root of this project to publish this JSON file:
-
-```
-docker run -p 80:8080 -e SWAGGER_JSON=/api/pointnetwork.json -v $(pwd)/swagger/api:/api swaggerapi/swagger-ui
-```
+Simply commit this to Github. The Git Action will build this site. Since we are using the [Redocusaurus](https://github.com/rohit-gohri/redocusaurus) package.

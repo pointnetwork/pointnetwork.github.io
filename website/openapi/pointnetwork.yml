@@ -778,10 +778,6 @@ externalDocs:
 schemes:
  - https
 
-securityDefinitions:
-  WalletSecurity:
-    type: basic
-
 security:
   - WalletSecurity: []
 

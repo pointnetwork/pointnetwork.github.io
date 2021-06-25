@@ -2,6 +2,7 @@
 id: storage
 title: Storage
 ---
+
 # Point Network Storage Layer
 
 To save a file in the storage layer, a developer can call the putFile function passing in the file like so: `storage.putFile(filePath)`. This is a function call that will return the unique file id of the file originally located at the `filePath`.
@@ -9,7 +10,6 @@ To save a file in the storage layer, a developer can call the putFile function p
 Firstly we can outline this using high level state machine diagrams for `File`, `Chunk` and `ProviderLink` as follows.
 
 ## File States
-
 import Mermaid from '@theme/mermaid';
 
 <Mermaid chart={`
@@ -27,7 +27,7 @@ import Mermaid from '@theme/mermaid';
   stateDiagram-v2
     [*] --> Created: createChunkFromFile
     Created --> Uploading: check state
-    Uploading --> Uploading: chunk conditions \nNOT satisfied
+    Uploading --> Uploading: chunk conditions NOT satisfied
     Uploading --> Uploaded: chunk conditions satisfied
     Uploaded --> [*]
 `}/>
