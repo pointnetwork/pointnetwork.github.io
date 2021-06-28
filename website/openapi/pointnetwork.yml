@@ -721,6 +721,35 @@ paths:
         404:
           $ref: '#/responses/NotFound'
 
+  /wallet/balance:
+    get:
+      tags:
+        - Wallet
+      description: Returns Node Wallets Balance
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  balance:
+                    type: string
+                    example: '99886876520000000000'
+
+        400:
+          $ref: '#/responses/InvalidRequest'
+
+        403:
+          $ref: '#/responses/Forbidden'
+
+        404:
+          $ref: '#/responses/NotFound'
+
 responses:
   NotFound:
     description: The specified resource was not found
