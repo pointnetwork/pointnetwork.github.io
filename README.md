@@ -7,7 +7,8 @@ Full details on how to modify this site can be found on the [Docusaurus Document
 ## Quick Start
 
 * Clone the [this repo](https://github.com/pointnetwork/pointnetwork.github.io).
-* Run the site locally `cd website && npm start` which will open the development site in a browser.
+* Install dependencies under website folder `cd website && npm i`
+* Run the site locally from website folder `npm start` which will open the development site in a browser.
 * Open an editor and add, edit or remove any of the Markdown files in the [`/website/docs`](./website//docs) directory
 * Open an editor and edit the OpenAPI specifications in the  [`/website/openapi`](./website/openapi) directory
 * Commit and push the changes. [Github Actions](https://github.com/pointnetwork/pointnetwork.github.io/actions) will take care of the deployment automatically.

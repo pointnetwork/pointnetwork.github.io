@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports={
+module.exports = {
   "title": "Point Network",
   "tagline": "Web 3.0 Implementation",
   "url": "https://pointnetwork.github.io",
@@ -24,11 +24,14 @@ module.exports={
           "showLastUpdateAuthor": true,
           "showLastUpdateTime": true,
           "path": "docs",
-          "sidebarPath": "../website/sidebars.json"
+          routeBasePath: "docs",
+          "sidebarPath": require.resolve("./sidebars.js"),
         },
-        "theme": {
-          "customCss": "../src/css/customTheme.css"
-        }
+        theme: {
+          customCss: [
+            require.resolve("./static/css/custom.css"),
+          ],
+        },
       }
     ],
     [
@@ -50,13 +53,28 @@ module.exports={
         "alt": 'Point Network',
         "src": "img/pointlogo.png",
         "srcDark": 'img/pointlogowhite.png',
-        "href": 'https://pointnetwork.io/',
+        "href": '/',
         "target": '_self'
       },
       "items": [
         {
-          "to": "docs/",
+          "to": "docs/getting-started",
           "label": "Getting Started",
+          "position": "left"
+        },
+        {
+          "to": "docs/learn-architecture",
+          "label": "Learn",
+          "position": "left"
+        },
+        {
+          "to": "docs/build-index",
+          "label": "Build",
+          "position": "left"
+        },
+        {
+          "to": "docs/maintain-index",
+          "label": "Maintain",
           "position": "left"
         },
         {
