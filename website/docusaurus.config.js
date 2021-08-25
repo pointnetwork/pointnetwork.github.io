@@ -65,6 +65,7 @@ module.exports = {
     // can't allow dark theme - currently its broken :(
     colorMode: {
       disableSwitch: true,
+      defaultMode: 'light',
     },
     navbar: {
       title: "Point Network",

@@ -11,4 +11,4 @@ it will be useful to any infrastructure provider such as validators or chain ind
 
 ## Structure
 
-**Comming Soon**
+**Coming Soon**

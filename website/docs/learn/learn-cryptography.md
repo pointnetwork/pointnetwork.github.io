@@ -15,4 +15,4 @@ For detailed descriptions on the cryptography used in Point Network please see t
 
 ## Hashing Algorithm
 
-**Comming Soon**
+**Coming Soon**

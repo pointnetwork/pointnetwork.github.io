@@ -13,8 +13,8 @@ For the project site please visit [pointnetwork.io](http://pointnetwork.io).
 
 ## What is Point Network?
 
-**Comming Soon**
+**Coming Soon**
 
 ## Why Point Network?
 
-**Comming Soon**
+**Coming Soon**
