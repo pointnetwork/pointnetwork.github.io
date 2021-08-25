@@ -87,8 +87,8 @@
            </span>
            <h3 className="h2 font-weight-bold">Help improve this wiki</h3>
            <p className="mb-5">
-             This wiki was started by and is maintained by Web3 Foundation. It is
-             an open-source-ish project and aims to be the most extensive
+             This wiki was started by and is maintained by Point Network. It is
+             an open-source project and aims to be the most extensive
              resource of knowledge on Point Network and the Point Network ecosystem.
            </p>
          </Col>
@@ -99,7 +99,7 @@
              </button>
            </a>
            <a
-             href='/'
+             href='https://github.com/pointnetwork/pointnetwork.github.io'
              target="_blank"
              rel="noreferrer noopener"
            >

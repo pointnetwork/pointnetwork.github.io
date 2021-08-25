@@ -135,7 +135,7 @@ module.exports = {
           items: [
             {
               label: 'Technology',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              href: 'https://pointnetwork.io/',
             },
             {
               label: 'Whitepaper',

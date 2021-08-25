@@ -3,7 +3,14 @@ module.exports = {
     {
       type: 'category',
       label: 'General',
-      items: ['general/getting-started', 'general/point-token'],
+      items: [
+        'general/getting-started',
+        'general/run-demo-docker',
+        'general/run-dev-docker',
+        'general/troubleshooting',
+        'general/debugging',
+        'general/point-token'
+      ],
     },
     {
       type: "category",
@@ -15,6 +22,8 @@ module.exports = {
           items: [
             'learn/learn-architecture',
             'learn/learn-storage-layer',
+            'learn/learn-point-deployer',
+            'learn/learn-websockets',
             'learn/learn-filecoin-vs-pointnetwork'
           ]
         },
