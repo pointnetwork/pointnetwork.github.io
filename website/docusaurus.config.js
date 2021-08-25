@@ -17,8 +17,7 @@ module.exports = {
     "../js/custom.js"
   ],
   stylesheets: [
-    // if uncomment bootstrap import below, then home page animation works :) but docs layout breaks :(
-    // "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css",
+    "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css",
     "https://fonts.googleapis.com/icon?family=Material+Icons",
     "https://unpkg.com/aos@next/dist/aos.css",
   ],
@@ -63,8 +62,9 @@ module.exports = {
     ],
   ],
   themeConfig: {
-    prism: {
-      theme: require("prism-react-renderer/themes/github"),
+    // can't allow dark theme - currently its broken :(
+    colorMode: {
+      disableSwitch: true,
     },
     navbar: {
       title: "Point Network",
