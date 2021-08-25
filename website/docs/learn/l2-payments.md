@@ -1,8 +1,8 @@
 ---
-id: learn-architecture
-title: Architecture
-sidebar_label: Architecture
-slug: ../learn-architecture
+id: learn-l2-payments
+title: L2 Payments
+sidebar_label: L2 Payments
+slug: ../learn-l2-payments
 ---
 
 Welcome to the Point Network Wiki! This central source of truth contains guides for interacting with the

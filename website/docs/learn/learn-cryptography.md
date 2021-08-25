@@ -1,12 +1,18 @@
 ---
 id: learn-cryptography
-title: Cryptography
-sidebar_label: Cryptography
+title: Cryptography Explainer
+sidebar_label: Cryptography Explainer
+description: An overview of the cryptographic functions used in Point Network
 slug: ../learn-cryptography
 ---
 
-Point Network used cryptography for certain parts of the application for security and for proof.
+This is a high-level overview of the cryptography used in Point Network. It assumes that you have some
+knowledge about cryptographic primitives that are generally used in blockchains such as hashes,
+elliptic curve cryptography (ECC), and public-private keypairs.
 
-# Cryptography use in Point Network
+For detailed descriptions on the cryptography used in Point Network please see the more advanced
+[research wiki](https://research.web3.foundation).
 
-**Coming Soon**
+## Hashing Algorithm
+
+**Comming Soon**

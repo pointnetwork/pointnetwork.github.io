@@ -1,6 +1,8 @@
 ---
-id: token
-title: Token
+id: point-token
+title: Point Token
+sidebar_label: Point Token
+slug: ../point-token
 ---
 # POINT Token
 

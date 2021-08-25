@@ -5,6 +5,6 @@ sidebar_label: Filecoin vs Point Network
 slug: ../filecoin-vs-pointnetwork
 ---
 
-# Filecoint vs. Pointnetwork
+# Filecoin vs. Pointnetwork
 
 **Coming Soon**

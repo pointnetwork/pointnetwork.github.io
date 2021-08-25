@@ -1,31 +1,31 @@
 const path = require('path');
 
 module.exports = {
-  "title": "Point Network",
-  "tagline": "Web 3.0 Implementation",
-  "url": "https://pointnetwork.github.io",
-  "baseUrl": "/",
-  "organizationName": "pointnetwork",
-  "projectName": "docs",
-  "favicon": "img/favicon.ico",
-  "customFields": {
-    "markdownPlugins": [
+  title: "Point Network",
+  tagline: "Web 3.0 Implementation",
+  url: "https://pointnetwork.github.io",
+  baseUrl: "/",
+  organizationName: "pointnetwork",
+  projectName: "docs",
+  favicon: "img/favicon.ico",
+  customFields: {
+    markdownPlugins: [
       null
     ],
-    "repoUrl": "https://github.com/pointnetwork"
+    repoUrl: "https://github.com/pointnetwork"
   },
-  "onBrokenLinks": "log",
-  "onBrokenMarkdownLinks": "log",
-  "presets": [
+  onBrokenLinks: "log",
+  onBrokenMarkdownLinks: "log",
+  presets: [
     [
       "@docusaurus/preset-classic",
       {
-        "docs": {
-          "showLastUpdateAuthor": true,
-          "showLastUpdateTime": true,
-          "path": "docs",
+        docs: {
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+          path: "docs",
           routeBasePath: "docs",
-          "sidebarPath": require.resolve("./sidebars.js"),
+          sidebarPath: require.resolve("./sidebars.js"),
         },
         theme: {
           customCss: [
@@ -37,59 +37,59 @@ module.exports = {
     [
       'redocusaurus',
       {
-        "specs": [
+        specs: [
           {
-            "spec": 'openapi/pointnetwork.yml',
-            "routePath": '/api/',
+            spec: 'openapi/pointnetwork.yml',
+            routePath: '/api/',
           },
         ]
       }
     ],
   ],
-  "themeConfig": {
-    "navbar": {
-      "title": "Point Network",
-      "logo": {
-        "alt": 'Point Network',
-        "src": "img/pointlogo.png",
-        "srcDark": 'img/pointlogowhite.png',
-        "href": '/',
-        "target": '_self'
+  themeConfig: {
+    navbar: {
+      title: "Point Network",
+      logo: {
+        alt: 'Point Network',
+        src: "img/pointlogo.png",
+        srcDark: 'img/pointlogowhite.png',
+        href: '/',
+        target: '_self'
       },
-      "items": [
+      items: [
         {
-          "to": "docs/getting-started",
-          "label": "Getting Started",
-          "position": "left"
+          to: "docs/getting-started",
+          label: "Getting Started",
+          position: "left"
         },
         {
-          "to": "docs/learn-architecture",
-          "label": "Learn",
-          "position": "left"
+          to: "docs/learn-architecture",
+          label: "Learn",
+          position: "left"
         },
         {
-          "to": "docs/build-index",
-          "label": "Build",
-          "position": "left"
+          to: "docs/build-index",
+          label: "Build",
+          position: "left"
         },
         {
-          "to": "docs/maintain-index",
-          "label": "Maintain",
-          "position": "left"
+          to: "docs/maintain-index",
+          label: "Maintain",
+          position: "left"
         },
         {
-          "to": "api/",
-          "label": "API",
-          "position": "left"
+          to: "api/",
+          label: "API",
+          position: "left"
         }
       ]
     },
-    "footer": {
-      "links": [],
-      "copyright": "Copyright © 2021 Point Network Limited",
-      "logo": {
-        "src": "img/pointlogo.png",
-        "srcDark": 'img/pointlogowhite.png',
+    footer: {
+      links: [],
+      copyright: "Copyright © 2021 Point Network Limited",
+      logo: {
+        src: "img/pointlogo.png",
+        srcDark: 'img/pointlogowhite.png',
       },
     }
   }
