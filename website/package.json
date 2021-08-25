@@ -13,6 +13,7 @@
   "dependencies": {
     "@docusaurus/core": "^2.0.0-beta.4",
     "@docusaurus/preset-classic": "^2.0.0-beta.4",
+    "@docusaurus/theme-live-codeblock": "^2.0.0-beta.4",
     "react-bootstrap": "^1.6.1",
     "clsx": "^1.1.1",
     "mermaid": "^8.10.2",

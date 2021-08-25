@@ -49,12 +49,12 @@
          <NavItem
            href={this.props.docUrl("build-index")}
            title="Build"
-           content="Most up-to-date information on the status of the development tools in the Polkadot ecosystem."
+           content="Most up-to-date information on the status of the development tools in the Point Network ecosystem."
            aosDelay="0"
          />
          <NavItem
            href={this.props.docUrl("learn-architecture")}
-           content="Polkadot is a sharded protocol that enables blockchain networks to operate together seamlessly."
+           content="Point Network is a sharded protocol that enables blockchain networks to operate together seamlessly."
            title="Learn"
            aosDelay="300"
          />
@@ -89,7 +89,7 @@
            <p className="mb-5">
              This wiki was started by and is maintained by Web3 Foundation. It is
              an open-source-ish project and aims to be the most extensive
-             resource of knowledge on Polkadot and the Polkadot ecosystem.
+             resource of knowledge on Point Network and the Point Network ecosystem.
            </p>
          </Col>
          <Col>
@@ -128,7 +128,7 @@
     const docUrl = (doc) => `${baseUrl}${docsPart}${langPart}${doc}`;
 
     return (
-      <Layout title="Point Network Wiki">
+      <Layout title={siteConfig.tagline}>
         <div className="homeContainer">
           <HomeNav siteConfig={siteConfig} docUrl={docUrl} />
           <HomeFooter siteConfig={siteConfig} docUrl={docUrl} />
