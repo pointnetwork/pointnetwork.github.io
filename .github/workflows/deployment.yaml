@@ -2,6 +2,8 @@ name: Pointnetwork docs github pages deployment
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   publish:
