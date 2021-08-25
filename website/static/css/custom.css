@@ -8,13 +8,13 @@
 /* your custom css */
 
 :root {
-    --ifm-color-primary: #e6007a;
-    --ifm-color-primary-dark: #cf006e;
-    --ifm-color-primary-darker: #c40068;
-    --ifm-color-primary-darkest: #a10055;
-    --ifm-color-primary-light: #fd0086;
-    --ifm-color-primary-lighter: #ff0a8c;
-    --ifm-color-primary-lightest: #ff2c9c;
+    --ifm-color-primary: #E5CB2A;
+    --ifm-color-primary-dark: #E5CB2A;
+    --ifm-color-primary-darker: #E5CB2A;
+    --ifm-color-primary-darkest: #E5CB2A;
+    --ifm-color-primary-light: #E5CB2A;
+    --ifm-color-primary-lighter: #E5CB2A;
+    --ifm-color-primary-lightest: #E5CB2A;
     --secondaryColor: #172026;
     --snowColor: #efefef;
     --silverColor: #b7b8bb;
@@ -283,12 +283,12 @@
     padding: 6rem 0 4rem;
     background-image: linear-gradient(
         217deg,
-        rgba(196, 0, 97, 0.8),
-        rgba(196, 0, 97, 0) 70%
+        rgba(194, 212, 33, 0.8),
+        rgba(124, 112, 5, 0) 70%
       ),
-      linear-gradient(127deg, rgba(230, 0, 122, 0.8), rgba(230, 0, 122, 0) 70%),
-      linear-gradient(336deg, rgba(103, 69, 210, 0.7), rgba(103, 69, 210, 0) 70%);
-    background-color: #e6007a;
+      linear-gradient(127deg, rgba(244, 248, 6, 0.8), rgba(0, 0, 0, 0) 70%),
+      linear-gradient(336deg, rgb(228, 231, 8), rgba(103, 69, 210, 0) 70%);
+    background-color: #E5CB2A;
   }
 
   .homeFooterContainer .col-lg-6 {

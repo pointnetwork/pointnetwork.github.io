@@ -8,26 +8,19 @@ module.exports = {
   organizationName: "pointnetwork",
   scripts: [
     "https://buttons.github.io/buttons.js",
-    "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.js",
     "https://unpkg.com/aos@next/dist/aos.js",
     {
       src: "https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js",
       onload: "addBackToTop()",
       defer: true,
     },
-    {
-      src: "https://apisa.web3.foundation/latest.js",
-      async: true,
-      defer: true,
-    },
     "../js/custom.js"
   ],
   stylesheets: [
-    "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css",
-    "https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap",
-    "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css",
-    "https://unpkg.com/aos@next/dist/aos.css",
+    // if uncomment bootstrap import below, then home page animation works :) but docs layout breaks :(
+    // "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css",
     "https://fonts.googleapis.com/icon?family=Material+Icons",
+    "https://unpkg.com/aos@next/dist/aos.css",
   ],
   projectName: "docs",
   favicon: "img/favicon.ico",
@@ -70,6 +63,9 @@ module.exports = {
     ],
   ],
   themeConfig: {
+    prism: {
+      theme: require("prism-react-renderer/themes/github"),
+    },
     navbar: {
       title: "Point Network",
       logo: {
