@@ -7,7 +7,7 @@ slug: ../build-build-with-point-network
 
 Welcome to the builder's section of the Point Network Wiki.
 
-### Develop using the docker compose
+### Develop using docker compose
 
 If one needs to leverage the Point Network docker-compose and still be able to make changes in the code, they can do so by starting the compose the following way:
 

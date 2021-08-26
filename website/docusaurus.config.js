@@ -72,9 +72,7 @@ module.exports = {
       logo: {
         alt: 'Point Network',
         src: "img/pointlogo.png",
-        srcDark: 'img/pointlogowhite.png',
-        href: '/',
-        target: '_self'
+        srcDark: 'img/pointlogowhite.png'
       },
       items: [
         {
