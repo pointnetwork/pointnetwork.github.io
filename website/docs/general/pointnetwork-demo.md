@@ -1,11 +1,11 @@
 ---
-id: run-demo-docker
-title: Run Demo in Docker
-sidebar_label: Run Demo in Docker
-slug: ../run-demo-docker
+id: pointnetwork-demo
+title: Point Network Demo
+sidebar_label: Point Network Demo
+slug: ../pointnetwork-demo
 ---
 
-### Run demo in docker compose
+### How to run the Point Network Demo using Docker Compose
 
 The demo setup consists of three Point Network nodes running in a separate containers, a dev blockchain node running a test network (currently the `ganache-cli` is used), and a Point Network contract deployment script running in a dedicated container.
 

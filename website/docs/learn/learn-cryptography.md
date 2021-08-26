@@ -10,9 +10,6 @@ This is a high-level overview of the cryptography used in Point Network. It assu
 knowledge about cryptographic primitives that are generally used in blockchains such as hashes,
 elliptic curve cryptography (ECC), and public-private keypairs.
 
-For detailed descriptions on the cryptography used in Point Network please see the more advanced
-[research wiki](https://research.web3.foundation).
-
 ## Hashing Algorithm
 
-**Coming Soon**
+The hashing algorithm used in Point Network is [Keccak256](https://en.wikipedia.org/wiki/SHA-3). `Keccak256` is considered to be a very fast cryptographic hash function that is also used in the Ethereum EVM.

@@ -5,8 +5,7 @@ module.exports = {
       label: 'General',
       items: [
         'general/getting-started',
-        'general/run-demo-docker',
-        'general/run-dev-docker',
+        'general/pointnetwork-demo',
         'general/troubleshooting',
         'general/debugging',
         'general/point-token'
@@ -16,6 +15,7 @@ module.exports = {
       type: "category",
       label: "Learn",
       items: [
+        "learn/learn-index",
         {
           type: "category",
           label: "Basics",
@@ -24,14 +24,14 @@ module.exports = {
             'learn/learn-storage-layer',
             'learn/learn-point-deployer',
             'learn/learn-websockets',
-            'learn/learn-filecoin-vs-pointnetwork'
+            'learn/learn-filecoin-vs-pointstorage'
           ]
         },
         {
           type: "category",
           label: "Advanced",
           items: [
-            'learn/learn-l2-payments'
+            'learn/learn-layer2-payments'
           ]
         },
         {
@@ -54,6 +54,7 @@ module.exports = {
           label: "Development Guide",
           items: [
             "build/build-build-with-point-network",
+            "build/build-testing-guide"
           ],
         },
         {
@@ -78,6 +79,13 @@ module.exports = {
           ],
         }
       ]
-    }
+    },
+    {
+      type: 'category',
+      label: 'Use',
+      items: [
+        "use/use-index",
+      ],
+    },
   ],
 };

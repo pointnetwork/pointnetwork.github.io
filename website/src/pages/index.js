@@ -18,8 +18,8 @@
 
      const NavContainer = (props) => (
        <section className="homeNavContainer">
-         <Container className="h-100">
-           <Row className="h-100 d-flex align-items-center">
+         <Container className="h-200">
+           <Row className="h-200 d-flex align-items-center">
              {props.children}
            </Row>
          </Container>
@@ -27,10 +27,10 @@
      );
 
      const NavItem = (props) => (
-       <Col xs={12} md={12} lg={4} className="homeNavItem rounded-lg">
+       <Col xs={12} md={12} lg={3} className="homeNavItem rounded-lg">
          <a
            href={props.href}
-           className="h-100 d-flex align-items-center"
+           className="h-200 d-flex align-items-center"
            data-aos="fade-up"
            data-aos-delay={props.aosDelay}
          >
@@ -53,7 +53,7 @@
            aosDelay="0"
          />
          <NavItem
-           href={this.props.docUrl("learn-architecture")}
+           href={this.props.docUrl("learn-index")}
            content="Point Network is a sharded protocol that enables blockchain networks to operate together seamlessly."
            title="Learn"
            aosDelay="300"
@@ -63,6 +63,12 @@
            title="Maintain"
            content="Information and guides on how to deploy a node and run the network."
            aosDelay="600"
+         />
+         <NavItem
+           href={this.props.docUrl("use-index")}
+           title="Use"
+           content="Information and guides for end users of Point Network."
+           aosDelay="900"
          />
        </NavContainer>
      );

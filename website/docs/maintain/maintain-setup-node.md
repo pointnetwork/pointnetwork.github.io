@@ -5,6 +5,14 @@ sidebar_label: Set up a Node
 slug: ../maintain-setup-node
 ---
 
-Welcome to the Point Network Wiki! This central source of truth contains guides for interacting with the
-core functionality. Our wiki has three main sections: Learn (for learners), Build (for people that
-want to build on Point Network ), and Maintain (for people that want to maintain the network).
+### Run Point Network using Docker
+
+Point Network Docker setup consists of three Point Network nodes running in a separate containers, a dev blockchain node running a test network (currently the `ganache-cli` is used), and a Point Network contract deployment script running in a dedicated container.
+
+To run Point Network, one should firstly [install `docker`](https://docs.docker.com/get-docker/) and [`docker-compose`](https://docs.docker.com/compose/install/) on their host system. To start the node, run:
+
+```bash
+docker-compose up -d
+```
+
+We will add more details as we get closer to Point Network testnet launch. Stay tuned!
