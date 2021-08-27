@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import Translate, { translate } from "@docusaurus/Translate";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
-import Logo from "@site/static/img/pointlogo.svg";
+import PointLogo from "@site/static/img/pointlogowhite.png";
 
 function FooterNavColumn({ headline, children }) {
   return (
@@ -255,7 +255,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {/* <Logo alt="Point Network" /> */}
+                <img src={PointLogo} className="brand" />
               </a>
             </Col>
           )}
