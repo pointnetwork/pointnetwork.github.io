@@ -68,7 +68,8 @@ module.exports = {
       logo: {
         alt: 'Point Network',
         src: "img/pointlogo.png",
-        href: 'https://pointnetwork.github.io'
+        href: 'https://pointnetwork.github.io',
+        target: '_self'
       },
       items: [
         {
