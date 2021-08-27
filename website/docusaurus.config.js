@@ -68,7 +68,7 @@ module.exports = {
       logo: {
         alt: 'Point Network',
         src: "img/pointlogo.png",
-        srcDark: 'img/pointlogowhite.png'
+        href: 'https://pointnetwork.github.io'
       },
       items: [
         {
