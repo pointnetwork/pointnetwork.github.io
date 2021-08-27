@@ -30,6 +30,7 @@ jobs:
         env:
           USE_SSH: true
           GIT_USER: git
+          PUBLISHING: true
         run: |
           cd website
           git config --global user.email "docs.deployment@pointnetwork.io"

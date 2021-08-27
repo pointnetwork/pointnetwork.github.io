@@ -1,4 +1,5 @@
 const path = require('path');
+const isPub = process.env.PUBLISHING === "true";
 
 module.exports = {
   title: "Point Network",
@@ -69,7 +70,7 @@ module.exports = {
       logo: {
         alt: 'Point Network',
         src: "img/pointlogo.png",
-        href: 'https://pointnetwork.github.io',
+        href: `${isPub? 'http://pointnetwork.github.io/' : '/'}` ,
         target: '_self'
       },
       items: [
