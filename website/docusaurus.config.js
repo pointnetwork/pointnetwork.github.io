@@ -41,6 +41,7 @@ module.exports = {
         theme: {
           customCss: [
             require.resolve("./static/css/custom.css"),
+            require.resolve("./static/css/socicon.css"),
           ],
         },
       }
@@ -105,84 +106,6 @@ module.exports = {
       ]
     },
     footer: {
-      links: [
-        {
-          title: 'General',
-          items: [
-            {
-              label: 'About',
-              href: 'https://pointnetwork.io/page/about',
-            },
-            {
-              label: 'FAQ',
-              href: 'https://pointnetwork.io/',
-            },
-            {
-              label: 'Contact',
-              href: 'https://pointnetwork.io/page/social',
-            },
-            {
-              label: 'Careers',
-              href: 'https://pointnetwork.io/page/support',
-            },
-            {
-              label: 'Build',
-              href: 'https://pointnetwork.io/page/build',
-            },
-          ],
-        },
-        {
-          title: 'Technology',
-          items: [
-            {
-              label: 'Technology',
-              href: 'https://pointnetwork.io/',
-            },
-            {
-              label: 'Whitepaper',
-              href: 'https://docs.google.com/document/d/16bcqsnezTKnPyYI7g32gEkrmJE35z8U4Zj0lUUXXQDY/edit',
-            },
-            {
-              label: 'Lightpaper',
-              href: 'https://pointnetwork.io/files/PointNetworkBrochure-c003.pdf',
-            },
-          ],
-        },
-
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Documentation',
-              href: 'https://pointnetwork.github.io/docs/',
-            },
-            {
-              label: 'Blog',
-              href: 'https://pointnetwork.io/page/blog',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/pointnetwork',
-            },
-            {
-              label: 'YouTube',
-              href: 'https://www.youtube.com/channel/UCWZkr5qbQhmMtD4Zt374-FA',
-            },
-            {
-              label: 'Telegram',
-              href: 'https://t.me/pointnetworkchat',
-            },
-            {
-              label: 'Github',
-              href: 'https://github.com/pointnetwork',
-            },
-            {
-              label: 'Reddit',
-              href: 'https://www.reddit.com/r/pointnetwork/',
-            },
-          ],
-        },
-      ],
       copyright: `Copyright © ${new Date().getFullYear()} Point Network Limited`,
       logo: {
         src: "img/pointlogo.png",
