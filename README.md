@@ -20,11 +20,11 @@ Documentation files are stored in the [docs](./website//docs) directory as Markd
 
 ## Editing OpenAPI Docs
 
-Please refer to the [README](./website/openapi/) in the OpenAPI Docs folder.
+Please refer to the [README](./website/openapi/README.md) in the OpenAPI Docs folder.
 
 ## Diagrams using Mermaid
 
-Mermaid diagrams can to be added using React Component style as shown below (or check out any of the markdown docs that [contain Mermaid diagrams](./website//docs/storage.md)).
+Mermaid diagrams can to be added using React Component style as shown below (or check out any of the markdown docs that [contain Mermaid diagrams](./website/docs/learn/learn-storage-layer.md)).
 
 ```
   import Mermaid from '@theme/mermaid';
