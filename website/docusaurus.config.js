@@ -9,11 +9,6 @@ module.exports = {
   scripts: [
     "https://buttons.github.io/buttons.js",
     "https://unpkg.com/aos@next/dist/aos.js",
-    {
-      src: "https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js",
-      onload: "addBackToTop()",
-      defer: true,
-    },
     "../js/custom.js"
   ],
   stylesheets: [
@@ -118,11 +113,11 @@ module.exports = {
             },
             {
               label: 'FAQ',
-              href: 'https://pointnetwork.io/page/about',
+              href: 'https://pointnetwork.io/',
             },
             {
               label: 'Contact',
-              href: 'https://pointnetwork.io/page/support',
+              href: 'https://pointnetwork.io/page/social',
             },
             {
               label: 'Careers',
