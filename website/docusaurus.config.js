@@ -6,6 +6,7 @@ module.exports = {
   url: "https://pointnetwork.github.io",
   baseUrl: "/",
   organizationName: "pointnetwork",
+  trailingSlash: false,
   scripts: [
     "https://buttons.github.io/buttons.js",
     "https://unpkg.com/aos@next/dist/aos.js",
