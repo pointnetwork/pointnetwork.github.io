@@ -46,17 +46,17 @@
 
      return (
        <NavContainer>
+          <NavItem
+           href={this.props.docUrl("learn-index")}
+           content="Point Network is a sharded protocol that enables blockchain networks to operate together seamlessly."
+           title="Learn"
+           aosDelay="300"
+         />
          <NavItem
            href={this.props.docUrl("build-index")}
            title="Build"
            content="Most up-to-date information on the status of the development tools in the Point Network ecosystem."
            aosDelay="0"
-         />
-         <NavItem
-           href={this.props.docUrl("learn-index")}
-           content="Point Network is a sharded protocol that enables blockchain networks to operate together seamlessly."
-           title="Learn"
-           aosDelay="300"
          />
          <NavItem
            href={this.props.docUrl("maintain-index")}
