@@ -5,7 +5,7 @@ sidebar_label: Contributing
 slug: ../contributing
 ---
 
-The wiki was started and is maintained by Point Network. It is an open source project and aims
+This wiki was started and is maintained by Point Network. It is an open source project and aims
 to be the most extensive resource of knowledge on Point Network and the Point Network ecosystem. A large part
 of the material currently focuses on Point Network directly but it is not opposed to covering
 informational material for community projects.
@@ -17,7 +17,7 @@ community members who demonstrate a record of good contributions may be given wr
 repository.
 
 Otherwise, the Point Netowrk team holds the administrative position and final say on the content that is
-included. Specifically, the Technical Education team at Point Network are most directly involved.
+included.
 
 ## How to Contribute
 

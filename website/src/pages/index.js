@@ -99,13 +99,13 @@
            </p>
          </Col>
          <Col>
-           <a href='https://github.com/pointnetwork/pointnetwork.github.io'>
+           <a href={this.props.docUrl("contributing")}>
              <button className="btn btn-lg btn-primary btn-bg-primary mr-3">
                Contribute
              </button>
            </a>
            <a
-             href='https://github.com/pointnetwork/pointnetwork.github.io'
+             href={this.props.docUrl("contributing")}
              target="_blank"
              rel="noreferrer noopener"
            >
