@@ -103,7 +103,12 @@ module.exports = {
           to: "api/",
           label: "API",
           position: "left"
-        }
+        },
+        {
+          to: "docs/contributing",
+          label: "Contribute",
+          position: "right",
+        },
       ]
     },
     footer: {

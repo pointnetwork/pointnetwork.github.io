@@ -8,6 +8,7 @@ module.exports = {
         'general/pointnetwork-demo',
         'general/troubleshooting',
         'general/debugging',
+        'general/contributing',
         'general/point-token'
       ],
     },
