@@ -27,8 +27,13 @@ You can contribute to the wiki on the
 syntax extension to plain text that makes creating links, rendering images, and nice-looking
 formatting simple.
 
-Using the GitHub built-in text editor you can make your edits directly to the Point Network wiki.
-When you've completed your changes, you can add any specific details on what was changed and commit to a **new branch** to create a new Pull Request to the repository. From there one of the maintainers will review your changes, and either merge them or request changes.
+Each page has an "Edit this page" link at the bottom of the content. By clicking it you are taken to
+the GitHub sign-in page, where you can either log in or create an account.
+
+Once logged in, you'll be taken to the GitHub built-in text editor where you can make your edits
+directly. When you've completed your changes, you can add any specific details on what was changed
+and commit to a **new branch** to create a new Pull Request to the repository. From there one of the
+maintainers will review your changes, and either merge them or request changes.
 
 ![](../assets/contributing.png) ![](../assets/creating-pull-request.png)
 
@@ -54,6 +59,9 @@ There are a few basic ground-rules for contributors:
    fixed.
 8. Care should be taken to remain as objective and informative as possible. There should be no
    editorializing, and external bias should not be present.
+9. We use a plugin called Prettier to standardize the style across documents. You can run this on
+   your local copy with `npx pretty-quick --staged`, but for simplicity we also have a bot which
+   runs this for us in your PRs.
 
 ## Heritage
 

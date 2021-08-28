@@ -33,6 +33,8 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
+          editUrl: ({ docPath }) =>
+            `https://github.com/pointnetwork/pointnetwork.github.io/edit/main/website/docs/${docPath}`,
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           path: "docs",
