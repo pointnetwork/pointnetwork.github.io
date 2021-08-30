@@ -82,6 +82,11 @@ module.exports = {
           position: "left"
         },
         {
+          to: "docs/use-index",
+          label: "Use",
+          position: "left"
+        },
+        {
           to: "docs/learn-index",
           label: "Learn",
           position: "left"
@@ -94,11 +99,6 @@ module.exports = {
         {
           to: "docs/maintain-index",
           label: "Maintain",
-          position: "left"
-        },
-        {
-          to: "docs/use-index",
-          label: "Use",
           position: "left"
         },
         {

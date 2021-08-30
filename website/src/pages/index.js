@@ -46,6 +46,12 @@
 
      return (
        <NavContainer>
+        <NavItem
+           href={this.props.docUrl("use-index")}
+           title="Use"
+           content="Information and guides for end users of Point Network."
+           aosDelay="900"
+         />
           <NavItem
            href={this.props.docUrl("learn-index")}
            content="Point Network is a sharded protocol that enables blockchain networks to operate together seamlessly."
@@ -63,12 +69,6 @@
            title="Maintain"
            content="Information and guides on how to deploy a node and run the network."
            aosDelay="600"
-         />
-         <NavItem
-           href={this.props.docUrl("use-index")}
-           title="Use"
-           content="Information and guides for end users of Point Network."
-           aosDelay="900"
          />
        </NavContainer>
      );
