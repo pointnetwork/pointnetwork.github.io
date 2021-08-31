@@ -24,9 +24,12 @@
     --sansFontFamily: "Work Sans", sans-serif !important;
     --docsearch-searchbox-background: white;
     --docsearch-searchbox-shadow: var(--snowColor);
-
     --custom-code-block-background: #173553;
     --custom-content-max-width: 1400px;
+  }
+
+  code {
+    color: black;
   }
 
   body {
@@ -281,14 +284,7 @@
 
   .homeFooterContainer {
     padding: 6rem 0 4rem;
-    background-image: linear-gradient(
-        217deg,
-        rgba(194, 212, 33, 0.8),
-        rgba(124, 112, 5, 0) 70%
-      ),
-      linear-gradient(127deg, rgba(244, 248, 6, 0.8), rgba(0, 0, 0, 0) 70%),
-      linear-gradient(336deg, rgb(228, 231, 8), rgba(103, 69, 210, 0) 70%);
-    background-color: #286902;
+    background-image: linear-gradient(33deg, rgb(34, 136, 255), rgb(255, 255, 85));
   }
 
   .homeFooterContainer .col-lg-6 {
