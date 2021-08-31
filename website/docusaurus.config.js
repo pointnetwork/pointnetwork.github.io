@@ -107,10 +107,14 @@ module.exports = {
           position: "left"
         },
         {
+          type: "search",
+          position: "right",
+        },
+        {
           to: "docs/contributing",
           label: "Contribute",
           position: "right",
-        },
+        }
       ]
     },
     footer: {
