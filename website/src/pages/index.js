@@ -14,8 +14,6 @@
 
  class HomeNav extends React.Component {
    render() {
-    //  const {siteConfig, language = ''} = this.props;
-
      const NavContainer = (props) => (
        <section className="homeNavContainer">
          <Container className="h-200">
