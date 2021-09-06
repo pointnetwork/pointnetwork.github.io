@@ -9,14 +9,8 @@ function performSearch(event) {
 }
 
  const SearchBar = props => {
-   //NOTE: hiding the search bar on the home page because the onKeyDown event does
-   //not fire on home page of the built version - not sure why, maybe a conflict
-   const divStyle = {
-     visibility: window.location.pathname === '/' ? 'hidden' : 'inline',
-   };
-
    return (
-     <div className="navbar__search" style={divStyle}>
+     <div className="navbar__search">
        <input
          id="search_input_react"
          type="search"

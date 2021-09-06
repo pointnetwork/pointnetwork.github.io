@@ -14,7 +14,7 @@ The Point Network node has two WebSocket endpoints defined:
 
 ### Connecting to the NodeSocketController
 
-This is exposed on the Nodes internal API port. The routes are defined in [ws_routes.js](../ws_routes.js) and the endpoint is served using Fastify WebSockets. Its possible to try out this socket using the `WebSocket Test client` (see below for details).
+This is exposed on the Nodes internal API port. The routes are defined in [ws_routes.js](https://github.com/pointnetwork/pointnetwork/blob/master/api/ws_routes.js) and the endpoint is served using Fastify WebSockets. Its possible to try out this socket using the `WebSocket Test client` (see below for details).
 
 #### Using the WebSocket Test client
 
@@ -28,7 +28,7 @@ Check out the terminal for details.
 
 ### Connecting to the ZProxySocketController
 
-This is exposed on the ZProxy API port. The connection is made via the ZApp domain root. For example, if the ZApp domain is `example.z` then the WebSocket connection can be made at `wss://example.z`. See the [hello.z](./example/hello.z) demo app for examples.
+This is exposed on the ZProxy API port. The connection is made via the ZApp domain root. For example, if the ZApp domain is `example.z` then the WebSocket connection can be made at `wss://example.z`. See the [hello.z](https://github.com/pointnetwork/pointnetwork/tree/master/example/hello.z) demo app for examples.
 
 ### WebSocket Request Messages
 

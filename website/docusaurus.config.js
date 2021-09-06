@@ -25,7 +25,6 @@ module.exports = {
     ],
     repoUrl: "https://github.com/pointnetwork"
   },
-  onBrokenLinks: "log",
   onBrokenMarkdownLinks: "log",
   presets: [
     [
