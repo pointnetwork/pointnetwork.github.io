@@ -65,6 +65,11 @@ module.exports = {
       disableSwitch: true,
       defaultMode: 'light',
     },
+    algolia: {
+      // Note this is a 'search only' API key https://www.algolia.com/doc/guides/security/api-keys/#search-only-api-key
+      apiKey: '879987fdceac8b907f6dc7384e234e77',
+      indexName: 'pointnetwork'
+    },
     navbar: {
       title: "Point Network",
       logo: {
