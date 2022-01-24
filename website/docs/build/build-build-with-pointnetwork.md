@@ -13,7 +13,7 @@ First add some alias and functions to your local bash environment. The project c
 
 You can also copy the contents of the `.bash_alias` into your `~/.bash_profile` file and then run `source ~/.bash_profile` that way these alias commands will be available in every terminal session going forward.
 
-Clone the pointnetwork repo, cd into and instll deps like so:
+Clone the pointnetwork repo, cd into and install deps like so:
 
 ```bash
 git clone git@github.com:pointnetwork/pointnetwork.git
@@ -35,12 +35,12 @@ DEV_ZAPP_HOST=pointsocial.z
 
 With the above out of the way, run the following:
 
-NOTE: Since PointSocial Zapp uses React JS we need to make sure that the site is built locally first. For sites that are build using Twig (like twitter.z, blog.z etc) you can skip this step as they do not require building locally.
+NOTE: Since PointSocial Zapp uses React JS we need to make sure that the site is built locally first. For other Zapps you can check if dependencies are required and you only need to run `npm i`. For example in `email.z` there is a dev dependency required that needs to be installed before running the node.
 
 ```bash
 cd example/pointsocial.z
 npm i
-npm run build
+npm run build      <-- only needed for building Zapps that use frontend libraries like React JS
 ```
 
 In one terminal start all the services and watch the `website_owner` logs (NOTE: run these commands *from the root* of the cloned pointnetwork repo!)
@@ -108,9 +108,9 @@ Note we need to create 3 profiles so set the name to the profile you are current
 
 Note each profile that you are creating requires a spefific proxy setting. Please configure as shown below based on the profile you are currently adding:
 
-* Profile `storage_provider_docker` : set proxy to 'localhost:65500'
-* Profile `website_owner_docker` : set proxy to 'localhost:65501'
-* Profile `website_visitor_docker` : set proxy to 'localhost:65502'
+* Profile `storage_provider_docker` : set proxy to `localhost:65500`
+* Profile `website_owner_docker` : set proxy to `localhost:65501`
+* Profile `website_visitor_docker` : set proxy to `localhost:65502`
 
 | ![alt-text](../assets/3-config-firefox-proxy.png) |
 | ------------------------------------- |
