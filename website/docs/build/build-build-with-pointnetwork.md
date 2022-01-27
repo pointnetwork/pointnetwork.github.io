@@ -27,20 +27,20 @@ Next, copy the *.env.e2e.example* file to *.env.e2e*:
 cp .env.e2e.example .env.e2e
 ```
 
-and set `DEV_ZAPP_HOST` envrionment variable in .env.e2e with the zapp domain that you are working with (e.g. pointsocial.z it would be set like this:
+If you want to use a Docker image built from the current branch you are working on, then run
 
 ```bash
-DEV_ZAPP_HOST=pointsocial.z
+build-e2e
 ```
 
-With the above out of the way, run the following:
+With the above out of the way, run the following commands to install package dependencies for the Zapp you are working on.
 
 NOTE: Since PointSocial Zapp uses React JS we need to make sure that the site is built locally first. For other Zapps you can check if dependencies are required and you only need to run `npm i`. For example in `email.z` there is a dev dependency required that needs to be installed before running the node.
 
 ```bash
 cd example/pointsocial.z
 npm i
-npm run build      <-- only needed for building Zapps that use frontend libraries like React JS
+npm run build       <-- only needed for building Zapps that use frontend libraries like React JS
 ```
 
 In one terminal start all the services and watch the `website_owner` logs (NOTE: run these commands *from the root* of the cloned pointnetwork repo!)
@@ -51,10 +51,10 @@ point-e2e up -d
 point-e2e logs -f website_owner
 ```
 
-In another terminal (to connect to the `website_owner` node and deploy the site )
+In another terminal (to connect to the `point_node` node and deploy the site )
 
 ```bash
-dexec pointnetwork_website_owner
+dexec point_node
 ./scripts/deploy-sites.sh pointsocial.z --contracts
 ```
 
@@ -150,11 +150,10 @@ Try to deploy the `store.z` app. To do so its just a matter of:
 
 1. Install the deps in store.z `cd example/store.z && npm i`
 1. Build the store.z site `cd example/store.z && npm run build`
-1. Updating the `DEV_ZAPP_HOST` environment variable in *.env.e2e* to `DEV_ZAPP_HOST=store.z`
 1. Tear down all the services (from the project root) `point-e2e down`
 1. Clean all Docker containers and volumes `dclean`
 1. Bring up all the services (from the project root) `point-e2e up -d`
-1. Connect back into the `website_owner` running container: `dexec pointnetwork_website_owner`
+1. Connect back into the `website_owner` running container: `dexec point_node`
 1. Deploy store.z: `./scripts/deploy-sites.sh store.z --contracts`
 1. Open a Point Browser instance to [https://store.z](https://store.z)
 
