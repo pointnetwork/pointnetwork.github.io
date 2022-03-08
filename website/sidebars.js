@@ -54,6 +54,7 @@ module.exports = {
           type: "category",
           label: "Development Guide",
           items: [
+            'build/build-environments',
             "build/build-build-with-point-network",
             "build/build-testing-guide"
           ],
