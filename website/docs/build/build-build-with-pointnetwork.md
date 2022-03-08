@@ -7,6 +7,46 @@ slug: ../build-build-with-point-network
 
 Welcome to the builder's section of the Point Network Wiki.
 
+## Installing Docker
+
+This setup requires Docker insalled. We will not go into the details here as there are several resources online that can help. The important things are to install the correct versions to be able to run `docker` without using `sudo` and to have the `docker compose` sub command available.
+
+### Versions
+
+If you already have Docker and Docker Compose installed confirm that the versions are the following (or higher). Check against these versions below:
+
+```
+docker --version
+>> Docker version 20.10.12, build e91ed57
+
+docker compose version
+>> Docker Compose version v2.2.3
+```
+
+### Install Docker Engine on Mac, Linux and Windows
+
+Please follow the official [Docker installtion instructions](https://docs.docker.com/engine/install/).
+
+### Install Docker Compose as a plugin on Ubuntu
+
+If you are running Linux (Ubuntu) and do not have the `docker compose` command available after insstalling docker then following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04).
+
+### Run Docker without using sudo
+
+If you want to avoid typing sudo whenever you run the docker command, add your username to the docker group:
+
+```bash
+sudo usermod -aG docker ${USER}
+```
+
+To apply the new group membership, log out of the server and back in, or type the following:
+
+```bash
+su - ${USER}
+```
+
+More details in [this article](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04).
+
 ### Develop using docker compose
 
 First add some alias and functions to your local bash environment. The project comes with a [`.bash_alias`](https://github.com/pointnetwork/pointnetwork/blob/develop/.bash_alias) file that contains a set of alias that are useful for this project. The quickest way to add these alias to your terminal session is to run `source .bash_alias`.
@@ -27,7 +67,7 @@ Next, copy the *.env.e2e.example* file to *.env.e2e*:
 cp .env.zappdev.example .env.zappdev
 ```
 
-If you want to use a Docker image built from the current branch you are working on, then run
+You need to build a local Docker image to use. Ensure you are on the branch you want to work from and run the following command to build your new Docker image. NOTE: You may need to wait a few minutes for the image build to complete!
 
 ```bash
 build-image
@@ -115,17 +155,19 @@ Note each profile that you are creating requires a spefific proxy setting. Pleas
 
 4. Import **and trust** the Point Network CA Certificate
 
-Note the Point Network CA certificate is located in the [`client/proxy/certs`](https://github.com/pointnetwork/pointnetwork/tree/develop/client/proxy/certs) directory.
+Note the Point Network CA certificate is located in the [`resources/certs`](https://github.com/pointnetwork/pointnetwork/tree/develop/resources/certs) directory.
 
 | ![alt-text](../assets/4-import-ca-firefox.png) |
 | ------------------------------------- |
 
 
-Now clone the [PointSDK](https://github.com/pointnetwork/pointsdk) repo, cd into it and run the `point-browser-owner` alias command like so:
+Now clone the [PointSDK](https://github.com/pointnetwork/pointsdk) repo into a *separate directory*, cd into it, use the correct node version, install web-ext and run the `point-browser-owner` alias command like so:
 
 ```bash
 git clone git@github.com:pointnetwork/pointsdk.git
 cd pointsdk
+nvm use
+npm i -g web-ext
 point-browser-owner
 ```
 
