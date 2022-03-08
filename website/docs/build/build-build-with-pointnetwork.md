@@ -48,7 +48,7 @@ In one terminal start all the services and watch the `website_owner` logs (NOTE:
 ```bash
 dclean
 point-zappdev up -d
-point-zappdev logs -f website_owner
+point_node
 ```
 
 In another terminal (to connect to the `point_node` node and deploy the site )
@@ -84,7 +84,7 @@ std::exception::what: You shall not have another CompilerStack aside me.
 
 ### Open the deployed site in Point Browser
 
-First create three profiles in Firefox to be able to test connecting to the different nodes quickly and easily. I suggest creating 3 profiles matching the names of the profiles set in your bash alias as mentioned above. NOTE: these profiles only need to be created once.
+First create two profiles in Firefox to be able to test connecting to the different nodes quickly and easily. I suggest creating two profiles matching the names of the profiles set in your bash alias as mentioned above. NOTE: these profiles only need to be created once.
 
 ### Create a Point Network Profile in Firefox
 
@@ -95,9 +95,8 @@ First create three profiles in Firefox to be able to test connecting to the diff
 
 2. Enter the profile name in the wizard
 
-Note we need to create 3 profiles so set the name to the profile you are currently creating
+Note we need to create two profiles so set the name to the profile you are currently creating
 
-* `storage_provider_docker`
 * `website_owner_docker`
 * `website_visitor_docker`
 
@@ -108,7 +107,6 @@ Note we need to create 3 profiles so set the name to the profile you are current
 
 Note each profile that you are creating requires a spefific proxy setting. Please configure as shown below based on the profile you are currently adding:
 
-* Profile `storage_provider_docker` : set proxy to `localhost:65500`
 * Profile `website_owner_docker` : set proxy to `localhost:65501`
 * Profile `website_visitor_docker` : set proxy to `localhost:65502`
 
@@ -123,12 +121,12 @@ Note the Point Network CA certificate is located in the [`client/proxy/certs`](h
 | ------------------------------------- |
 
 
-Now clone the [PointSDK](https://github.com/pointnetwork/pointsdk) repo, cd into it and run the `point-browser-docker-2` alias command like so:
+Now clone the [PointSDK](https://github.com/pointnetwork/pointsdk) repo, cd into it and run the `point-browser-owner` alias command like so:
 
 ```bash
 git clone git@github.com:pointnetwork/pointsdk.git
 cd pointsdk
-point-browser-docker-2
+point-browser-owner
 ```
 
 This should open the Point Browser with the `website_owner_docker` profile already configured to connect to the `website_owner` node and open [https://point](https://point). Now you can navigate to [https://point/identities](https://point/identities) and you should see the deployed pointsocial.z zapp listed, You can open it from there.
@@ -139,7 +137,7 @@ To test out interacting between different Point Network identities we can open a
 
 ```bash
 cd pointsdk
-point-browser-docker-3
+point-browser-visitor
 ```
 
 If you have added the above command as an alias and you have setup the Firefox profile you should see a new browser open that is connected to the `website_visitor` node. You can now post messages between each other on pointsocial!
@@ -159,7 +157,7 @@ Try to deploy the `store.z` app. To do so its just a matter of:
 
 **Docker Compose Logs**
 
-To follow the logs of *all* the containers simply run `point-zappdev logs -f` in the terminal. If you want to follow the logs of a specific container, hten specify the service name as well like so: `point-zappdev logs -f storage_provider` (to follow the logs of `storage_provider`)
+To follow the logs of *all* the containers simply run `point-zappdev logs -f` in the terminal. If you want to follow the logs of a specific container, hten specify the service name as well like so: `point-zappdev logs -f point_node` (to follow the logs of `website_owner`)
 
 **Docker Compose and Truffle Console**
 
