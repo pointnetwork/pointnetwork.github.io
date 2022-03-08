@@ -24,13 +24,13 @@ npm i
 Next, copy the *.env.e2e.example* file to *.env.e2e*:
 
 ```bash
-cp .env.e2e.example .env.e2e
+cp .env.zappdev.example .env.zappdev
 ```
 
 If you want to use a Docker image built from the current branch you are working on, then run
 
 ```bash
-build-e2e
+build-image
 ```
 
 With the above out of the way, run the following commands to install package dependencies for the Zapp you are working on.
@@ -47,8 +47,8 @@ In one terminal start all the services and watch the `website_owner` logs (NOTE:
 
 ```bash
 dclean
-point-e2e up -d
-point-e2e logs -f website_owner
+point-zappdev up -d
+point-zappdev logs -f website_owner
 ```
 
 In another terminal (to connect to the `point_node` node and deploy the site )
@@ -150,16 +150,16 @@ Try to deploy the `store.z` app. To do so its just a matter of:
 
 1. Install the deps in store.z `cd example/store.z && npm i`
 1. Build the store.z site `cd example/store.z && npm run build`
-1. Tear down all the services (from the project root) `point-e2e down`
+1. Tear down all the services (from the project root) `point-zappdev down`
 1. Clean all Docker containers and volumes `dclean`
-1. Bring up all the services (from the project root) `point-e2e up -d`
+1. Bring up all the services (from the project root) `point-zappdev up -d`
 1. Connect back into the `website_owner` running container: `dexec point_node`
 1. Deploy store.z: `./scripts/deploy-sites.sh store.z --contracts`
 1. Open a Point Browser instance to [https://store.z](https://store.z)
 
 **Docker Compose Logs**
 
-To follow the logs of *all* the containers simply run `point-e2e logs -f` in the terminal. If you want to follow the logs of a specific container, hten specify the service name as well like so: `point-e2e logs -f storage_provider` (to follow the logs of `storage_provider`)
+To follow the logs of *all* the containers simply run `point-zappdev logs -f` in the terminal. If you want to follow the logs of a specific container, hten specify the service name as well like so: `point-zappdev logs -f storage_provider` (to follow the logs of `storage_provider`)
 
 **Docker Compose and Truffle Console**
 
