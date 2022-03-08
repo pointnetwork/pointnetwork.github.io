@@ -43,12 +43,12 @@ npm i
 npm run build       <-- only needed for building Zapps that use frontend libraries like React JS
 ```
 
-In one terminal start all the services and watch the `website_owner` logs (NOTE: run these commands *from the root* of the cloned pointnetwork repo!)
+In one terminal start all the services and watch the `point_node` logs (NOTE: run these commands *from the root* of the cloned pointnetwork repo!)
 
 ```bash
 dclean
 point-zappdev up -d
-point_node
+point-zappdev logs -f point_node
 ```
 
 In another terminal (to connect to the `point_node` node and deploy the site )
@@ -129,7 +129,7 @@ cd pointsdk
 point-browser-owner
 ```
 
-This should open the Point Browser with the `website_owner_docker` profile already configured to connect to the `website_owner` node and open [https://point](https://point). Now you can navigate to [https://point/identities](https://point/identities) and you should see the deployed pointsocial.z zapp listed, You can open it from there.
+This should open the Point Browser with the `website_owner_docker` profile already configured to connect to the `point_node` node and open [https://point](https://point). Now you can navigate to [https://point/identities](https://point/identities) and you should see the deployed pointsocial.z zapp listed, You can open it from there.
 
 ### Open the deployed site in a second Point Browser
 
@@ -151,13 +151,13 @@ Try to deploy the `store.z` app. To do so its just a matter of:
 1. Tear down all the services (from the project root) `point-zappdev down`
 1. Clean all Docker containers and volumes `dclean`
 1. Bring up all the services (from the project root) `point-zappdev up -d`
-1. Connect back into the `website_owner` running container: `dexec point_node`
+1. Connect back into the `point_node` running container: `dexec point_node`
 1. Deploy store.z: `./scripts/deploy-sites.sh store.z --contracts`
 1. Open a Point Browser instance to [https://store.z](https://store.z)
 
 **Docker Compose Logs**
 
-To follow the logs of *all* the containers simply run `point-zappdev logs -f` in the terminal. If you want to follow the logs of a specific container, hten specify the service name as well like so: `point-zappdev logs -f point_node` (to follow the logs of `website_owner`)
+To follow the logs of *all* the containers simply run `point-zappdev logs -f` in the terminal. If you want to follow the logs of a specific container, hten specify the service name as well like so: `point-zappdev logs -f point_node` (to follow the logs of `point_node`)
 
 **Docker Compose and Truffle Console**
 
