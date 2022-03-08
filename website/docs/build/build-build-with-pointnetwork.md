@@ -9,7 +9,7 @@ Welcome to the builder's section of the Point Network Wiki.
 
 ## Installing Docker
 
-This setup requires Docker insalled. We will not go into the details here as there are several resources online that can help. The important things are to install the correct versions to be able to run `docker` without using `sudo` and to have the `docker compose` sub command available.
+This setup requires Docker installed. We will not go into the details here as there are several resources online that can help. The important things are to install the correct versions to be able to run `docker` without using `sudo` and to have the `docker compose` sub command available.
 
 ### Versions
 
@@ -31,7 +31,7 @@ Please follow the official [Docker installtion instructions](https://docs.docker
 
 If you are running Linux (Ubuntu) and do not have the `docker compose` command available after insstalling docker then following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04).
 
-### Run Docker without using sudo
+### Run Docker without using sudo on Ubuntu
 
 If you want to avoid typing sudo whenever you run the docker command, add your username to the docker group:
 
@@ -51,14 +51,16 @@ More details in [this article](https://www.digitalocean.com/community/tutorials/
 
 First add some alias and functions to your local bash environment. The project comes with a [`.bash_alias`](https://github.com/pointnetwork/pointnetwork/blob/develop/.bash_alias) file that contains a set of alias that are useful for this project. The quickest way to add these alias to your terminal session is to run `source .bash_alias`.
 
-You can also copy the contents of the `.bash_alias` into your `~/.bash_profile` file and then run `source ~/.bash_profile` that way these alias commands will be available in every terminal session going forward.
+**Recommended** You can also copy the contents of the `.bash_alias` into your `~/.bash_profile` file and then run `source ~/.bash_profile` that way these alias commands **will be available in every terminal session** going forward.
 
 Clone the pointnetwork repo, cd into and install deps like so:
 
 ```bash
 git clone git@github.com:pointnetwork/pointnetwork.git
 cd pointnetwork
+nvm use
 npm i
+npm run build
 ```
 
 Next, copy the *.env.e2e.example* file to *.env.e2e*:
