@@ -13,7 +13,7 @@ This setup requires Docker installed. We will not go into the details here as th
 
 ### Versions
 
-If you already have Docker and Docker Compose installed confirm that the versions are the following (or higher). Check against these versions below:
+If you already have Docker and Docker Compose installed, confirm that the versions are the following (or higher). Check against these versions below:
 
 ```
 docker --version
@@ -25,11 +25,11 @@ docker compose version
 
 ### Install Docker Engine on Mac, Linux and Windows
 
-Please follow the official [Docker installtion instructions](https://docs.docker.com/engine/install/).
+Please follow the official [Docker installation instructions](https://docs.docker.com/engine/install/).
 
 ### Install Docker Compose as a plugin on Ubuntu
 
-If you are running Linux (Ubuntu) and do not have the `docker compose` command available after insstalling docker then following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04).
+If you are running Linux (Ubuntu) and do not have the `docker compose` command available after installing docker then following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04).
 
 ### Run Docker without using sudo on Ubuntu
 
@@ -49,7 +49,7 @@ More details in [this article](https://www.digitalocean.com/community/tutorials/
 
 ### Develop using docker compose
 
-First add some alias and functions to your local bash environment. The project comes with a [`.bash_alias`](https://github.com/pointnetwork/pointnetwork/blob/develop/.bash_alias) file that contains a set of alias that are useful for this project. The quickest way to add these alias to your terminal session is to run `source .bash_alias`.
+First add some aliases and functions to your local bash environment. The project comes with a [`.bash_alias`](https://github.com/pointnetwork/pointnetwork/blob/develop/.bash_alias) file that contains a set of aliases that are useful for this project. The quickest way to add these alias to your terminal session is to run `source .bash_alias`.
 
 **Recommended** You can also copy the contents of the `.bash_alias` into your `~/.bash_profile` file and then run `source ~/.bash_profile` that way these alias commands **will be available in every terminal session** going forward.
 
@@ -100,7 +100,7 @@ dexec point_node
 ./scripts/deploy-sites.sh pointsocial.z --contracts
 ```
 
-The site should deploy sucessefully after a few minutes.
+The site should deploy successfully after a few minutes.
 
 ### Troubleshooting the deployment
 
@@ -110,7 +110,7 @@ If you see the following error:
 Error: Could not find contract dependency, have you tried npm install?
 ```
 
-Then its likely that the Zapp you are attempting to deploy is missing dependencies required for the deployment or for the runtime. To fix this, its best to stop the Point Node running, install the Zapp dependencies using `npm i` and then restarting the node and trying again.
+Then it's likely that the Zapp you are attempting to deploy is missing dependencies required for the deployment or for the runtime. To fix this, it's best to stop the Point Node running, install the Zapp dependencies using `npm i` and then restart the node and try again.
 
 If you see the following error:
 
@@ -147,7 +147,7 @@ Note we need to create two profiles so set the name to the profile you are curre
 
 3. Configure the proxy for the specific profile
 
-Note each profile that you are creating requires a spefific proxy setting. Please configure as shown below based on the profile you are currently adding:
+Note each profile that you are creating requires a specific proxy setting. Please configure as shown below based on the profile you are currently adding:
 
 * Profile `website_owner_docker` : set proxy to `localhost:65501`
 * Profile `website_visitor_docker` : set proxy to `localhost:65502`
@@ -184,7 +184,7 @@ cd pointsdk
 point-browser-visitor
 ```
 
-If you have added the above command as an alias and you have setup the Firefox profile you should see a new browser open that is connected to the `website_visitor` node. You can now post messages between each other on pointsocial!
+If you have added the above command as an alias and you have set up the Firefox profile you should see a new browser open that is connected to the `website_visitor` node. You can now post messages between each other on pointsocial!
 
 ### Next steps
 
@@ -201,11 +201,11 @@ Try to deploy the `store.z` app. To do so its just a matter of:
 
 **Docker Compose Logs**
 
-To follow the logs of *all* the containers simply run `point-zappdev logs -f` in the terminal. If you want to follow the logs of a specific container, hten specify the service name as well like so: `point-zappdev logs -f point_node` (to follow the logs of `point_node`)
+To follow the logs of *all* the containers simply run `point-zappdev logs -f` in the terminal. If you want to follow the logs of a specific container, then specify the service name as well like so: `point-zappdev logs -f point_node` (to follow the logs of `point_node`)
 
 **Docker Compose and Truffle Console**
 
-Since the `blockchain_node` service is exposed via `http://localhost:7545` its therefore possible to use truffle console without any modification.
+Since the `blockchain_node` service is exposed via `http://localhost:7545` its therefore possible to use the truffle console without any modification.
 
 Therefore, *from the root* of the cloned pointnetwork repo, you can run:
 
@@ -218,7 +218,7 @@ Therefore, *from the root* of the cloned pointnetwork repo, you can run:
 
  **Docker complete database reset**
 
- There is a simple command in the alias list above that will tear down all services, remove orphen containers and remove all volumes. *Only run this command if you are ok with it clearing out your Docker volumes etc*. Check the alias for its exact functionality. The command run is:
+ There is a simple command in the alias list above that will tear down all services, remove orphaned containers and remove all volumes. *Only run this command if you are ok with it clearing out your Docker volumes etc*. Check the alias for its exact functionality. The command run is:
 
  ```bash
  dclean
@@ -230,3 +230,4 @@ Following coding style applies:
 
 * Always use semicolons otherwise [dragons may bite you](https://www.freecodecamp.org/news/codebyte-why-are-explicit-semicolons-important-in-javascript-49550bea0b82/)!
 * Use 4 spaces as a default indent for all files and set this in your IDE.
+
