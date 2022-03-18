@@ -18,7 +18,7 @@ module.exports = {
     "https://unpkg.com/aos@next/dist/aos.css",
   ],
   projectName: "docs",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.png",
   customFields: {
     markdownPlugins: [
       null
