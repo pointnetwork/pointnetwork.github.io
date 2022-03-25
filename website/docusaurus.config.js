@@ -74,7 +74,7 @@ module.exports = {
       title: "Point Network",
       logo: {
         alt: 'Point Network',
-        src: "img/pointlogo.png",
+        src: "img/point-logo.svg",
         href: `${isPub? 'http://pointnetwork.github.io/' : '/'}` ,
         target: '_self'
       },
@@ -123,8 +123,8 @@ module.exports = {
     footer: {
       copyright: `Copyright © ${new Date().getFullYear()} Point Network Limited`,
       logo: {
-        src: "img/pointlogo.png",
-        srcDark: 'img/pointlogowhite.png',
+        src: "img/point-logo.svg",
+        srcDark: 'img/point-logo-white.svg',
       },
     }
   }

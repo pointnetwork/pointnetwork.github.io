@@ -575,6 +575,10 @@
     padding-bottom: 0;
   }
 
+  .footer-legal .brand {
+    height: 70px;
+  }
+
   .footer-legal ul {
     margin-bottom: 0;
   }
