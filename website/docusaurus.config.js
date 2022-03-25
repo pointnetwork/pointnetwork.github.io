@@ -14,6 +14,7 @@ module.exports = {
   ],
   stylesheets: [
     "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css",
+    "https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap",
     "https://fonts.googleapis.com/icon?family=Material+Icons",
     "https://unpkg.com/aos@next/dist/aos.css",
   ],
