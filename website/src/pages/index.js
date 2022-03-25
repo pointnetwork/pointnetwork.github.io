@@ -16,8 +16,8 @@
    render() {
      const NavContainer = (props) => (
        <section className="homeNavContainer">
-         <Container className="h-200">
-           <Row className="h-200 d-flex align-items-center">
+         <Container className="h-100">
+           <Row className="h-100 d-flex align-items-center">
              {props.children}
            </Row>
          </Container>
@@ -28,7 +28,7 @@
        <Col xs={12} md={12} lg={3} className="homeNavItem rounded-lg">
          <a
            href={props.href}
-           className="h-200 d-flex align-items-center"
+           className="h-100 d-flex align-items-center"
            data-aos="fade-up"
            data-aos-delay={props.aosDelay}
          >
