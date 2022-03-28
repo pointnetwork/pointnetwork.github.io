@@ -14,11 +14,12 @@ module.exports = {
   ],
   stylesheets: [
     "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css",
+    "https://fonts.googleapis.com/css?family=Work+Sans:400,700&display=swap",
     "https://fonts.googleapis.com/icon?family=Material+Icons",
     "https://unpkg.com/aos@next/dist/aos.css",
   ],
   projectName: "docs",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.png",
   customFields: {
     markdownPlugins: [
       null
@@ -74,7 +75,7 @@ module.exports = {
       title: "Point Network",
       logo: {
         alt: 'Point Network',
-        src: "img/pointlogo.png",
+        src: "img/point-logo.svg",
         href: `${isPub? 'http://pointnetwork.github.io/' : '/'}` ,
         target: '_self'
       },
@@ -123,8 +124,8 @@ module.exports = {
     footer: {
       copyright: `Copyright © ${new Date().getFullYear()} Point Network Limited`,
       logo: {
-        src: "img/pointlogo.png",
-        srcDark: 'img/pointlogowhite.png',
+        src: "img/point-logo.svg",
+        srcDark: 'img/point-logo-white.svg',
       },
     }
   }

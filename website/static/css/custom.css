@@ -226,7 +226,7 @@
     .homeNavContainer {
       height: 90vh;
       min-height: 600px;
-      max-height: 900px;
+      max-height: 800px;
     }
 
     .homeNavItem {
@@ -573,6 +573,10 @@
   .footer-legal .navbar-brand {
     display: block;
     padding-bottom: 0;
+  }
+
+  .footer-legal .brand {
+    height: 70px;
   }
 
   .footer-legal ul {
