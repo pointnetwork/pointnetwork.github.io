@@ -80,7 +80,7 @@ With the above out of the way, run the following commands to install package dep
 NOTE: Since PointSocial Zapp uses React JS we need to make sure that the site is built locally first. For other Zapps you can check if dependencies are required and you only need to run `npm i`. For example in `email.z` there is a dev dependency required that needs to be installed before running the node.
 
 ```bash
-cd example/pointsocial.z
+cd example/pointsocial.point
 npm i
 npm run build       <-- only needed for building Zapps that use frontend libraries like React JS
 ```
@@ -97,7 +97,7 @@ In another terminal (to connect to the `point_node` node and deploy the site )
 
 ```bash
 dexec point_node
-./scripts/deploy-sites.sh pointsocial.z --contracts
+./scripts/deploy-sites.sh pointsocial.point --contracts
 ```
 
 The site should deploy successfully after a few minutes.
