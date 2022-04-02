@@ -50,3 +50,77 @@ Below is a sample `launch.json` file that you can use. Its the same as the one g
     ]
 }
 ```
+
+### Debug Point Node in Docker Environment
+
+If you have started Point Network using Docker environment then you will need to keep all the services running in Docker (Blockchain, Arweave etc) but you will also need to run the Point Node outside of Docker in VS Code so that you can attach a debugger to it. The way to do this is very simple:
+
+Its recommend to create a separate keystore and data directory for running the Point Node for debugging so that it does not interfere with any other environments that you are running. So therefore create a directory where you would like to use for this environments data and keys. I suggest calling it `devlocal`:
+
+```
+mkdir ~/devlocal
+mkdir ~/devlocal/keystore
+```
+
+You need to copy the `blockchain-test-key.json` mnemonic file from the Point Node repo to `devlocal/keystore/key.json` so that it is used when starting the Node via the VS Code Debugger.
+
+```
+cp resources/blockchain-test-key.json ~/devlocal/keystore/key.json
+```
+
+In the Point Node repo working directory create `config/devlocal.yaml` file and add the following contents (note this file **is ignored by Git** so you do not commit this!):
+
+```
+datadir: ~/devlocal
+wallet:
+  keystore_path: ~/devlocal/keystore
+mode: zappdev
+log:
+  sendLogs: false
+  level: debug
+storage:
+  arweave_host: localhost
+  arweave_protocol: http
+  arweave_port: 1984
+  use_arweave_bundler: false
+  use_arlocal: true
+  arweave_gateway_url: http://localhost:1984/graphql
+network:
+  web3: http://localhost:7545
+api:
+  address: 127.0.0.1
+zproxy:
+  host: 127.0.0.1
+```
+
+Create (or add to an existing) Debug configuration file like so (note the env key settings for `NODE_CONFIG_ENV` and `MODE`):
+
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "pwa-node",
+            "request": "launch",
+            "name": "Launch ZappDev",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}/point",
+            "outputCapture": "std",
+            "env": {
+                "NODE_CONFIG_ENV": "devlocal",
+                "MODE": "zappdev"
+            }
+        }
+    ]
+}
+```
+
+Continue to start the services and start the VS Code debugger like so:
+
+1. If you have not already done so, start the Point Node in Docker environment by following [these instructions](./build/build-build-with-pointnetwork.md).
+1. Build the source code using sourcemaps option like so: `npm run build -- --sourcemap`
+2. Start another node in VS Debugger using the `Launch ZappDev` configuration that you have already added above.
+1. Open `point-browser` to test this (this is the browser where the proxy is set to `8666` which is what the node will be running on since port mapping is not used here).
+3. Place break points in the code and debug!
