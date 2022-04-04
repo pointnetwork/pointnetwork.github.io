@@ -27,6 +27,12 @@ docker compose version
 
 Please follow the official [Docker installation instructions](https://docs.docker.com/engine/install/).
 
+**NOTE**: If you are an **M1 Mac user** you will need to add this line to your `bash_profile`. Details [here](https://hublog.hubmed.org/archives/002027)
+
+```
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+```
+
 ### Install Docker Compose as a plugin on Ubuntu
 
 If you are running Linux (Ubuntu) and do not have the `docker compose` command available after installing docker then following [these instructions](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04).
@@ -77,7 +83,7 @@ build-image
 
 With the above out of the way, run the following commands to install package dependencies for the Zapp you are working on.
 
-NOTE: Since PointSocial Zapp uses React JS we need to make sure that the site is built locally first. For other Zapps you can check if dependencies are required and you only need to run `npm i`. For example in `email.z` there is a dev dependency required that needs to be installed before running the node.
+NOTE: Since PointSocial Zapp uses React JS we need to make sure that the site is built locally first. For other Zapps you can check if dependencies are required and you only need to run `npm i`. For example in `email.point` there is a dev dependency required that needs to be installed before running the node.
 
 ```bash
 cd example/pointsocial.point
@@ -173,7 +179,7 @@ npm i -g web-ext
 point-browser-owner
 ```
 
-This should open the Point Browser with the `website_owner_docker` profile already configured to connect to the `point_node` node and open [https://point](https://point). Now you can navigate to [https://point/identities](https://point/identities) and you should see the deployed pointsocial.z zapp listed, You can open it from there.
+This should open the Point Browser with the `website_owner_docker` profile already configured to connect to the `point_node` node and open [https://point](https://point). Now you can navigate to [https://point/identities](https://point/identities) and you should see the deployed pointsocial.point zapp listed, You can open it from there.
 
 ### Open the deployed site in a second Point Browser
 
@@ -188,16 +194,16 @@ If you have added the above command as an alias and you have set up the Firefox 
 
 ### Next steps
 
-Try to deploy the `store.z` app. To do so its just a matter of:
+Try to deploy the `store.point` app. To do so its just a matter of:
 
-1. Install the deps in store.z `cd example/store.z && npm i`
-1. Build the store.z site `cd example/store.z && npm run build`
+1. Install the deps in store.point `cd example/store.point && npm i`
+1. Build the store.point site `cd example/store.point && npm run build`
 1. Tear down all the services (from the project root) `point-zappdev down`
 1. Clean all Docker containers and volumes `dclean`
 1. Bring up all the services (from the project root) `point-zappdev up -d`
 1. Connect back into the `point_node` running container: `dexec point_node`
-1. Deploy store.z: `./scripts/deploy-sites.sh store.z --contracts`
-1. Open a Point Browser instance to [https://store.z](https://store.z)
+1. Deploy store.point: `./scripts/deploy-sites.sh store.point --contracts`
+1. Open a Point Browser instance to [https://store.point](https://store.point)
 
 **Docker Compose Logs**
 
