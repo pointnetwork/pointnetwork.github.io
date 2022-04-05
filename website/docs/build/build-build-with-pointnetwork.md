@@ -197,13 +197,24 @@ If you have added the above command as an alias and you have set up the Firefox 
 Try to deploy the `store.point` app. To do so its just a matter of:
 
 1. Install the deps in store.point `cd example/store.point && npm i`
-1. Build the store.point site `cd example/store.point && npm run build`
-1. Tear down all the services (from the project root) `point-zappdev down`
-1. Clean all Docker containers and volumes `dclean`
-1. Bring up all the services (from the project root) `point-zappdev up -d`
-1. Connect back into the `point_node` running container: `dexec point_node`
-1. Deploy store.point: `./scripts/deploy-sites.sh store.point --contracts`
-1. Open a Point Browser instance to [https://store.point](https://store.point)
+2. Build the store.point site `cd example/store.point && npm run build`
+3. Tear down all the services (from the project root) `point-zappdev down`
+4. Clean all Docker containers and volumes `dclean`
+5. Bring up all the services (from the project root) `point-zappdev up -d`
+6. Connect back into the `point_node` running container: `dexec point_node`
+7. Deploy store.point: `./scripts/deploy-sites.sh store.point --contracts`
+8. Open a Point Browser instance to [https://store.point](https://store.point)
+
+### Deploy your own website
+
+1. Copy your website to `example` folder.
+2. If your website uses `yarn`/`npm`, install dependencies and build it.
+3. Before deployment, your website should contain `public` folder with all the static files.
+4. If you use solidity contracts, which have to be deployed, they should be in `contracts` folder.
+5. Create `point.deploy.json` file in your website folder root. It should contain version, target url, list of contracts and keyvalue entries. Use some of existing website's files as an example.
+6. Create `routes.json` file. If your app is an SPA, it should contain the only route: `"/": "index.html"` (or whatever is your index file name). If your app is a traditional static website, add all the routes with the corresponding file names.
+7. If your contracts import solidity libraries, put them into `example/libraries` folder.
+8. Repeat 3-8 steps of the previous tutorial (changing `store` to your website name in step 7).
 
 **Docker Compose Logs**
 
