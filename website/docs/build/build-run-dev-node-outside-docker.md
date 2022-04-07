@@ -25,12 +25,14 @@ Run the `cp` command below. This assumes that you are currently in the cloned po
  
 ```
 cp resources/blockchain-test-key.json ~/workspace/pn/devlocal/keystore/key.json
-cp resources/arweave.json ~/workspace/pn/devlocal/keystore/arweave.json
+cp resources/arweave-test-key.json ~/workspace/pn/devlocal/keystore/arweave.json
 ```
  
 Create a `devlocal.yaml` config file and save it in the pointnetwork repo `config` directory. NOTE: This file is ignored by the `gitignore` file automatically so do not commit this!
  
 Below is an example, You would only need to change `datadir` and `wallet.keystore_path` values if you have created your profile in a different directory to what is specified:
+
+**NOTE**: You may need to replace the tilde (~) in the directory path below and expand that to the full path, so on a Mac this would be `/Users/YOUR_USERNAME/pn/devlocal` etc.
  
 ```
 datadir: ~/workspace/pn/devlocal
@@ -60,7 +62,7 @@ Ensure that you have loaded the alias commands into your current terminal sessio
 Run the following command from the root of the cloned pointnetwork repo:
  
 ```
-source .bash_alais
+source .bash_alias
 ```
  
 Create a profile in Firefox called `pointnetwork` that has a proxy set to route all http / https traffic to `localhost:8666`. Don't forget to add the [Point Network CA certificate](./build-build-with-pointnetwork.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
@@ -70,6 +72,7 @@ Create a profile in Firefox called `pointnetwork` that has a proxy set to route 
 The above setup steps only need to be performed once. Going forward you can start a Point Node using:
  
 ```
+npm i
 point-dev
 ```
  
