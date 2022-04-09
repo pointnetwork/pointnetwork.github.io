@@ -103,7 +103,7 @@ In another terminal (to connect to the `point_node` node and deploy the site )
 
 ```bash
 dexec point_node
-./scripts/deploy-sites.sh pointsocial.point --contracts
+ ./point deploy example/social.point --contracts
 ```
 
 The site should deploy successfully after a few minutes.
@@ -202,7 +202,7 @@ Try to deploy the `store.point` app. To do so its just a matter of:
 4. Clean all Docker containers and volumes `dclean`
 5. Bring up all the services (from the project root) `point-zappdev up -d`
 6. Connect back into the `point_node` running container: `dexec point_node`
-7. Deploy store.point: `./scripts/deploy-sites.sh store.point --contracts`
+7. Deploy store.point: `./point deploy example/store.point --contracts`
 8. Open a Point Browser instance to [https://store.point](https://store.point)
 
 ### Deploy your own website

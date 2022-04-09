@@ -33,9 +33,12 @@ Create a `devlocal.yaml` config file and save it in the pointnetwork repo `confi
 Below is an example, You would only need to change `datadir` and `wallet.keystore_path` values if you have created your profile in a different directory to what is specified:
 
 **NOTE**: You may need to replace the tilde (~) in the directory path below and expand that to the full path, so on a Mac this would be `/Users/YOUR_USERNAME/pn/devlocal` etc.
+
+**NOTE**: You can change `zappsdir` to any directory on your computer so that it points to the location where you have all your own personal Zapps that you are developing.
  
 ```
 datadir: ~/workspace/pn/devlocal
+zappsdir: ./example
 wallet:
   keystore_path: ~/workspace/pn/devlocal/keystore
 mode: zappdev
@@ -79,7 +82,7 @@ point-dev
 You can deploy a Zapp from the `example` folder using (this will deploy `blog.point`):
  
 ```
-point-deploy blog.point --contracts
+point-deploy example/blog.point --contracts
 ```
  
 Open a local Point Browser that connects to the Point Node proxy (which is running on port 8666 since there is no port mapping applied when running the Point Node outside of Docker).
