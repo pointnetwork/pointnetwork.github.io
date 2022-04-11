@@ -1,15 +1,44 @@
 ---
-id: build-run-dev-node-outside-docker
-title: Run dev Point Node outside of Docker
-sidebar_label: Run dev Point Node outside of Docker
-slug: ../build-run-dev-node-outside-docker
+id: build-run-dev-node-and-services
+title: Run dev Point Node services
+sidebar_label: Run dev Point Node services
+slug: ../build-run-dev-node-and-services
 ---
  
 ## Prerequisites
  
-First you need to start all the supporting services in Docker by following the instructions to startup Point Node in Zappdev environment [here](./build-build-with-pointnetwork.md).
+You need to install Arlocal and Ganache-CLI as dependent services for Point Node to use.
+
+### Install Arlocal
+
+To install an start Arlocal:
+
+1. Clone the [Arlocal](https://github.com/textury/arlocal) repo
+1. Run `npx arlocal`
+
+### Install Ganache CLI
+
+To install and start Ganache blockchain using Ganache CLI:
+
+1. Install globally via npm: `npm i -g ganache-cli`
+1. Start Ganache blockchain on port 7545 including a specific prefunded account: 
+
+```bash
+ganache-cli -v -p 7545 -i 256 --keepAliveTimeout 20000 --account 0x011967d88c6b79116bb879d4c2bc2c3caa23569edd85dfe0bc596846837bbc8e,0x56bc75e2d63100000
+```
+
+### Deploy Point Contracts
+
+To deploy the Point Contracts:
  
-## Setup
+```
+cd hardhat
+rm -rf cache
+npx hardhat compile
+npx hardhat run scripts/deploy.ts --network development
+```
+ 
+## Setup Local Point Node Config
  
 Create a new profile directory on your local machine for `devlocal`. This is the profile that you can use for running the dev Point Node directly on your own computer without using Docker. This folder can be wherever you like. In this tutorial we will create the profile under `~/workspace/pn/devlocal`. 
  
@@ -94,22 +123,18 @@ Run the command below which assumes that you already have created the `pointnetw
 ```
 point-browser
 ```
- 
-### (Optional Step) - (Re) Deploy Identity Contract
- 
-If you need to deploy the Identity contract you can run the following commands from your local machine.
- 
-Assuming you are already inside the cloned pointnetwork repo folder:
- 
-```
-cd hardhat
-rm -rf cache
-npx hardhat compile
-npx hardhat run scripts/deploy.ts --network development
-```
- 
+
+### (Optional) Start a Hardhat console
+
 If you want to start a hardhat console:
  
 ```
 npx hardhat console --network development
+```
+
+Then you can interact with the deployed Point contracts, for example:
+
+```
+identity = await ethers.getContractAt("identity", "0xD61e5eFcB183418E1f6e53D0605eed8167F90D4d")
+await identity.ikvGet('blog', 'zweb/contracts/address/Blog')
 ```

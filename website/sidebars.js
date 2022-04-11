@@ -56,7 +56,7 @@ module.exports = {
           items: [
             'build/build-environments',
             "build/build-build-with-point-network",
-            "build/build-run-dev-node-outside-docker",
+            "build/build-run-dev-node-and-services",
             "build/build-testing-guide"
           ],
         },
