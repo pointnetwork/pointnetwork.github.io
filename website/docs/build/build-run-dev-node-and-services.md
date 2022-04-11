@@ -35,7 +35,7 @@ To deploy the Point Contracts:
 cd hardhat
 rm -rf cache
 npx hardhat compile
-npx hardhat run scripts/deploy.ts --network development
+BLOCKCHAIN_HOST=localhost npx hardhat run scripts/deploy.ts --network development
 ```
  
 # Setup Local Point Node Config
