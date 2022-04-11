@@ -5,8 +5,6 @@ sidebar_label: Run dev Point Node services
 slug: ../build-run-dev-node-and-services
 ---
  
-# Prerequisites
- 
 You need to install Arlocal and Ganache-CLI as dependent services for Point Node to use.
 
 ## Install Arlocal
