@@ -32,10 +32,12 @@ ganache-cli -v -p 7545 -i 256 --keepAliveTimeout 20000 \
 To deploy the Point Contracts:
  
 ```
+source .bash_alias
 cd hardhat
 rm -rf cache
+npm i
 npx hardhat compile
-BLOCKCHAIN_HOST=localhost npx hardhat run scripts/deploy.ts --network development
+npm start
 ```
  
 # Setup Local Point Node Config
@@ -67,7 +69,7 @@ Below is an example, You would only need to change `datadir` and `wallet.keystor
  
 ```
 datadir: ~/workspace/pn/devlocal
-zappsdir: ./example
+zappsdir: ../zapps
 wallet:
   keystore_path: ~/workspace/pn/devlocal/keystore
 mode: zappdev
@@ -99,7 +101,7 @@ source .bash_alias
  
 Create a profile in Firefox called `pointnetwork` that has a proxy set to route all http / https traffic to `localhost:8666`. Don't forget to add the [Point Network CA certificate](./build-build-with-pointnetwork.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
  
-## Run the Owner Point Node
+## Run the Owner Point Node and deploy an example Zapp
  
 The above setup steps only need to be performed once. Going forward you can start a Point Node using:
  
@@ -107,11 +109,13 @@ The above setup steps only need to be performed once. Going forward you can star
 npm i
 point-dev
 ```
+
+Point Network Example Zapps live in their own separate repo called [Zapps](https://github.com/pointnetwork/zapps). Clone this repo to any location you like on your computer and proceed with the instructions below. In this tutorial we will assume that you have cloned the Zapps repo to a folder **one level below pointnetwork** repo. If you want to clone to a different location that is fine - you just need to change the relative paths below to your path.
  
-You can deploy a Zapp from the `example` folder using (this will deploy `blog.point`):
+You can deploy a Zapp from the cloned `zapps` folder. So from the pointnetwork repo folder run the following to deploy blog.point that is in the cloned zapps repo folder one level below:
  
 ```
-point-deploy example/blog.point --contracts
+point-deploy ../zapps/blog.point --contracts
 ```
  
 Open a local Point Browser that connects to the Point Node proxy (which is running on port 8666 since there is no port mapping applied when running the Point Node outside of Docker).
@@ -155,7 +159,7 @@ Below is an example, You would only need to change `datadir` and `wallet.keystor
  
 ```
 datadir: ~/workspace/pn/visitlocal
-zappsdir: ./example
+zappsdir: ../zapps
 wallet:
   keystore_path: ~/workspace/pn/visitlocal/keystore
 mode: zappdev
