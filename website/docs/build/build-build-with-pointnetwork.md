@@ -83,7 +83,7 @@ build-image
 
 ### Build and Deploy Zapps
 
-Point Network Example Zapps live in their own separate repo called [Zapps](https://github.com/pointnetwork/zapps). Clone this repo to any location you like on your computer and proceed with the instructions below. In this tutorial we will assume that you have cloned the Zapps repo to a folder **one level below pointnetwork** repo. If you want to clone to a different location that is fine - you just need to change the relative paths below to your path (you will also need to modify the volume mount in `docker-compose.zapdev.yaml`).
+Point Network Example Zapps live in their own separate repo called [Zapps](https://github.com/pointnetwork/zapps). Clone this repo to any location you like on your computer and proceed with the instructions below. In this tutorial we will assume that you have cloned the Zapps repo to a folder **one level below pointnetwork** repo. If you want to clone to a different location that is fine - you just need to change the relative paths below to your path (you will also need to modify the volume mount in `docker-compose.zapdev.yaml` and since this file is committed to the repo its not recommended).
 
 NOTE: Since PointSocial Zapp uses React JS we need to make sure that the site is built locally first. For other Zapps you can check if dependencies are required and you only need to run `npm i`. 
 

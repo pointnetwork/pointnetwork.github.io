@@ -107,6 +107,7 @@ The above setup steps only need to be performed once. Going forward you can star
  
 ```
 npm i
+npm run build
 point-dev
 ```
 
