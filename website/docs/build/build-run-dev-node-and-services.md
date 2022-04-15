@@ -146,8 +146,8 @@ Copy the dev wallet key and arweave key from the pointnetowrk repository into th
 Run the `cp` command below. This assumes that you are currently in the cloned pointnetwork repository folder and you have already created the 'keystore' folder in the location specified earlier. Feel free to change this according to your system:
  
 ```
-cp resources/blockchain-test-key2.json ~/workspace/pn/devlocal/keystore/key.json
-cp resources/arweave-test-key2.json ~/workspace/pn/devlocal/keystore/arweave.json
+cp resources/blockchain-test-key2.json ~/workspace/pn/visitlocal/keystore/key.json
+cp resources/arweave-test-key2.json ~/workspace/pn/visitlocal/keystore/arweave.json
 ```
 
 Create a `visitlocal.yaml` config file and save it in the pointnetwork repo `config` directory. NOTE: This file is ignored by the `gitignore` file automatically so do not commit this!
@@ -182,8 +182,6 @@ api:
 zproxy:
   host: 127.0.0.1
   port: 65502
-  server_port: 8779
-  server_http_port: 8780
 ```
 
 Create a profile in Firefox called `website_visitor_docker` that has a proxy set to route all http / https traffic to `localhost:65502` (**note** you can see this matches the zproxy config set in the `visitlocal.yaml` file defined above). Don't forget to add the [Point Network CA certificate](./build-build-with-pointnetwork.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
