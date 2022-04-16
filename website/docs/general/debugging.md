@@ -119,7 +119,7 @@ Create (or add to an existing) Debug configuration file like so (note the env ke
 
 Continue to start the services and start the VS Code debugger like so:
 
-1. If you have not already done so, start the Point Node in Docker environment by following [these instructions](./build/build-build-with-pointnetwork.md).
+1. If you have not already done so, start the Point Node in Docker environment by following [these instructions](./build-zapp-dev-environment-direct-install).
 1. Build the source code using sourcemaps option like so: `npm run build -- --sourcemap`
 2. Start another node in VS Debugger using the `Launch ZappDev` configuration that you have already added above.
 1. Open `point-browser` to test this (this is the browser where the proxy is set to `8666` which is what the node will be running on since port mapping is not used here).

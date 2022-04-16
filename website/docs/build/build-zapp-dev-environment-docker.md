@@ -1,8 +1,8 @@
 ---
-id: build-build-with-point-network
-title: Point Network Builders Starter's Guide
-sidebar_label: Point Network Builders Starter's Guide
-slug: ../build-build-with-point-network
+id: build-zapp-dev-environment-docker
+title: Setup Zapp Development Environment using Docker
+sidebar_label: Zapp Development Environment using Docker
+slug: ../build-zapp-dev-environment-docker
 ---
 
 Welcome to the builder's section of the Point Network Wiki.

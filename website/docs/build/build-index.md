@@ -13,7 +13,7 @@ This section of the wiki is divided into the following parts:
 
 ## Developers Guide
 
-Contains details on how to setup and run a Point Network Node in a development environment. More details [here](build-build-with-point-network).
+Contains details on how to setup and run a Point Network Node in a development environment. More details [here](./build-zapp-dev-environment-direct-install).
 
 ## Integration Guide
 

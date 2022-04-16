@@ -55,8 +55,12 @@ module.exports = {
           label: "Development Guide",
           items: [
             'build/build-environments',
-            "build/build-build-with-point-network",
-            "build/build-run-dev-node-and-services",
+            "build/build-zapp-dev-environment-docker",
+            "build/build-zapp-dev-environment-direct-install",
+            "build/build-zapp-developer-guide",
+            "build/build-upgradable-zapps",
+            "build/build-point-deploy-json-file-explained",
+            "build/build-routes-json-file-explained",
             "build/build-testing-guide"
           ],
         },

@@ -1,8 +1,8 @@
 ---
-id: build-run-dev-node-and-services
-title: Run dev Point Node services
-sidebar_label: Run dev Point Node services
-slug: ../build-run-dev-node-and-services
+id: build-zapp-dev-environment-direct-install
+title: Setup Zapp Development Environment (without Docker)
+sidebar_label: Zapp Development Environment (without Docker)
+slug: ../build-zapp-dev-environment-direct-install
 ---
  
 You need to install Arlocal and Ganache-CLI as dependent services for Point Node to use.
@@ -99,7 +99,7 @@ Run the following command from the root of the cloned pointnetwork repo:
 source .bash_alias
 ```
  
-Create a profile in Firefox called `pointnetwork` that has a proxy set to route all http / https traffic to `localhost:8666`. Don't forget to add the [Point Network CA certificate](./build-build-with-pointnetwork.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
+Create a profile in Firefox called `pointnetwork` that has a proxy set to route all http / https traffic to `localhost:8666`. Don't forget to add the [Point Network CA certificate](./build-zapp-dev-environment-docker.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
  
 ## Run the Owner Point Node and deploy an example Zapp
  
@@ -119,9 +119,9 @@ You can deploy a Zapp from the cloned `zapps` folder. So from the pointnetwork r
 point-deploy ../zapps/blog.point --contracts
 ```
  
-Open a local Point Browser that connects to the Point Node proxy (which is running on port 8666 since there is no port mapping applied when running the Point Node outside of Docker).
+Open a local Point Browser that connects to the Point Node proxy (which is running on port 8666).
  
-NOTE: This has to be run from within the cloned [PointSDK repo](https://github.com/pointnetwork/pointsdk) folder which you will have already setup according to the instructions [here](./build-build-with-pointnetwork.md#create-a-point-network-profile-in-firefox).
+NOTE: This has to be run from within the cloned [PointSDK repo](https://github.com/pointnetwork/pointsdk) folder which you will have already setup according to the instructions [here](./build-zapp-dev-environment-docker.md#create-a-point-network-profile-in-firefox).
  
 Run the command below which assumes that you already have created the `pointnetwork` profile as stated earlier:
  
@@ -131,7 +131,7 @@ point-browser
 
 # (Optional) Run a second Point Node to simulate a Visitor
 
-To simulate having more than one Identity on the Netowrk and to be able to interact with both Identities, it is necessary to create a new profile and start a separate instance of the Point Node using this new profile. This is especially useful when developing Zapps such as `email.point` which require direct interaction between two idetntities (sending emails). 
+To simulate having more than one Identity on the Netowrk and to be able to interact with both Identities, it is necessary to create a new profile and start a separate instance of the Point Node using this new profile. This is especially useful when developing Zapps such as `email.point` which require direct interaction between two identities (sending emails). 
 
 Create a new profile directory on your local machine for `visitlocal`. This is the profile that you can use for running the dev Point Node as a second visitor Identity. This folder can be wherever you like. In this tutorial we will create the profile under `~/workspace/pn/visitlocal`. 
  
@@ -184,7 +184,7 @@ zproxy:
   port: 65502
 ```
 
-Create a profile in Firefox called `website_visitor_docker` that has a proxy set to route all http / https traffic to `localhost:65502` (**note** you can see this matches the zproxy config set in the `visitlocal.yaml` file defined above). Don't forget to add the [Point Network CA certificate](./build-build-with-pointnetwork.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
+Create a profile in Firefox called `website_visitor_docker` that has a proxy set to route all http / https traffic to `localhost:65502` (**note** you can see this matches the zproxy config set in the `visitlocal.yaml` file defined above). Don't forget to add the [Point Network CA certificate](./build-zapp-dev-environment-docker.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
 
 ## Run the Visitor Point Node
  
@@ -197,7 +197,7 @@ point-visit
  
 Open a local Point Browser that connects to the Visitor Point Node proxy running on port 65502.
  
-NOTE: This has to be run from within the cloned [PointSDK repo](https://github.com/pointnetwork/pointsdk) folder which you will have already setup according to the instructions [here](./build-build-with-pointnetwork.md#create-a-point-network-profile-in-firefox).
+NOTE: This has to be run from within the cloned [PointSDK repo](https://github.com/pointnetwork/pointsdk) folder which you will have already setup according to the instructions [here](./build-zapp-dev-environment-docker.md#create-a-point-network-profile-in-firefox).
  
 Run the command below which assumes that you already have created the `website_visitor_docker` profile as stated earlier:
  

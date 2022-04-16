@@ -9,7 +9,7 @@ There are several environments in which Point Network can be run. These are:
 
 * **YNET** this is the default live environment for the Alpha version of Point Network and can be installed by following the [Point Network Alpha Testing Guide](https://github.com/pointnetwork/pointnetwork-dashboard/blob/main/ALPHA.md)
 * **e2e** this is the end to end environment which is used for simulating the YNET environment on a single local developer machine. It's started using the e2e Docker Compose file as defined [here](https://github.com/pointnetwork/pointnetwork/blob/develop/docker-compose.e2e.yaml). To start the `e2e` environment in docker simply run `docker compose -f docker-compose.e2e.yaml up -d` from your terminal.
-* **zappdev** this is the development environment for building, testing, maintaining and deploying Zapps (applications that run on Point Network). To get started with this environment please follow the [Point Network Builders Starter's Guide](./build-build-with-pointnetwork.md)
+* **zappdev** this is the development environment for building, testing, maintaining and deploying Zapps (applications that run on Point Network). To get started with this environment please follow the [Point Network Builders Starter's Guide](./build-zapp-dev-environment-direct-install.md)
 
 ### Differences between environments
 
