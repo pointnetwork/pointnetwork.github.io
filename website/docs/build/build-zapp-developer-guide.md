@@ -71,7 +71,8 @@ Once you are ready to share your amazing new Zapp to the world, you can deploy i
     ./point deploy ../myzapps/mynewzapp.point --contracts
     ```
 
-Since your Point Node is connected to YNET your Zapp will be deployed to YNET using your Identity that you have registered earlier.
+    Since your Point Node is connected to YNET your Zapp will be deployed to YNET using your Identity that you have registered earlier.
+    
 1. Once the deployment is complete you can open your new Zapp in YNET. You can share the Zapp url (e.g. https://mynewzapp.point) to anyone you like and they can open the Zapp in Point Network!
  
 ## Continue Developing
