@@ -30,9 +30,14 @@ You would take the following steps to develop, test and deploy your Zapp onto Po
  
 Once you have a great idea for a new decentralized application that you want to deploy and share on Point Network you would:
  
-1. Clone the [template.point](https://github.com/pointnetwork/template.point) Zapp repo
-1. Copy the folder to a new location `cp template.point ../myzapps/mynewzapp.point`
-1. Change directory into your new Zapp folder and install the dependencies `npm i`
+1. Clone the [template.point](https://github.com/pointnetwork/template.point) Zapp repo into a local folder (for example `myzapps`):
+
+    ```
+    git clone https://github.com/pointnetwork/template.point.git myzapps/mynewzapp.point
+    ```
+
+1. Remove the `.git` folder so that you can initialize for your own Github repo later on if you wish: `rm -rf myzapps/mynewzapp.point/.git`
+1. Change directory into your new Zapp folder and install the dependencies `npm i` and build the React JS application `npm run build`
 1. Startup a local development environment of Point Network and deploy your new Zapp by following the instructions [here](./build-zapp-dev-environment-direct-install)). Once you have completed that and you have your Zapp running locally, return to this tutorial.
 1. Modify the `point.deploy.json` file to contain the following content (replace 'MyNewZapp' with your Zapp Name):
  
@@ -60,7 +65,13 @@ Once you are ready to share your amazing new Zapp to the world, you can deploy i
 1. Now exit the Alpha application and return to your cloned pointnetwork repo
 1. Start the Point Node in YNET mode from the cloned pointnetwork repo folder by running `npm run build && npm run start`
 1. Open the Point Browser - which connects to the Point Node that is now connected in YNET
-1. Now run the deploy script for your Zapp as you have done during development. Since your Point Node is connected to YNET your Zapp will be deployed to YNET using your Identity that you have registered earlier.
+1. Now run the deploy script for your Zapp like so (while in the pointnetwork repo directory):
+
+    ```
+    ./point deploy ../myzapps/mynewzapp.point --contracts
+    ```
+
+Since your Point Node is connected to YNET your Zapp will be deployed to YNET using your Identity that you have registered earlier.
 1. Once the deployment is complete you can open your new Zapp in YNET. You can share the Zapp url (e.g. https://mynewzapp.point) to anyone you like and they can open the Zapp in Point Network!
  
 ## Continue Developing
