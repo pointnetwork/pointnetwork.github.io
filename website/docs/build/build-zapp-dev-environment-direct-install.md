@@ -11,7 +11,7 @@ You need to install NVM, Node JS, Arlocal and Ganache-CLI as dependent services 
 
 Follow the instructions on the [NVM repo](https://github.com/nvm-sh/nvm) for your platform.
 
-### Install Node JS
+## Install Node JS
 
 With NVM installed and setup you are now ready to install Node JS as follows:
 
