@@ -7,6 +7,8 @@ slug: ../learn-point-deployer
 
 # File Deployment Process
 
+**NOTE** Some of the following maybe outdated. Its receommended to check the [source code directly](https://github.com/pointnetwork/pointnetwork) for very latest approach implemented in Point Node.
+
 This document outlines a high level overview of the process of deploying files to Point Network via the `point cli`. This document follows the journey of a file as it is uploaded, parsed and finally passed onto the Point Network storage layer for distribution among Point Network nodes.
 
 ## Step 1: Initialization
