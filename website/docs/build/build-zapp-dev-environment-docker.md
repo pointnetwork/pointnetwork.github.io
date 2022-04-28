@@ -147,8 +147,8 @@ First create two profiles in Firefox to be able to test connecting to the differ
 
 Note we need to create two profiles so set the name to the profile you are currently creating
 
-* `website_owner_docker`
-* `website_visitor_docker`
+* `website_owner`
+* `website_visitor`
 
 | ![alt-text](../assets/2-add-new-firefox-profile.png) |
 | ------------------------------------- |
@@ -157,8 +157,8 @@ Note we need to create two profiles so set the name to the profile you are curre
 
 Note each profile that you are creating requires a specific proxy setting. Please configure as shown below based on the profile you are currently adding:
 
-* Profile `website_owner_docker` : set proxy to `localhost:65501`
-* Profile `website_visitor_docker` : set proxy to `localhost:65502`
+* Profile `website_owner` : set proxy to `localhost:65501`
+* Profile `website_visitor` : set proxy to `localhost:65502`
 
 | ![alt-text](../assets/3-config-firefox-proxy.png) |
 | ------------------------------------- |
@@ -177,11 +177,13 @@ Now clone the [PointSDK](https://github.com/pointnetwork/pointsdk) repo into a *
 git clone git@github.com:pointnetwork/pointsdk.git
 cd pointsdk
 nvm use
+npm i
+npm run build
 npm i -g web-ext
 point-browser-owner
 ```
 
-This should open the Point Browser with the `website_owner_docker` profile already configured to connect to the `point_node` node and open [https://point](https://point). Now you can navigate to [https://point/identities](https://point/identities) and you should see the deployed pointsocial.point zapp listed, You can open it from there.
+This should open the Point Browser with the `website_owner` profile already configured to connect to the `point_node` node and open [https://point](https://point). Now you can navigate to [https://point/identities](https://point/identities) and you should see the deployed pointsocial.point zapp listed, You can open it from there.
 
 ### Open the deployed site in a second Point Browser
 

@@ -103,8 +103,10 @@ network:
   web3: http://localhost:7545
 api:
   address: 127.0.0.1
+  port: 24681
 zproxy:
   host: 127.0.0.1
+  port: 65501
 ```
  
 Ensure that you have loaded the alias commands into your current terminal session.
@@ -200,7 +202,7 @@ zproxy:
   port: 65502
 ```
 
-Create a profile in Firefox called `website_visitor_docker` that has a proxy set to route all http / https traffic to `localhost:65502` (**note** you can see this matches the zproxy config set in the `visitlocal.yaml` file defined above). Don't forget to add the [Point Network CA certificate](./build-zapp-dev-environment-docker.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
+Create a profile in Firefox called `website_visitor` that has a proxy set to route all http / https traffic to `localhost:65502` (**note** you can see this matches the zproxy config set in the `visitlocal.yaml` file defined above). Don't forget to add the [Point Network CA certificate](./build-zapp-dev-environment-docker.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
 
 ## Run the Visitor Point Node
  
@@ -215,7 +217,7 @@ Open a local Point Browser that connects to the Visitor Point Node proxy running
  
 NOTE: This has to be run from within the cloned [PointSDK repo](https://github.com/pointnetwork/pointsdk) folder which you will have already setup according to the instructions [here](./build-zapp-dev-environment-docker.md#create-a-point-network-profile-in-firefox).
  
-Run the command below which assumes that you already have created the `website_visitor_docker` profile as stated earlier:
+Run the command below which assumes that you already have created the `website_visitor` profile as stated earlier:
  
 ```
 point-browser-visitor
