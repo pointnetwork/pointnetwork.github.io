@@ -51,6 +51,7 @@ To deploy the Point Contracts:
 source .bash_alias
 cd hardhat
 rm -rf cache
+rm -rf typechain
 npm i
 npx hardhat compile
 npm start
