@@ -5,14 +5,30 @@ sidebar_label: Zapp Development Environment (without Docker)
 slug: ../build-zapp-dev-environment-direct-install
 ---
  
-You need to install Arlocal and Ganache-CLI as dependent services for Point Node to use.
+You need to install NVM, Node JS, Arlocal and Ganache-CLI as dependent services for Point Node to use.
+
+## Install NVM
+
+Follow the instructions on the [NVM repo](https://github.com/nvm-sh/nvm) for your platform.
+
+### Install Node JS
+
+With NVM installed and setup you are now ready to install Node JS as follows:
+
+```
+nvm use 14
+```
+
+The Point Node repo makes use of an [.nvmrc file](https://github.com/pointnetwork/pointnetwork/blob/develop/.nvmrc) which can be recognised by your terminal to automatically switch to the correct version of Node using NVM.
+
+If you are using ZSH terminal then follow [these instructions](https://github.com/nvm-sh/nvm#zsh) to add support to switch to the correct Node version automatically. 
 
 ## Install Arlocal
 
-To install an start Arlocal:
+To install and start Arlocal:
 
 1. Clone the [Arlocal](https://github.com/textury/arlocal) repo
-1. Run `npx arlocal`
+1. Run `npx arlocal@1.1.30`
 
 ## Install Ganache CLI
 
@@ -35,6 +51,7 @@ To deploy the Point Contracts:
 source .bash_alias
 cd hardhat
 rm -rf cache
+rm -rf typechain
 npm i
 npx hardhat compile
 npm start
@@ -50,7 +67,7 @@ Run the `mkdir` command below which will create the folders shown:
 mkdir -p ~/workspace/pn/devlocal/keystore
 ```
  
-Copy the dev wallet key and arweave key from the pointnetowrk repository into the `keystore` directory that you created in the previous step.
+Copy the dev wallet key and arweave key from the pointnetwork repository into the `keystore` directory that you created in the previous step.
  
 Run the `cp` command below. This assumes that you are currently in the cloned pointnetwork repository folder and you have already created the 'keystore' folder in the location specified earlier. Feel free to change this according to your system:
  
@@ -87,8 +104,10 @@ network:
   web3: http://localhost:7545
 api:
   address: 127.0.0.1
+  port: 24681
 zproxy:
   host: 127.0.0.1
+  port: 65501
 ```
  
 Ensure that you have loaded the alias commands into your current terminal session.
@@ -131,7 +150,7 @@ point-browser
 
 # (Optional) Run a second Point Node to simulate a Visitor
 
-To simulate having more than one Identity on the Netowrk and to be able to interact with both Identities, it is necessary to create a new profile and start a separate instance of the Point Node using this new profile. This is especially useful when developing Zapps such as `email.point` which require direct interaction between two identities (sending emails). 
+To simulate having more than one Identity on the Network and to be able to interact with both Identities, it is necessary to create a new profile and start a separate instance of the Point Node using this new profile. This is especially useful when developing Zapps such as `email.point` which require direct interaction between two identities (sending emails). 
 
 Create a new profile directory on your local machine for `visitlocal`. This is the profile that you can use for running the dev Point Node as a second visitor Identity. This folder can be wherever you like. In this tutorial we will create the profile under `~/workspace/pn/visitlocal`. 
  
@@ -141,7 +160,7 @@ Run the `mkdir` command below which will create the folders shown:
 mkdir -p ~/workspace/pn/visitlocal/keystore
 ```
  
-Copy the dev wallet key and arweave key from the pointnetowrk repository into the `keystore` directory that you created in the previous step.
+Copy the dev wallet key and arweave key from the pointnetwork repository into the `keystore` directory that you created in the previous step.
  
 Run the `cp` command below. This assumes that you are currently in the cloned pointnetwork repository folder and you have already created the 'keystore' folder in the location specified earlier. Feel free to change this according to your system:
  
@@ -184,7 +203,7 @@ zproxy:
   port: 65502
 ```
 
-Create a profile in Firefox called `website_visitor_docker` that has a proxy set to route all http / https traffic to `localhost:65502` (**note** you can see this matches the zproxy config set in the `visitlocal.yaml` file defined above). Don't forget to add the [Point Network CA certificate](./build-zapp-dev-environment-docker.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
+Create a profile in Firefox called `website_visitor` that has a proxy set to route all http / https traffic to `localhost:65502` (**note** you can see this matches the zproxy config set in the `visitlocal.yaml` file defined above). Don't forget to add the [Point Network CA certificate](./build-zapp-dev-environment-docker.md#create-a-point-network-profile-in-firefox) to the new profile in Firefox. 
 
 ## Run the Visitor Point Node
  
@@ -199,7 +218,7 @@ Open a local Point Browser that connects to the Visitor Point Node proxy running
  
 NOTE: This has to be run from within the cloned [PointSDK repo](https://github.com/pointnetwork/pointsdk) folder which you will have already setup according to the instructions [here](./build-zapp-dev-environment-docker.md#create-a-point-network-profile-in-firefox).
  
-Run the command below which assumes that you already have created the `website_visitor_docker` profile as stated earlier:
+Run the command below which assumes that you already have created the `website_visitor` profile as stated earlier:
  
 ```
 point-browser-visitor
