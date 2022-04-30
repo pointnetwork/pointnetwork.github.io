@@ -79,7 +79,7 @@ npm i -g web-ext
 point-browser-owner
 ```
  
-**NOTE**: If you see the error message `The request "website_owner" profile name cannot be resolved to a profile path` then you need to [create that specific profile in Firefox](./build-create-a-dev-point-network-profile-in-firefox)
+**NOTE**: If you see the error message `The request "website_owner" profile name cannot be resolved to a profile path` then you need to [create that specific profile in Firefox](./build-create-a-dev-point-network-profile-in-firefox) then run the above command again to open the Point Browser.
  
 ## Stop all Dev Services
  
@@ -111,13 +111,13 @@ point-visit
  
 ### Open the Zapp in the Visitor Point Browser
  
-From the cloned PointSDK repo, start a Point Network Visitor Node like so:
+From the cloned PointSDK repo, open the a Visitor Point Browser like so:
  
 ```bash
 point-browser-visitor
 ```
  
-**NOTE**: If you see the error message `The request "website_visitor" profile name cannot be resolved to a profile path` then you need to [create that specific profile in Firefox](./build-create-a-dev-point-network-profile-in-firefox)
+**NOTE**: If you see the error message `The request "website_visitor" profile name cannot be resolved to a profile path` then you need to [create that specific profile in Firefox](./build-create-a-dev-point-network-profile-in-firefox) then run the above command again to open the Point Browser.
  
 You should now be able to interact with any Zapps that have been deployed. As mentioned this is useful for Zapps that require interacting between two Identities such as the email zapp. I encourage you to try it!
  
