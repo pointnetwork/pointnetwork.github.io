@@ -57,6 +57,7 @@ module.exports = {
             'build/build-environments',
             "build/build-zapp-dev-environment-docker",
             "build/build-zapp-dev-environment-direct-install",
+            "build/build-create-a-dev-point-network-profile-in-firefox",
             "build/build-zapp-developer-guide",
             "build/build-upgradable-zapps",
             "build/build-point-deploy-json-file-explained",
