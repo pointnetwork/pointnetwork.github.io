@@ -62,6 +62,10 @@ module.exports = {
             "build/build-upgradable-zapps",
             "build/build-point-deploy-json-file-explained",
             "build/build-routes-json-file-explained",
+            "build/build-using-hardhat-console",
+            "build/build-file-upload-cli",
+            "build/build-test-visitor-node-using-different-identity",
+            "build/build-import-data-from-live-dapps-into-dev",
             "build/build-testing-guide"
           ],
         },

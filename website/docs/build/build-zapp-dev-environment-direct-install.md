@@ -120,18 +120,3 @@ point-browser-visitor
 **NOTE**: If you see the error message `The request "website_visitor" profile name cannot be resolved to a profile path` then you need to [create that specific profile in Firefox](./build-create-a-dev-point-network-profile-in-firefox) then run the above command again to open the Point Browser.
  
 You should now be able to interact with any Zapps that have been deployed. As mentioned this is useful for Zapps that require interacting between two Identities such as the email zapp. I encourage you to try it!
- 
-# (Optional) Start a Hardhat console
- 
-If you want to start a hardhat console:
- 
-```
-npx hardhat console --network development
-```
- 
-Then you can interact with the deployed Point contracts, for example:
- 
-```
-identity = await ethers.getContractAt("identity", "0xD61e5eFcB183418E1f6e53D0605eed8167F90D4d")
-await identity.ikvGet('blog', 'zweb/contracts/address/Blog')
-```
