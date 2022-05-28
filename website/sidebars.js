@@ -66,6 +66,8 @@ module.exports = {
             "build/build-file-upload-cli",
             "build/build-test-visitor-node-using-different-identity",
             "build/build-import-data-from-live-dapps-into-dev",
+            "build/build-start-point-node-default",
+            "build/build-delegating-deployer-identities",
             "build/build-testing-guide"
           ],
         },
