@@ -68,6 +68,7 @@ module.exports = {
             "build/build-import-data-from-live-dapps-into-dev",
             "build/build-start-point-node-default",
             "build/build-delegating-deployer-identities",
+            "build/build-use-identity-oracle-in-devlocal",
             "build/build-testing-guide"
           ],
         },
