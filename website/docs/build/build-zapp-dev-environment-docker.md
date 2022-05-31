@@ -1,8 +1,8 @@
 ---
-id: build-build-with-point-network
-title: Point Network Builders Starter's Guide
-sidebar_label: Point Network Builders Starter's Guide
-slug: ../build-build-with-point-network
+id: build-zapp-dev-environment-docker
+title: Setup Zapp Development Environment using Docker
+sidebar_label: Zapp Development Environment using Docker
+slug: ../build-zapp-dev-environment-docker
 ---
 
 Welcome to the builder's section of the Point Network Wiki.
@@ -81,12 +81,14 @@ You need to build a local Docker image to use. Ensure you are on the branch you 
 build-image
 ```
 
-With the above out of the way, run the following commands to install package dependencies for the Zapp you are working on.
+### Build and Deploy Zapps
 
-NOTE: Since PointSocial Zapp uses React JS we need to make sure that the site is built locally first. For other Zapps you can check if dependencies are required and you only need to run `npm i`. For example in `email.point` there is a dev dependency required that needs to be installed before running the node.
+Point Network Example Zapps live in their own separate repo called [Zapps](https://github.com/pointnetwork/zapps). Clone this repo to any location you like on your computer and proceed with the instructions below. In this tutorial we will assume that you have cloned the Zapps repo to a folder **one level below pointnetwork** repo. If you want to clone to a different location that is fine - you just need to change the relative paths below to your path (you will also need to modify the volume mount in `docker-compose.zapdev.yaml` and since this file is committed to the repo its not recommended).
+
+NOTE: Since PointSocial Zapp uses React JS we need to make sure that the site is built locally first. For other Zapps you can check if dependencies are required and you only need to run `npm i`. 
 
 ```bash
-cd example/pointsocial.point
+cd ../zapps/social.point
 npm i
 npm run build       <-- only needed for building Zapps that use frontend libraries like React JS
 ```
@@ -103,7 +105,7 @@ In another terminal (to connect to the `point_node` node and deploy the site )
 
 ```bash
 dexec point_node
-./scripts/deploy-sites.sh pointsocial.point --contracts
+ ./point deploy example/social.point --contracts
 ```
 
 The site should deploy successfully after a few minutes.
@@ -130,44 +132,13 @@ std::exception::what: You shall not have another CompilerStack aside me.
 
 ... then it is usually due to installing dependencies after the Point Node has started. A simple restart of the Point Node should fix this.
 
+### Create a Dev Point Network Profile in Firefox
+
+Create two profiles in Firefox to be able to test connecting to the different nodes quickly and easily. I suggest creating two profiles matching the names of the profiles set in your bash alias as mentioned above. NOTE: these profiles only need to be created once.
+
+Details on how to create a new Dev Point Network Profile are [outlined here](./build-create-a-dev-point-network-profile-in-firefox).
+
 ### Open the deployed site in Point Browser
-
-First create two profiles in Firefox to be able to test connecting to the different nodes quickly and easily. I suggest creating two profiles matching the names of the profiles set in your bash alias as mentioned above. NOTE: these profiles only need to be created once.
-
-### Create a Point Network Profile in Firefox
-
-1. Create a new Profile by navigating to `about:profiles` in Firefox.
-
-| ![alt-text](../assets/1-add-new-firefox-profile.png) |
-| ------------------------------------- |
-
-2. Enter the profile name in the wizard
-
-Note we need to create two profiles so set the name to the profile you are currently creating
-
-* `website_owner_docker`
-* `website_visitor_docker`
-
-| ![alt-text](../assets/2-add-new-firefox-profile.png) |
-| ------------------------------------- |
-
-3. Configure the proxy for the specific profile
-
-Note each profile that you are creating requires a specific proxy setting. Please configure as shown below based on the profile you are currently adding:
-
-* Profile `website_owner_docker` : set proxy to `localhost:65501`
-* Profile `website_visitor_docker` : set proxy to `localhost:65502`
-
-| ![alt-text](../assets/3-config-firefox-proxy.png) |
-| ------------------------------------- |
-
-4. Import **and trust** the Point Network CA Certificate
-
-Note the Point Network CA certificate is located in the [`resources/certs`](https://github.com/pointnetwork/pointnetwork/tree/develop/resources/certs) directory.
-
-| ![alt-text](../assets/4-import-ca-firefox.png) |
-| ------------------------------------- |
-
 
 Now clone the [PointSDK](https://github.com/pointnetwork/pointsdk) repo into a *separate directory*, cd into it, use the correct node version, install web-ext and run the `point-browser-owner` alias command like so:
 
@@ -175,11 +146,13 @@ Now clone the [PointSDK](https://github.com/pointnetwork/pointsdk) repo into a *
 git clone git@github.com:pointnetwork/pointsdk.git
 cd pointsdk
 nvm use
+npm i
+npm run build
 npm i -g web-ext
 point-browser-owner
 ```
 
-This should open the Point Browser with the `website_owner_docker` profile already configured to connect to the `point_node` node and open [https://point](https://point). Now you can navigate to [https://point/identities](https://point/identities) and you should see the deployed pointsocial.point zapp listed, You can open it from there.
+This should open the Point Browser with the `website_owner` profile already configured to connect to the `point_node` node and open [https://point](https://point). Now you can navigate to [https://point/identities](https://point/identities) and you should see the deployed pointsocial.point zapp listed, You can open it from there.
 
 ### Open the deployed site in a second Point Browser
 
@@ -196,14 +169,24 @@ If you have added the above command as an alias and you have set up the Firefox 
 
 Try to deploy the `store.point` app. To do so its just a matter of:
 
-1. Install the deps in store.point `cd example/store.point && npm i`
-1. Build the store.point site `cd example/store.point && npm run build`
+1. Install the deps in store.point `cd ../zapps/store.point && npm i`
+1. Build the store.point site `cd ../zapps/store.point && npm run build`
 1. Tear down all the services (from the project root) `point-zappdev down`
 1. Clean all Docker containers and volumes `dclean`
 1. Bring up all the services (from the project root) `point-zappdev up -d`
 1. Connect back into the `point_node` running container: `dexec point_node`
-1. Deploy store.point: `./scripts/deploy-sites.sh store.point --contracts`
+1. Deploy store.point: `./point deploy example/store.point --contracts`
 1. Open a Point Browser instance to [https://store.point](https://store.point)
+
+### Deploy your own website
+
+1. Copy your website to `example` folder.
+1. If your website uses `yarn`/`npm`, install dependencies and build it.
+1. Before deployment, your website should contain `public` folder with all the static files.
+1. If you use solidity contracts, which have to be deployed, they should be in `contracts` folder.
+1. Create `point.deploy.json` file in your website folder root. It should contain version, target url, list of contracts and keyvalue entries. Use some of existing website's files as an example.
+1. Create `routes.json` file. If your app is an SPA, it should contain the only route: `"/": "index.html"` (or whatever is your index file name). If your app is a traditional static website, add all the routes with the corresponding file names.
+1. Repeat 3-8 steps of the previous tutorial (changing `store` to your website name in step 7).
 
 **Docker Compose Logs**
 
