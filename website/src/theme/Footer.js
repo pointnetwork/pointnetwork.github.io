@@ -211,7 +211,7 @@ export default function Footer() {
                 id: "footer.body.technology.lightpaper",
                 description: "Lightpaper link in Technology column in Footer",
               })}
-              href="https://pointnetwork.io/files/PointNetworkBrochure-c003.pdf"
+              href="https://pointnetwork.io/link/litepaper"
             />
           </FooterNavColumn>
           <FooterNavColumn
