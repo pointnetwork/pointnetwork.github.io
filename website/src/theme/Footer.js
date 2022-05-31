@@ -65,7 +65,7 @@ function FooterSocialColumn() {
       </p>
       <Button>
         <a
-          href="https://pointnetwork.io/"
+          href="https://pointnetwork.io/#subscribe"
           target="_blank"
           style={{ color: "white" }}
         >
@@ -139,7 +139,7 @@ export default function Footer() {
                 id: "footer.body.general.about",
                 description: "About link in General column in Footer",
               })}
-              href="https://pointnetwork.io/page/about"
+              href="https://pointnetwork.io/about"
             />
             <FooterLink
               content={translate({
@@ -147,7 +147,7 @@ export default function Footer() {
                 id: "footer.body.general.faq",
                 description: "FAQ link in General column in Footer",
               })}
-              href="https://pointnetwork.io/"
+              href="https://pointnetwork.io/#frequently-asked-questions"
             />
             <FooterLink
               content={translate({
@@ -155,7 +155,7 @@ export default function Footer() {
                 id: "footer.body.general.contact",
                 description: "Contact link in General column in Footer",
               })}
-              href="https://pointnetwork.io/page/social"
+              href="mailto:info@pointnetwork.io"
             />
             <FooterLink
               content={translate({
@@ -171,7 +171,7 @@ export default function Footer() {
                 id: "footer.body.general.careers",
                 description: "Careers link in General column in Footer",
               })}
-              href="https://pointnetwork.io/page/social"
+              href="https://pointnetwork-1639566514062.freshteam.com/jobs"
             />
           </FooterNavColumn>
           <FooterNavColumn
@@ -203,7 +203,7 @@ export default function Footer() {
                 id: "footer.body.technology.whitepaper",
                 description: "Whitepaper link in Technology column in Footer",
               })}
-              href="https://docs.google.com/document/d/16bcqsnezTKnPyYI7g32gEkrmJE35z8U4Zj0lUUXXQDY/edit"
+              href="https://pointnetwork.io/link/whitepaper"
             />
             <FooterLink
               content={translate({
@@ -237,7 +237,7 @@ export default function Footer() {
               })}
               href="https://pointnetwork.github.io/docs/getting-started"
             />
-            <FooterLink content="Blog" href="https://pointnetwork.io/page/blog" />
+            <FooterLink content="Blog" href="https://medium.com/@Pointnetwork" />
             <FooterLink
               content="Telegram Chat"
               href="https://t.me/pointnetworkchat"
