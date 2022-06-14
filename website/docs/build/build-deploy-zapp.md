@@ -5,7 +5,7 @@ sidebar_label: Deploy Zapp to Point Network
 slug: ../build-deploy-zapp
 ---
 
-First follow the steps in teh [Zapp Developer Guide](./build-zapp-developer-guide) to get up and running.
+First follow the steps in the [Zapp Developer Guide](./build-zapp-developer-guide) to get up and running.
 
 Once you are ready to share your amazing new Zapp to the world, you can deploy it to YNet You can do so as follows:
  
