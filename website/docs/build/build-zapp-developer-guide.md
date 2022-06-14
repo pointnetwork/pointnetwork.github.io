@@ -56,24 +56,9 @@ Once you have a great idea for a new decentralized application that you want to 
 1. Modify the React JS components to contain the logic of your Zapp.
 1. Deploy locally and continue to develop the Zapp. In the development environment you can run the watch command for the front end `npm run watch` so that as you make changes to any React JS components they are automatically built and you can simply refresh the Point Browser to see your latest changes. NOTE: if you need to make changes to your Smart Contract you will need to redeploy your Zapp to see these changes.
  
-## Deploy your Zapp to YNET
+## Deploy your Zapp to YNet
  
-Once you are ready to share your amazing new Zapp to the world, you can deploy it to YNET. You can do so as follows:
- 
-1. Stop all your locally running services - Point Network, Blockchain, Arlocal etc.
-1. Download and install the [Point Network ALPHA](https://github.com/pointnetwork/pointnetwork-dashboard/blob/main/ALPHA.md). This will step you through the process of creating your own mnemonic keys and you will also register your identity on YNET. Be sure to register the Identity that you want for your Zapp name e.g. `MyNewZapp` (replace with your Zapp name).
-1. Now exit the Alpha application and return to your cloned pointnetwork repo
-1. Start the Point Node in YNET mode from the cloned pointnetwork repo folder by running `npm run build && npm run start`
-1. Open the Point Browser - which connects to the Point Node that is now connected in YNET
-1. Now run the deploy script for your Zapp like so (while in the pointnetwork repo directory):
-
-    ```
-    ./point deploy ../myzapps/mynewzapp.point --contracts
-    ```
-
-    Since your Point Node is connected to YNET your Zapp will be deployed to YNET using your Identity that you have registered earlier.
-    
-1. Once the deployment is complete you can open your new Zapp in YNET. You can share the Zapp url (e.g. https://mynewzapp.point) to anyone you like and they can open the Zapp in Point Network!
+Step by step details on deploying your Zapp to YNet are available [here](./build-deploy-zapp).
  
 ## Continue Developing
  
