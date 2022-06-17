@@ -151,6 +151,14 @@ export default function Footer() {
             />
             <FooterLink
               content={translate({
+                message: "Support",
+                id: "footer.body.general.support",
+                description: "Support link in General column in Footer",
+              })}
+              href="https://pointnetwork.io/support"
+            />
+            <FooterLink
+              content={translate({
                 message: "Contact",
                 id: "footer.body.general.contact",
                 description: "Contact link in General column in Footer",
