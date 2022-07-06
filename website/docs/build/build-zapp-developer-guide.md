@@ -38,7 +38,7 @@ Once you have a great idea for a new decentralized application that you want to 
 
 1. Remove the `.git` folder so that you can initialize for your own Github repo later on if you wish: `rm -rf mydapps/mynewdapp.point/.git`
 1. Change directory into your new dapp folder and install the dependencies `npm i` and build the React JS application `npm run build`
-1. Startup a local development environment of Point Network and deploy your new dapp by following the instructions [here](./build-dapp-dev-environment-direct-install)). Once you have completed that and you have your dapp running locally, return to this tutorial.
+1. Startup a local development environment of Point Network and deploy your new dapp by following the instructions [here](./build-zapp-dev-environment-direct-install)). Once you have completed that and you have your dapp running locally, return to this tutorial.
 1. Modify the `point.deploy.json` file to contain the following content (replace 'MyNewdapp' with your dapp Name):
  
     ```
@@ -62,8 +62,8 @@ Step by step details on deploying your dapp to YNet are available [here](./build
  
 ## Continue Developing
  
-To continue to develop your dapp locally, simply stop the Point Node running that is connected to YNET and restart all your dev services as well as the Point Node running in the development environment as outlined [here](./build-dapp-dev-environment-direct-install).
+To continue to develop your dapp locally, simply stop the Point Node running that is connected to YNET and restart all your dev services as well as the Point Node running in the development environment as outlined [here](./build-zapp-dev-environment-direct-install).
  
 ## Upgradable dapps
  
-If you build a dapp _without_ using an upgradable smart contract pattern then each time you deploy the smart contract a _new instance_ of the smart contract will be deployed at a new address which will not contain the data of the previously deployed contract. If you intend to upgrade your dapp from time to time, then consider building your dapp as an [Upgradable dapp](./build-upgradable-dapps).
+If you build a dapp _without_ using an upgradable smart contract pattern then each time you deploy the smart contract a _new instance_ of the smart contract will be deployed at a new address which will not contain the data of the previously deployed contract. If you intend to upgrade your dapp from time to time, then consider building your dapp as an [Upgradable dapp](./build-upgradable-zapps).
