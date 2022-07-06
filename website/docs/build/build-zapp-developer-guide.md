@@ -30,15 +30,14 @@ You would take the following steps to develop, test and deploy your dapp onto Po
  
 Once you have a great idea for a new decentralized application that you want to deploy and share on Point Network you would:
  
-1. Clone the [template.point](https://github.com/pointnetwork/template.point) dapp repo into a local folder (for example `mydapps`):
+1. Clone the [template.point](https://github.com/pointnetwork/template.point) dapp repo into a local folder:
 
     ```
-    git clone https://github.com/pointnetwork/template.point.git mydapps/mynewdapp.point
+    git clone https://github.com/pointnetwork/template.point.git mynewdapp.point
     ```
 
-1. Remove the `.git` folder so that you can initialize for your own Github repo later on if you wish: `rm -rf mydapps/mynewdapp.point/.git`
+1. Remove the `.git` folder so that you can initialize for your own Github repo later on if you wish: `rm -rf mynewdapp.point/.git`
 1. Change directory into your new dapp folder and install the dependencies `npm i` and build the React JS application `npm run build`
-1. Startup a local development environment of Point Network and deploy your new dapp by following the instructions [here](./build-zapp-dev-environment-direct-install)). Once you have completed that and you have your dapp running locally, return to this tutorial.
 1. Modify the `point.deploy.json` file to contain the following content (replace 'MyNewdapp' with your dapp Name):
  
     ```
@@ -54,7 +53,7 @@ Once you have a great idea for a new decentralized application that you want to 
  
 1. Modify the `Template.sol` smart contract to contain the logic of your dapp. Make sure to rename the file to something appropriate like `MyNewdapp.sol` as well.
 1. Modify the React JS components to contain the logic of your dapp.
-1. Deploy locally and continue to develop the dapp. In the development environment you can run the watch command for the front end `npm run watch` so that as you make changes to any React JS components they are automatically built and you can simply refresh the Point Browser to see your latest changes. NOTE: if you need to make changes to your Smart Contract you will need to redeploy your dapp to see these changes.
+1. Deploy and test your dapp locally by following the instructions [here](./build-zapp-dev-environment-direct-install)). In the development environment you can run the watch command for the front end `npm run watch` so that as you make changes to any React JS components they are automatically built and you can simply refresh the Point Browser to see your latest changes. NOTE: if you need to make changes to your Smart Contract you will need to redeploy your dapp to see these changes.
  
 ## Deploy your dapp to YNet
  
