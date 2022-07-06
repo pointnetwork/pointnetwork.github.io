@@ -25,10 +25,11 @@ If you are using ZSH terminal then follow [these instructions](https://github.co
  
 ## Install Point Network Dependencies
  
-Clone the Pointnetwork repo and install the dependencies like so:
+Clone the Point Engine repo, the Point Contracts repo and then install the dependencies like so:
  
 ```bash
 git clone https://github.com/pointnetwork/pointnetwork.git
+git clone https://github.com/pointnetwork/point-contracts.git
 cd pointnetwork
 source .bash_alias
 point-dev-install
