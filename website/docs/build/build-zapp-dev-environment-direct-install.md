@@ -28,7 +28,7 @@ If you are using ZSH terminal then follow [these instructions](https://github.co
 Clone the Pointnetwork repo and install the dependencies like so:
  
 ```bash
-git clone git@github.com:pointnetwork/pointnetwork.git
+git clone https://github.com/pointnetwork/pointnetwork.git
 cd pointnetwork
 source .bash_alias
 point-dev-install
@@ -50,32 +50,35 @@ Start a Point Network Dev Node like so:
 point-dev
 ```
  
-## Deploy an Example Zapp
+## Deploy the Template Example dApp
  
-Point Network Example Zapps live in their own separate repo called [Zapps](https://github.com/pointnetwork/zapps). Clone this repo to a folder **one level below pointnetwork** repo. 
+Point Network provides an [example Template dApp](https://github.com/pointnetwork/template.point) that you can use to build your own dApps from. Clone this repo to a folder **one level below pointnetwork** repo. 
  
-Keep the Point Network Dev Node running in your terminal and open a new terminal window to deploy an example Zapp like so:
+Keep the Point Network Dev Node running in your terminal and open a new terminal window to deploy the Template dApp like so. 
  
 ```bash
 cd pointnetwork     <-- NOTE: the folder of the cloned pointnetowrk repo
 source .bash_alias
-git clone git@github.com:pointnetwork/zapps.git ../zapps
-point-deploy ../zapps/blog.point --contracts
+git clone https://github.com/pointnetwork/template.point.git ../template.point
+cd ../template.point
+npm i && npm run build
+cd ../pointnetwork
+point-deploy ../template.point --contracts
 ```
  
-## Open the Example Zapp in the Owner Point Browser
+## Open the deployed Template dApp in the Owner Point Browser
  
 In a new terminal window run the following:
  
 ```bash
 cd pointnetwork     <-- NOTE: the folder of the cloned pointnetowrk repo
 source .bash_alias
-git clone git@github.com:pointnetwork/pointsdk.git ../pointsdk
+git clone https://github.com/pointnetwork/pointsdk.git ../pointsdk
 cd ../pointsdk
 nvm use
 npm i
 npm run build
-npm i -g web-ext
+npm i -g web-ext@6.6.0
 point-browser-owner
 ```
  
@@ -99,7 +102,7 @@ point-dev-clean
  
 ## (Optional) Run a second Point Node to simulate a Visitor
  
-To simulate having more than one Identity on the Network and to be able to interact with both Identities, it is necessary to create a new profile and start a separate instance of the Point Node using this new profile. This is especially useful when developing Zapps such as `email.point` which require direct interaction between two identities (sending emails). 
+To simulate having more than one Identity on the Network and to be able to interact with both Identities, it is necessary to create a new profile and start a separate instance of the Point Node using this new profile. This is especially useful when developing dApps such as `email.point` which require direct interaction between two identities (sending emails). 
  
 ## Start Point Network Visitor Node
  
@@ -109,7 +112,7 @@ From the cloned Pointnetwork repo, start a Point Network Visitor Node like so:
 point-visit
 ```
  
-### Open the Zapp in the Visitor Point Browser
+### Open the dApp in the Visitor Point Browser
  
 From the cloned PointSDK repo, open the a Visitor Point Browser like so:
  
@@ -119,4 +122,9 @@ point-browser-visitor
  
 **NOTE**: If you see the error message `The request "website_visitor" profile name cannot be resolved to a profile path` then you need to [create that specific profile in Firefox](./build-create-a-dev-point-network-profile-in-firefox) then run the above command again to open the Point Browser.
  
-You should now be able to interact with any Zapps that have been deployed. As mentioned this is useful for Zapps that require interacting between two Identities such as the email zapp. I encourage you to try it!
+You should now be able to interact with any dApps that have been deployed. As mentioned this is useful for dApps that require interacting between two Identities such as the email dApp. I encourage you to try it!
+
+
+### Deploy your dApp to Point Network
+
+You can modify and deploy the Template dApp to Ponit Network using your own registered Identity. Visit [this page](./build-deploy-zapp) for details.
