@@ -70,6 +70,7 @@ module.exports = {
             "build/build-start-point-node-default",
             "build/build-delegating-deployer-identities",
             "build/build-use-identity-oracle-in-devlocal",
+            "build/build-upgrade-identity-contract",
             "build/build-testing-guide"
           ],
         },
