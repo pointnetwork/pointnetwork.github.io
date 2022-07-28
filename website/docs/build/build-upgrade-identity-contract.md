@@ -66,15 +66,29 @@ To upgrade the Identity contract with a new version you need to perform the foll
 **Make sure to remember to commit all the code changes back to Github and to check the deployment of the contract.**
 
 ### Troubleshooting
-
-If you see the following errors after running the upgrade script...
-
-**Error: Timed out waiting for implementation contract deployment to address**
-
-**cannot estimate gas; transaction may fail or may require manual gas limit UNPREDICTABLE_GAS_LIMIT**
-
-...try this workaround to [Override transaction options](https://github.com/OpenZeppelin/openzeppelin-upgrades/issues/85) (from, gas, gasPrice) in create and upgrade proxy.
  
+During deployment you may experience some issues. Check below to see if any of the following help you:
+ 
+* **Error: Timed out waiting for implementation contract deployment to address cannot estimate gas; transaction may fail or may require manual gas limit UNPREDICTABLE_GAS_LIMIT**
+ 
+    The error indicates that the transaction is not mined by the blockchain with the default gas values. 
+    
+    Try this workaround to [Override transaction options](https://github.com/OpenZeppelin/openzeppelin-upgrades/issues/85) (`from`, `gas`, `gasPrice`) in create and upgrade proxy.
+ 
+* **Deploy from another account or machine**. 
+ 
+    One workaround is to deploy from another account. Seems to have some cache related problem that makes the upgrade work from some accounts and not from others. The `.openzeppelin` folder also contains metadata from the deployment, some other problems were solved by deleting this file. 
+    
+    The file can be recovered from blockchain using `forceImport` as we do [here](https://github.com/pointnetwork/pointnetwork/blob/9e2c8230c9c6e861af54a98493d88d460bc96f81/src/client/zweb/deployer/index.js#L344). 
+ 
+* **Contract size to large to deploy**
+ 
+    If the contract size seems to be a problem, you can try to use the optimizer to reduce that. It is already enabled by default in the hardhat config of Point Engine. 
+    
+* **Test locally using Geth instead of Ganache**. 
+ 
+    This is just an option to confirm if this problem only occurs with YNet since YNet is a geth node any code problem should happen in a local env using Geth. We have a [docker compose file](https://github.com/pointnetwork/pointnetwork/blob/develop/docker-compose.e2e-geth.yaml) that starts as a local blockchain node for testing that.
+
 ### Interact with Identity Contract in Hardhat Console
  
 Firstly make sure you are in the point-contracts repo and then start hardhat console like so:
@@ -121,11 +135,11 @@ The steps to perform the Identity contract deployment and data migration are as 
 
 1. From the Point Engine repo upload the updated Identity ABI using 
     
-    `./point upload build/contracts/Identity.sol/Identity.json`
+    `./point upload ../point-contracts/build/contracts/Identity.sol/Identity.json`
 
 1. Update `default.yaml` in Point Engine repo and set `identity_contract_id` to the Identity ABI hash returned in the previous call. 
 1. Update `default.yaml` in Point Engine and set `identity_contract_address` to the new Identity contract address just deployed.
-1. Upload the Identity data to the new Identity contract instance using 
+1. Upload the Identity data to the new Identity contract instance using (replace NEW_ADDRESS & TIMESTAMP accordingly):
 
     `npx hardhat identity-importer upload NEW_ADDRESS --migration-file ./resources/migrations/identity-TIMESTAMP.json  --network ynet`
 
