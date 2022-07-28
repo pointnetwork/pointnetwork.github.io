@@ -99,3 +99,35 @@ await id.getDevMode()
 // Fetch IKV values from the contract, e.g.
 await id.ikvGet('social', 'zweb/contracts/address/PointSocial')
 ```
+
+### Steps to migrate data to a new Identity contract instance
+
+If you experience issues with the upgrade process then you can also redeploy a brand new instance of the Identity contract. However, if you do so, you will need to migrate all the data accross from the current Indentity instance to the new Identity instance.
+
+The steps to perform the Identity contract deployment and data migration are as follows:
+
+1. Switch to `main` branch in Point Contracts repo and compile the Identity contract using
+
+     `npx hardhat compile`
+
+1. Download the data from the existing Identity contract using 
+
+    `npx hardhat identity-importer download 0x1574E97F7a60c4eE518f6d7c0Fa701eff8Ab58b3 --network ynet`
+
+1. Switch to the branch that contains the latest version of the Identity contract you want to deploy
+1. Compile and deploy a **new** instance of the Identity contract from that branch to YNet using 
+
+    `npx hardhat run scripts/deploy.ts --network ynet`
+
+1. From the Point Engine repo upload the updated Identity ABI using 
+    
+    `./point upload build/contracts/Identity.sol/Identity.json`
+
+1. Update `default.yaml` in Point Engine repo and set `identity_contract_id` to the Identity ABI hash returned in the previous call. 
+1. Update `default.yaml` in Point Engine and set `identity_contract_address` to the new Identity contract address just deployed.
+1. Upload the Identity data to the new Identity contract instance using 
+
+    `npx hardhat identity-importer upload NEW_ADDRESS --migration-file ./resources/migrations/identity-TIMESTAMP.json  --network ynet`
+
+1. Verify the Identities have been migrated correctly to the new contract using Hardhat console
+1. Merge these changes (the updated Identity contract, updated default.yaml etc)
