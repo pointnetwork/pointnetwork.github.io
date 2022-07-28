@@ -102,7 +102,7 @@ await id.ikvGet('social', 'zweb/contracts/address/PointSocial')
 
 ### Steps to migrate data to a new Identity contract instance
 
-If you experience issues with the upgrade process then you can also redeploy a brand new instance of the Identity contract. However, if you do so, you will need to migrate all the data accross from the current Indentity instance to the new Identity instance.
+If you experience issues with the upgrade process then you can also redeploy a brand new instance of the Identity contract. However, if you do so, you will need to migrate all the data across from the current Indentity instance to the new Identity instance.
 
 The steps to perform the Identity contract deployment and data migration are as follows:
 

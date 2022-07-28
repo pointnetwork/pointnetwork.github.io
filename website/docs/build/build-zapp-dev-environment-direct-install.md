@@ -16,12 +16,19 @@ Follow the instructions on the [NVM repo](https://github.com/nvm-sh/nvm) for you
 With NVM installed and setup you are now ready to install Node JS as follows:
  
 ```
-nvm use 14
+nvm use 16
 ```
  
 The Point Node repo makes use of an [.nvmrc file](https://github.com/pointnetwork/pointnetwork/blob/develop/.nvmrc) which can be recognised by your terminal to automatically switch to the correct version of Node using NVM.
  
 If you are using ZSH terminal then follow [these instructions](https://github.com/nvm-sh/nvm#zsh) to add support to switch to the correct Node version automatically. 
+
+## Note for some Linux users
+
+You may need to install the following if not already installed:
+
+* **firefox** using `apt install firefox`
+* **make** using `apt install build-essential`
  
 ## Install Point Network Dependencies
  
