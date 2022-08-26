@@ -127,6 +127,8 @@ The steps to perform the Identity contract deployment and data migration are as 
 1. Download the data from the existing Identity contract using 
 
     `npx hardhat identity-importer download 0x1574E97F7a60c4eE518f6d7c0Fa701eff8Ab58b3 --network ynet`
+    
+    By default this script will download all registered Identities from block 0 to the last block at the time the script starts. Note that this script may take a long time to run and may even timeout. If you experience timeouts, then you should find a range of blocks that works using the `--from-block` and `--to-block` parameters.
 
 1. Switch to the branch that contains the latest version of the Identity contract you want to deploy
 1. Compile and deploy a **new** instance of the Identity contract from that branch to YNet using 
@@ -139,9 +141,21 @@ The steps to perform the Identity contract deployment and data migration are as 
 
 1. Update `default.yaml` in Point Engine repo and set `identity_contract_id` to the Identity ABI hash returned in the previous call. 
 1. Update `default.yaml` in Point Engine and set `identity_contract_address` to the new Identity contract address just deployed.
-1. Upload the Identity data to the new Identity contract instance using (replace NEW_ADDRESS & TIMESTAMP accordingly):
+1. Upload the Identity data to the new Identity contract instance using the following script (once for each migration file you pass to it and replace NEW_ADDRESS & RANGE accordingly):
 
-    `npx hardhat identity-importer upload NEW_ADDRESS --migration-file ./resources/migrations/identity-TIMESTAMP.json  --network ynet`
+    `npx hardhat identity-importer upload NEW_ADDRESS --migration-file ./resources/identity-BLOCK_RANGE.json  --network ynet`
 
-1. Verify the Identities have been migrated correctly to the new contract using Hardhat console
+1. Upload the ikv versions using the ikversion-importer migration script (once for each migration file you pass to it).
+
+    `npx hardhat ikversion-importer 0x8E34Fc67034b8A593E87d5f2644D098A3dBd2Fe7 --migration-file ./resources/identity-BLOCK_RANGE.json --network ynet`
+
+1. Upload the registered dapps data using the dapps-importer migration script (once for each migration file you pass to it).
+    
+    `npx hardhat dapps-importer 0x8E34Fc67034b8A593E87d5f2644D098A3dBd2Fe7 --migration-file ./resources/identity-BLOCK_RANGE.json --network ynet`
+
+1. Manually migrate each subidentity by calling the `subidentitiesListImport` function on the Identity contract using Hardhat console.
+
+    `subidentitiesListImport(address owner, string memory subidentity)`
+
+1. Verify the Identities, Sub Identities IKVs, IKV versions, dApps data have been migrated correctly to the new contract using Hardhat console
 1. Merge these changes (the updated Identity contract, updated default.yaml etc)
