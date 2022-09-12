@@ -18,7 +18,7 @@ You need to set the **genesis file** and **seeds**. If you need more information
 
 | Chain ID       | Description     | Site                                                                          | Status  |
 | -------------- | --------------- | ------------------------------------------------------------------ | ------------------------------------------------------------ | ------- |
-| `point_10687-1` | Point Chain Mainnet 2 | [Point Chain](https://github.com/pointnetwork/point-chain-config/tree/main/mainnet-1) | `Live`  |
+| `point_10687-1` | Point Chain Mainnet | [Point Chain](https://github.com/pointnetwork/point-chain-config/tree/main/mainnet-1) | `Live`  |
 
 :::warning
 **IMPORTANT:** If you join mainnet as a validator make sure you follow all the [security](./security/security.md) recommendations!
@@ -137,7 +137,7 @@ pointd tx staking create-validator \
   --commission-rate="0.05" \
   --commission-max-rate="0.20" \
   --commission-max-change-rate="0.01" \
-  --min-self-delegation="1000000" \
+  --min-self-delegation="1" \
   --gas="auto" \
   --gas-prices="0.025apoint" \
   --from=<key_name>

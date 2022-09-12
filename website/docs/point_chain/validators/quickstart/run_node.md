@@ -140,10 +140,10 @@ global:
   scrape_interval: 10s
 
   external_labels:
-    monitor: 'point'
+    monitor: 'point-chain'
 
 scrape_configs:
-  - job_name: 'point'
+  - job_name: 'point-chain'
 
     scrape_interval: 10s
 

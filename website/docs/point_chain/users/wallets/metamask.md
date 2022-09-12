@@ -41,7 +41,7 @@ Here is the list of fields that you can use to paste on Metamask:
 - **New RPC URL:** `http://xnet-uranus-1.point.space/`
 - **Chain ID:** `10731`
 - **Currency Symbol (optional):** `xPoint`
-- **Block Explorer URL (optional):** `https://explorer.pointnetwork.io/`
+- **Block Explorer URL (optional):** `https://explorer-xnet-triton.point.space/`
 :::
 :::note Local Node
 

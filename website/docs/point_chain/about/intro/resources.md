@@ -17,7 +17,7 @@ This documentation page is currently under work in progress.
 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧
 :::
 
-- Documentation (this site): [pointchain.pointnetwork.io](https://pointnetwork.io/)
+- Documentation (this site): [pointnetwork.io/docs](https://pointnetwork.io/docs)
 - Open Source Codebase: [github.com/pointnetwork/point-chain](https://github.com/pointnetwork/point-chain)
 - Website: [pointnetwork.io](https://pointnetwork.io/)
 
