@@ -54,7 +54,7 @@ module.exports = {
         specs: [
           {
             spec: 'openapi/pointnetwork.yml',
-            routePath: '/api/',
+            route: '/api/',
           },
         ]
       }
@@ -68,6 +68,7 @@ module.exports = {
     },
     algolia: {
       // Note this is a 'search only' API key https://www.algolia.com/doc/guides/security/api-keys/#search-only-api-key
+      appId: "TO-DO, need to get this from algolia", // https://docusaurus.io/blog/2021/11/21/algolia-docsearch-migration
       apiKey: '879987fdceac8b907f6dc7384e234e77',
       indexName: 'pointnetwork'
     },
@@ -76,7 +77,7 @@ module.exports = {
       logo: {
         alt: 'Point Network',
         src: "img/point-logo.svg",
-        href: `${isPub? 'http://pointnetwork.github.io/' : '/'}` ,
+        href: `${isPub ? 'http://pointnetwork.github.io/' : '/'}`,
         target: '_self'
       },
       items: [
