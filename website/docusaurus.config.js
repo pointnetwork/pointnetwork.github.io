@@ -111,6 +111,11 @@ module.exports = {
           position: "left"
         },
         {
+          to: "docs/point_chain/about/overview",
+          label: "Point Chain",
+          position: "left"
+        },
+        {
           type: "search",
           position: "right",
         },

@@ -38,6 +38,7 @@ Clone and build Point Chain using `git`:
 ```bash
 git clone https://github.com/pointnetwork/point-chain.git
 cd point-chain
+git checkout mainnet
 make install
 ```
 
@@ -46,3 +47,7 @@ Check that the `pointd` binaries have been successfully installed:
 ```bash
 pointd version
 ```
+
+:::note Also to build node you would have to have `make` installed:
+```sudo apt-get install build-essential```
+:::

@@ -4,6 +4,10 @@ sidebar_label: State Sync
 ---
 # State Sync
 
+## Pre-requisites
+- [Install Point Node](../quickstart/installation)
+- [Run Point Node](../quickstart/run_node)
+
 ## State Syncing a Node
 
 Once a few nodes in a network have taken state sync snapshots, new nodes can join the network using state sync. To do this, the node should first be configured as usual, and the following pieces of information must be obtained for light client verification:
@@ -28,21 +32,6 @@ SNAP_RPC="http://rpc-mainnet-1.point.space:26659"
 CHAIN_ID="point_10687-1"
 PEER="8673c1f04c29c464189e8bf29e51fb0b38da2f19@rpc-mainnet-1.point.space:26656"
 wget -O $HOME/genesis.json https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/mainnet-1/genesis.json
-```
-
-### Configuration
-
-Node init
-
-```bash
-pointd init $moniker --chain-id $CHAIN_ID
-```
-
-
-Move genesis file to .pointd/config folder
-
-```bash
-mv $HOME/genesis.json ~/.pointd/config/
 ```
 
 Reset the node
