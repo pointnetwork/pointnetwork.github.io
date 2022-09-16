@@ -1,6 +1,6 @@
 ---
 id: build-deploy-zapp
-title: Deploy dApp to Point Network
+title: Deploy your dApp to Point Network
 sidebar_label: Deploy dApp to Point Network
 slug: ../build-deploy-zapp
 ---
@@ -9,25 +9,49 @@ Once you are ready to share your amazing new dApp to the world, you can deploy i
  
 ### TLDR;
  
-Simply run `point deploy --contracts` in the root folder of the dApp you are building.
+Simply run the following command in the root folder of the dApp you want to deploy.
+
+ ```
+ point deploy --contracts
+ ``` 
  
 ### Prerequisites
  
 Make sure you have installed and are running the [latest version of Point Network](https://pointnetwork.io/download) and you are logged in with the Identity that would be the owner of the dApp (or an designated dApp deployer account) for the dApp you want to deploy.
  
-### Options
+### Deployer Options
  
 You can apply the following optional flags to the `point deploy` command:
  
 * `--contracts` compile and deploy the dApp contracts (will upgrade the contract when you are using upgradable contracts in your dApp)
 * `--force-deploy-proxy` force deploy the contract proxy (instead of upgrading the existing contract - essentially replace with a new one)
-* `--dev` deploy a dev version of the dapp. Note this will deploy to the identity name + dev. You need to have this identity registered and you need to be logged into this identity. For example, if you are building a dapp for 'mydapp.point' then the --dev flag will deploy to `mydappdev.point'
+* `--dev` deploy a dev version of the dapp (see above)
  
-### Deployment
+### Example
  
-In the dApp folder, build your dApp code usually by running `npm i && npm run build` and then run `point deploy --contracts` which will deploy your dApp (including contracts) to the network. If you experience any issues perhaps consult the troubleshooting section below.
+In the dApp folder, build your dApp code and then run the deployment command which will deploy your dApp (including contracts) to the network like so:
+
+```
+cd mydapp.point
+npm i && npm run build
+point deploy --contracts
+```
+
+If you experience any issues perhaps consult the troubleshooting section below.
  
 Once the deployment is complete you can open your new dApp in Point Network Mainnet. You can share the dApp url (e.g. https://mydapp.point) to anyone you like and they can open the dApp in Point Network Mainnet!
+
+### Dev / Staging Deployment
+
+You can optionally deploy to a dev / staging version of the dApp simply by including the `--dev` flag to the command like so: 
+
+```
+point deploy --contracts --dev
+``` 
+
+This will deploy your dApp to the same domain with 'dev' appended to the end of the domain. Note you need to also own this Identity.
+
+For example, if you are building a dapp for 'mydapp.point' then including the `--dev` flag will deploy your dApp to `mydappdev.point'. This is useful as a dApp staging area where you can test while running everything in Mainnet!
  
 ### Troubleshooting
  
