@@ -4,22 +4,69 @@ title: Deploy dApp to Point Network
 sidebar_label: Deploy dApp to Point Network
 slug: ../build-deploy-zapp
 ---
-
-First follow the steps in the [dApp Developer Guide](./build-zapp-developer-guide) to get up and running.
-
-Once you are ready to share your amazing new dApp to the world, you can deploy it to YNet You can do so as follows:
  
-1. Stop all your locally running services - Point Network, Blockchain, Arlocal etc (you can use the alias `point-dev-stop`).
-1. Download and install the [Point Network ALPHA](https://pointnetwork.io/download). This will step you through the process of creating your own mnemonic keys and you will also register your identity on YNet. Be sure to register the Identity that you want for your dApp name e.g. `MyNewdApp` (replace with your dApp name).
-1. Now exit the Alpha application and return to your cloned pointnetwork repo
-1. Start the Point Node in YNet mode from the cloned pointnetwork repo folder by running `npm run build && npm run start`
-1. Open the Point Browser - which connects to the Point Node that is now connected in YNET. You can run the point browser by entering the `pointSDK` folder and running `point-browser` alias.
-1. Now run the deploy script for your dApp like so (while in the pointnetwork repo directory). NOTE: if you don't have your own dapp to deploy yet then follow the steps in our[dApp Developer Guide](./build-zapp-developer-guide) first and then come back here:
-
-    ```
-    ./point deploy ../mydapps/mynewdapp.point --contracts
-    ```
-
-    Since your Point Node is connected to YNET your dApp will be deployed to YNET using your Identity that you have registered earlier.
-    
-1. Once the deployment is complete you can open your new dApp in YNET. You can share the dApp url (e.g. https://mynewdapp.point) to anyone you like and they can open the dApp in Point Network!
+Once you are ready to share your amazing new dApp to the world, you can deploy it to Point Network Mainnet! 
+ 
+### TLDR;
+ 
+Simply run `point deploy --contracts` in the root folder of the dApp you are building.
+ 
+### Prerequisites
+ 
+Make sure you have installed and are running the [latest version of Point Network](https://pointnetwork.io/download) and you are logged in with the Identity that would be the owner of the dApp (or an designated dApp deployer account) for the dApp you want to deploy.
+ 
+### Options
+ 
+You can apply the following optional flags to the `point deploy` command:
+ 
+* `--contracts` compile and deploy the dApp contracts (will upgrade the contract when you are using upgradable contracts in your dApp)
+* `--force-deploy-proxy` force deploy the contract proxy (instead of upgrading the existing contract - essentially replace with a new one)
+* `--dev` deploy a dev version of the dapp. Note this will deploy to the identity name + dev. You need to have this identity registered and you need to be logged into this identity. For example, if you are building a dapp for 'mydapp.point' then the --dev flag will deploy to `mydappdev.point'
+ 
+### Deployment
+ 
+In the dApp folder, build your dApp code usually by running `npm i && npm run build` and then run `point deploy --contracts` which will deploy your dApp (including contracts) to the network. If you experience any issues perhaps consult the troubleshooting section below.
+ 
+Once the deployment is complete you can open your new dApp in Point Network Mainnet. You can share the dApp url (e.g. https://mydapp.point) to anyone you like and they can open the dApp in Point Network Mainnet!
+ 
+### Troubleshooting
+ 
+#### Error: connect ECONNREFUSED 127.0.0.1:2468
+ 
+```
+[1663321171702] FATAL (Error/12992 on ....): connect ECONNREFUSED 127.0.0.1:2468
+    Error: connect ECONNREFUSED 127.0.0.1:2468
+        at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1187:16)
+```
+ 
+This means you do not have the Point Engine running. You need to start Point Engine using the `point` command or start using the Point Dashboard.
+ 
+#### Error: The address 0x... is not allowed to deploy on ... identity
+ 
+```
+[1663321334272] ERROR (13414 on ...):
+    status: "error"
+    identifier: "p7OBTUTRAc2hA7fNjvNj_"
+    account: "0x78c16af63ea147c5ca60604e5f4bfe2ce7c46c2a"
+    process: "point-engine"
+    processVersion: "0.4.5"
+    module: "Deploy"
+    error: "Error: The address 0x... is not allowed to deploy on ... identity"
+```
+ 
+This error means you are not logged into Point Network using the identity that owns the dApp you are deploying. Check the Point Dashboard to see which Identity you are logged in as and change accordingly. It could also mean that your `point.deploy.json` config is not correctly setting the Identity based on what you want so its recommended to check that as well.
+ 
+#### Error: ENOENT: no such file or directory, open '../mydapp.point/point.deploy.json
+ 
+```
+[1663321499586] ERROR (13920 on ...):
+    status: "error"
+    identifier: "p7OBTUTRAc2hA7fNjvNj_"
+    account: "0x78c16af63ea147c5ca60604e5f4bfe2ce7c46c2a"
+    process: "point-engine"
+    processVersion: "0.4.5"
+    module: "Deploy"
+    error: "Error: ENOENT: no such file or directory, open '../mydapp.point/point.deploy.json'"
+```
+ 
+This error means you are not running the `point deploy` command from within the root folder of the dApp you want to deploy. 
