@@ -184,8 +184,9 @@ module.exports = {
               label: "Setup and Configuration",
               items: [
                 "point_chain/validators/setup/run_validator",
-                "point_chain/validators/setup/disk_optimization",
                 "point_chain/validators/setup/configuration",
+                "point_chain/validators/setup/disk_optimization",
+                "point_chain/validators/setup/statesync",
               ],
             },
             "point_chain/validators/mainnet",

@@ -11,10 +11,9 @@ This document outlines the steps to join an existing testnet
 
 You specify the network you want to join by setting the **genesis file** and **seeds**. If you need more information about past networks, check our [networks repo](https://github.com/pointnetwork/point-chain-config).
 
-| Testnet Chain ID | Description                       | Site                                                                       |  Status  |
-| ---------------- | --------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------- |
-                                   | `Stale` |
-| `point_10731-1`   | Uranus Testnet                | [Uranus](https://github.com/pointnetwork/point-chain-config/tree/main/testnet-xNet-Uranus-1)     | `Stale` |
+| Testnet Chain ID | Description                       | Site                                                                       |  Status
+| ---------------- | --------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `point_10731-1`   | Uranus Testnet                | [Uranus](https://github.com/pointnetwork/point-chain-config/tree/main/testnet-xNet-Uranus-1)     | `Live`
 
 ## Install `pointd`
 
@@ -59,7 +58,7 @@ Check the `genesis.json` file from the [`archive`](https://github.com/pointnetwo
 
 ```bash
 sudo apt install -y unzip wget
-wget -P ~/.pointd/config https://github.com/pointnetwork/point-chain-config/blob/main/testnet-xNet-Uranus-1/genesis.json
+wget  -O ~/.pointd/config/genesis.json https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/testnet-xNet-Uranus-1/genesis.json
 ```
 
 Then verify the correctness of the genesis configuration file:
@@ -99,8 +98,7 @@ For more information on seeds and peers, you can the Tendermint [P2P documentati
 
 ### Add Persistent Peers
 
-We can set the [`persistent_peers`](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#persistent-peer) field in `~/.pointd/config/config.toml` to specify peers that your node will maintain persistent connections with. You can retrieve them from the list of
-available peers on the [`testnets`](https://github.com/tharsis/testnets) repo.
+We can set the [`persistent_peers`](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#persistent-peer) field in `~/.pointd/config/config.toml` to specify peers that your node will maintain persistent connections with.
 
 A list of available persistent peers is also available in the `#find-peers` channel in the [Point Chain Discord](https://discord.com/invite/DkH6zxCXWz). You can get a random 10 entries from the `peers.txt` file in the `PEERS` variable by running the following command:
 
