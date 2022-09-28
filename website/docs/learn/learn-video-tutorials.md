@@ -11,6 +11,10 @@ Learn all about Point Network from our [official YouTube channel](https://www.yo
 | ------------- | --------------- |
 | [![Intro](https://img.youtube.com/vi/3zICuHh_Hso/0.jpg)](https://www.youtube.com/watch?v=3zICuHh_Hso) | [![Intro](https://img.youtube.com/vi/czCPXJKDfFw/0.jpg)](https://www.youtube.com/watch?v=czCPXJKDfFw) |
 
+| Tutorial: Deploy a Website | How to Stake POINT |
+| ------------- | --------------- |
+| [![Dadou](https://img.youtube.com/vi/k3bylAoesNI/0.jpg)](https://www.youtube.com/watch?v=k3bylAoesNI) | [![Dadou](https://img.youtube.com/vi/oJ0ss3a37rQ/0.jpg)](https://www.youtube.com/watch?v=oJ0ss3a37rQ) |
+
 ## Introductions
 
 - [Point Network Web 3.0 Intro](https://www.youtube.com/watch?v=3zICuHh_Hso)
