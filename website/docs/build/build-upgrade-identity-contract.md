@@ -33,7 +33,7 @@ To upgrade the Identity contract with a new version you need to perform the foll
     Use Hardhat to compile the Identity contract like so:
  
     ```
-    npx hardhat compile
+    TS_NODE_TRANSPILE_ONLY=1 npx hardhat compile
     ```
  
 1. Run the Hardhat task to update the contract on a specific network
@@ -122,7 +122,7 @@ The steps to perform the Identity contract deployment and data migration are as 
 
 1. Switch to `main` branch in Point Contracts repo and compile the Identity contract using
 
-     `npx hardhat compile`
+     `TS_NODE_TRANSPILE_ONLY=1 npx hardhat compile`
 
 1. Download the data from the existing Identity contract using 
 

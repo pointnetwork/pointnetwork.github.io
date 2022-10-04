@@ -13,7 +13,7 @@ Learn all about Point Network from our [official YouTube channel](https://www.yo
 
 | Tutorial: Deploy a Website | How to Stake POINT |
 | ------------- | --------------- |
-| [![Dadou](https://img.youtube.com/vi/k3bylAoesNI/0.jpg)](https://www.youtube.com/watch?v=k3bylAoesNI) | [![Dadou](https://img.youtube.com/vi/oJ0ss3a37rQ/0.jpg)](https://www.youtube.com/watch?v=oJ0ss3a37rQ) |
+| [![Intro](https://img.youtube.com/vi/k3bylAoesNI/0.jpg)](https://www.youtube.com/watch?v=k3bylAoesNI) | [![Intro](https://img.youtube.com/vi/oJ0ss3a37rQ/0.jpg)](https://www.youtube.com/watch?v=oJ0ss3a37rQ) |
 
 ## Introductions
 
