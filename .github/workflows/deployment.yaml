@@ -3,7 +3,7 @@ name: Pointnetwork docs github pages deployment
 on:
   push:
     branches:
-      - main
+      - upgrade-deps-merge
 
 jobs:
   publish:
