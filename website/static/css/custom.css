@@ -307,9 +307,6 @@
      ========================================================================== */
 
   .docs-wrapper {
-    max-width: var(--custom-content-max-width);
-    margin: 0 auto;
-    padding-bottom: 80px;
     width: 100%;
   }
 
