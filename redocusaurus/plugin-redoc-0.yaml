@@ -1,0 +1,793 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Point Network Node API
+  description: Point Network Node API Specification
+paths:
+  /status/ping:
+    get:
+      tags:
+        - Status
+      description: Checks if the server is alive.
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successfully returned the ping back
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  ping:
+                    type: string
+                    example: pong
+        '400':
+          description: Invalid request
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+  /status/meta:
+    get:
+      tags:
+        - Status
+      description: Returns the Point Network Node meta data
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Successfully returned the Node meta data
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  nodeJsVersion:
+                    type: string
+                    example: v10.16.3
+                  fileCount:
+                    type: integer
+                    example: 221
+                  peersCount:
+                    type: integer
+                    example: 2
+                  pointNetworkNodeVersion:
+                    type: string
+                    example: 1.0.3
+                  apiRoutes:
+                    type: array
+                    items:
+                      type: string
+                      example:
+                        - GET => /v1/api/status/ping (PingController@ping)
+                        - GET => /v1/api/status/meta (StatusController@meta)
+                  wsRoutes:
+                    type: array
+                    items:
+                      type: string
+                      example:
+                        - GET => /ws/node (NodeSocket)
+        '400':
+          description: Invalid request
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+  /contract/load/{contract}:
+    get:
+      tags:
+        - Contract
+      description: Returns a contract instance for the specified contract as an ABI array
+      produces:
+        - application/json
+      parameters:
+        - name: contract
+          in: path
+          type: string
+          required: true
+      responses:
+        '200':
+          description: Successfully returned the contract instance ABI
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  address:
+                    type: string
+                    example: '0xc6AE7d2708633F2cb4c1aC93714873170b5Fd3CC'
+                  abi:
+                    type: array
+                    items:
+                      $ref: '#/definitions/ContractABI'
+          headers:
+            X-POINT-CONTRACT:
+              type: string
+              description: The name of the loaded contract.
+        '404':
+          description: Contract Not Found
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+  /contract/at:
+    post:
+      tags:
+        - Contract
+      description: >-
+        Returns true if the contract exists at the address with the specified
+        ABI
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: contract
+          description: The contract to instantiate
+          schema:
+            type: object
+            required:
+              - address
+              - abi
+            properties:
+              address:
+                type: string
+                example: '0xc6AE7d2708633F2cb4c1aC93714873170b5Fd3CC'
+              abi:
+                type: array
+                items:
+                  $ref: '#/definitions/ContractABI'
+      responses:
+        '200':
+          description: Successfully confirmed the contract exists
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  exists:
+                    type: boolean
+                    example: true
+          headers:
+            X-POINT-CONTRACT-ADDRESS:
+              type: string
+              description: The address of the loaded contract.
+        '404':
+          $ref: '#/responses/NotFound'
+  /contract/call:
+    post:
+      tags:
+        - Contract
+      description: Calls a contract function and returns the data
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: contract
+          description: The contract, method and params to pass to the called function
+          schema:
+            type: object
+            required:
+              - contract
+              - method
+              - params
+            properties:
+              contract:
+                type: string
+                example: Store
+              method:
+                type: string
+                example: getProductsByStoreId
+              params:
+                type: array
+                items:
+                  type: string
+                example:
+                  - 1
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  example:
+                    application: specific
+          headers:
+            X-POINT-CONTRACT:
+              type: string
+              description: The name of the contract.
+            X-POINT-CONTRACT-METHOD:
+              type: string
+              description: The method called on the contract.
+        '404':
+          $ref: '#/responses/NotFound'
+  /contract/send:
+    post:
+      tags:
+        - Contract
+      description: >-
+        Sends Eth to a payable contract function to be mined in the blockchain
+        and returns the data
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: contract
+          description: The contract, method and params to pass to the called function
+          schema:
+            type: object
+            required:
+              - contract
+              - method
+              - params
+              - amountInWei
+            properties:
+              contract:
+                type: string
+                example: Store
+              method:
+                type: string
+                example: buyProduct
+              params:
+                type: array
+                items:
+                  type: string
+                example:
+                  - 1
+              amountInWei:
+                type: string
+                example: 1000000000000000000
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+          headers:
+            X-POINT-CONTRACT:
+              type: string
+              description: The name of the contract.
+            X-POINT-CONTRACT-METHOD:
+              type: string
+              description: The method called on the contract.
+            X-POINT-CONTRACT-TX:
+              type: string
+              description: The transaction id for the transaction on the blockchain
+        '401':
+          $ref: '#/responses/Unauthorized'
+        '402':
+          $ref: '#/responses/PaymentRequired'
+        '404':
+          $ref: '#/responses/NotFound'
+  /identity/identityToOwner/{identity}:
+    get:
+      tags:
+        - Identity
+      description: Returns owner address from given identity handle
+      produces:
+        - application/json
+      parameters:
+        - name: identity
+          in: path
+          type: string
+          required: true
+          description: The identiy handle for example 'twitter'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  address:
+                    type: string
+                    example: '0x4f5877E51067d0d68784aA74C39871cb2eF2D9eB'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFound'
+  /identity/ownerToIdentity/{owner}:
+    get:
+      tags:
+        - Identity
+      description: Returns identity handle by owner address
+      produces:
+        - application/json
+      parameters:
+        - name: owner
+          in: path
+          type: string
+          required: true
+          description: >-
+            The owner address for example
+            '0x4f5877E51067d0d68784aA74C39871cb2eF2D9eB'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  identity:
+                    type: string
+                    example: twitter
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFound'
+  /identity/sign:
+    post:
+      tags:
+        - Identity
+      description: Returns the content signed by the nodes default identity private key
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: data
+          description: The data payload to sign
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                example:
+                  any: data
+      responses:
+        '200':
+          description: Successfully signed the data
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  signed:
+                    type: object
+          headers:
+            X-POINT-OWNER-ADDRESS:
+              type: string
+              description: >-
+                The address of the default identity account that signed the
+                payload
+        '400':
+          $ref: '#/responses/InvalidRequest'
+  /identity/encrypt:
+    post:
+      tags:
+        - Identity
+      description: Returns the content encrypted by the nodes default identity private key
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: data
+          description: The data payload to encrypt
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                example:
+                  any: data
+      responses:
+        '200':
+          description: Successfully signed the data
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  signed:
+                    type: object
+          headers:
+            X-POINT-OWNER-ADDRESS:
+              type: string
+              description: >-
+                The address of the default identity account that signed the
+                payload
+        '400':
+          $ref: '#/responses/InvalidRequest'
+  /identity/decrypt:
+    post:
+      tags:
+        - Identity
+      description: Returns the content decrypted by the nodes default identity private key
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: data
+          description: The data payload to decrypt
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: object
+                example:
+                  any: data
+      responses:
+        '200':
+          description: Successfully decryped the data
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  signed:
+                    type: object
+          headers:
+            X-POINT-OWNER-ADDRESS:
+              type: string
+              description: >-
+                The address of the default identity account that decrypted the
+                payload
+        '400':
+          $ref: '#/responses/InvalidRequest'
+  /identity/verify/{owner}:
+    post:
+      tags:
+        - Identity
+      description: >-
+        Returns verification that the content was indeed signed by the provided
+        owner address
+      produces:
+        - application/json
+      parameters:
+        - name: owner
+          in: path
+          type: string
+          required: true
+          description: >-
+            The owner address to verify the signed content. For example
+            '0x4f5877E51067d0d68784aA74C39871cb2eF2D9eB'
+        - in: body
+          name: data
+          description: The data payload to verify
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  signed:
+                    type: object
+      responses:
+        '200':
+          description: Successfully verified content
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  verified:
+                    type: boolean
+          headers:
+            X-POINT-OWNER-ADDRESS:
+              type: string
+              description: The address of the default identity account that was verified
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFound'
+  /storage/get:
+    get:
+      tags:
+        - Storage
+      description: Returns a file from the Storage Layer
+      produces:
+        - application/json
+      parameters:
+        - name: encoding
+          in: query
+          type: string
+          required: false
+          enum:
+            - utf-8
+            - base64
+            - binary
+            - hex
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              data:
+                type: string
+                example: >-
+                  iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAADXwElEQVR42ux9B5wU5fn/d8r23StwdBGw0pQmYscSa6xRY6LRoMbEFltiT4z5+dcktqiJJVbsGmPvvYEKUgRBaTY6
+          headers:
+            X-POINT-ENCODING:
+              type: string
+              description: The encoding of the requeted file
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFound'
+  /storage/files:
+    get:
+      tags:
+        - Storage
+      description: >-
+        Returns a list of metadata about all the files recorded in the node
+        database
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              files:
+                type: array
+                items:
+                  type: object
+                  example:
+                    id: >-
+                      288ac655fb9aa15abc790d57d862f3c85c5fa9b1d0fb8c6d9d6f50447587356f
+                    localPath: >-
+                      /Users/developer/.point/test2/data/deployer_cache/a40acf739591f4260467e3ba06aa4c1cf076ea2fc3b1fa66cd3fadec0e9788cc
+                    size: 25
+                    redundancy: 1
+                    expires: 1624260434171
+                    autorenew: true
+                    chunkCount: 1
+        '400':
+          $ref: '#/responses/InvalidRequest'
+  /storage/file/{id}:
+    get:
+      tags:
+        - Storage
+      description: Returns a single files metadata loaded from the nodes database
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              file:
+                type: object
+                example:
+                  localPath: >-
+                    /Users/developer/.point/test2/data/deployer_cache/a40acf739591f4260467e3ba06aa4c1cf076ea2fc3b1fa66cd3fadec0e9788cc
+                  size: 25
+                  chunkIds:
+                    - >-
+                      a40acf739591f4260467e3ba06aa4c1cf076ea2fc3b1fa66cd3fadec0e9788cc
+                  id: >-
+                    288ac655fb9aa15abc790d57d862f3c85c5fa9b1d0fb8c6d9d6f50447587356f
+                  redundancy: 1
+                  expires: 1624260434171
+                  autorenew: true
+                  ul_status: us99
+        '404':
+          $ref: '#/responses/NotFound'
+  /storage/chunks:
+    get:
+      tags:
+        - Storage
+      description: >-
+        Returns a list of metadata about all the chunks recorded in the node
+        database
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              chunks:
+                type: array
+                items:
+                  type: object
+                  example:
+                    id: >-
+                      0f1a97888f3c63318bceedd0461c8efe2778a3e1a49934045ee8314d94e335be
+                    redundancy: 1
+                    expires: 1624260423041
+                    autorenew: true
+        '400':
+          $ref: '#/responses/InvalidRequest'
+  /storage/chunk/{id}:
+    get:
+      tags:
+        - Storage
+      description: Returns a single chunks metadata loaded from the nodes database
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              chunk:
+                type: object
+                example:
+                  chunk:
+                    belongsToFiles:
+                      - - >-
+                          e86226f43b01ae4787eba0bc5bc09c5a68f502da324c62446a4b9c0f22269521
+                        - 0
+                        - >-
+                          /Users/developer/.point/test2/data/deployer_cache/0f1a97888f3c63318bceedd0461c8efe2778a3e1a49934045ee8314d94e335be
+                    ul_status: us99
+                    id: >-
+                      0f1a97888f3c63318bceedd0461c8efe2778a3e1a49934045ee8314d94e335be
+                    redundancy: 1
+                    expires: 1624260423041
+                    autorenew: true
+                    dl_status: ds99
+                    length: 120554
+        '404':
+          $ref: '#/responses/NotFound'
+  /wallet/address:
+    get:
+      tags:
+        - Wallet
+      description: Returns Node Wallets Address
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  address:
+                    type: string
+                    example: '0x4f5877E51067d0d68784aA74C39871cb2eF2D9eB'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '404':
+          $ref: '#/responses/NotFound'
+  /wallet/hash:
+    get:
+      tags:
+        - Wallet
+      description: Returns Node Wallets Hash
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  hash:
+                    type: string
+                    example: >-
+                      0x22c107a3a655dba0c25e178609439ca4f3814a2746ab72e51cc45b094e343f95
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '403':
+          $ref: '#/responses/Forbidden'
+        '404':
+          $ref: '#/responses/NotFound'
+  /wallet/balance:
+    get:
+      tags:
+        - Wallet
+      description: Returns Node Wallets Balance
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+            properties:
+              data:
+                type: object
+                properties:
+                  balance:
+                    type: string
+                    example: '99886876520000000000'
+        '400':
+          $ref: '#/responses/InvalidRequest'
+        '403':
+          $ref: '#/responses/Forbidden'
+        '404':
+          $ref: '#/responses/NotFound'
+responses:
+  NotFound:
+    description: The specified resource was not found
+    schema:
+      $ref: '#/definitions/Error'
+  Unauthorized:
+    description: Unauthorized
+    schema:
+      $ref: '#/definitions/Error'
+  InvalidRequest:
+    description: InvalidRequest
+    schema:
+      $ref: '#/definitions/Error'
+  PaymentRequired:
+    description: Payment required or not enought funds sent
+    schema:
+      $ref: '#/definitions/Error'
+  Forbidden:
+    description: Request is forbidden.
+    schema:
+      $ref: '#/definitions/Error'
+definitions:
+  Error:
+    type: object
+    properties:
+      message:
+        type: string
+    required:
+      - message
+  ContractABI:
+    type: array
+    items:
+      type: object
+      example:
+        inputs: []
+        name: value
+        outputs:
+          - internalType: string
+            name: ''
+            type: string
+        stateMutability: view
+        type: function
+        constant: true
+externalDocs:
+  description: Point SDK Specs Documentation
+  url: >-
+    https://docs.google.com/document/d/1qalcEv1dD-EwRnOHKfKKIZAhyEApiGB7Z53RDvWyx1M/edit
+schemes:
+  - https
+security:
+  - WalletSecurity: []
+host: example.z
+basePath: /v1/api
