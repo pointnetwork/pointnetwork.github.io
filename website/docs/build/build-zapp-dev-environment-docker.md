@@ -9,7 +9,9 @@ Welcome to the builder's section of the Point Network Wiki.
 
 ## Installing Docker
 
-This setup requires Docker installed. We will not go into the details here as there are several resources online that can help. The important things are to install the correct versions to be able to run `docker` without using `sudo` and to have the `docker compose` sub command available.
+This setup requires Docker installed. We will not go into the details here as there are several resources online that can help. The important things are to install the correct versions to be able to run `docker` without using `sudo` and to have the `docker compose` sub command available. 
+
+Note this section is currently under review.
 
 ### Versions
 
