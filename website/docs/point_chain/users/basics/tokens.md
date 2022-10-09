@@ -12,7 +12,12 @@ Point Chain is a Cosmos-based chain with full Ethereum Virtual Machine (EVM) sup
 
 ## The POINT Token
 
-The denomination used for staking, governance and gas consumption on the EVM is the POINT. The POINT provides the utility of: securing the Proof-of-Stake chain, token used for governance proposals, distribution of fees to validator and users, and as a mean of gas for running smart contracts on the EVM.
+The denomination used for staking, governance and gas consumption on the EVM is POINT Token. POINT provides the utility of: 
+
+* Securing the Proof-of-Stake chain.
+* Used for governance proposals. 
+* Distribution of fees to validator and users.
+* As mean of gas for running smart contracts on the EVM.
 
 Point Chain uses [Atto](https://en.wikipedia.org/wiki/Atto-) POINT as the base denomination to maintain parity with Ethereum.
 

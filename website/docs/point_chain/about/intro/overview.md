@@ -39,7 +39,7 @@ Point Chain enables these key features by:
 * Implementing Tendermint Core's Application Blockchain Interface ([ABCI](https://docs.tendermint.com/master/spec/abci/)) to manage the blockchain
 * Leveraging [modules](https://docs.cosmos.network/main/building-modules/intro.html) and other mechanisms implemented by the [Cosmos SDK](https://docs.cosmos.network/).
 * Utilizing [`geth`](https://github.com/ethereum/go-ethereum) as a library to promote code reuse and improve maintainability.
-* Exposing a fully compatible Web3 JSON-RPC]layer for interacting with existing Ethereum clients and tooling ([Metamask](./../../users/wallets/metamask.md).
+* Exposing a fully compatible Web3 JSON-RPC layer for interacting with existing Ethereum clients and tooling ([Metamask](./../../users/wallets/metamask.md)).
 
 The sum of these features allows developers to leverage existing Ethereum ecosystem tooling and
 software to seamlessly deploy smart contracts which interact with the rest of the Cosmos

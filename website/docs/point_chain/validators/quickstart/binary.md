@@ -1,6 +1,6 @@
 ---
-title: Binary
-sidebar_label: Binary
+title: PointD Binary
+sidebar_label: PointD
 ---
 
 # `pointd`
@@ -172,12 +172,14 @@ pointd config
 
 A list of commonly used flags of `pointd` is listed below:
 
-| Option              | Description                   | Type                                             | Default Value |
-| ------------------- | ----------------------------- | ------------------------------------------------ | ------------- |
-| `--chain-id`        | Full Chain ID                 | `string`                                         | `""`          |
-| `--home`            | Directory for config and data | `string`                                         | `~/.pointd`   |
-| `--keyring-backend` | Select keyring's backend      | `{"os"|"file"|"kwallet"|"pass"|"test"|"memory"}` | `"os"`        |
-| `--output`          | Output format                 | `string`                                         | "text"        |
+<!-- NOTE using code tag for 'keyring-backend' example otherwise the pipe character is not properly escaped --->
+
+| Option              | Description                   | Type                                                             | Default Value |
+| ------------------- | ----------------------------- | ------------------------------------------------                 | ------------- |
+| `--chain-id`        | Full Chain ID                 | `string`                                                         | `""`          |
+| `--home`            | Directory for config and data | `string`                                                         | `~/.pointd`   |
+| `--keyring-backend` | Select keyring's backend      | <code>{"os"\|"file"\|"kwallet"\|"pass"\|"test"\|"memory"}</code> | `"os"`        | 
+| `--output`          | Output format                 | `string`                                                         | "text"        |
 
 ## Command list
 

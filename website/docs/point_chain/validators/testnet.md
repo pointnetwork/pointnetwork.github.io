@@ -69,7 +69,7 @@ pointd validate-genesis
 
 ### Add Seed Nodes
 
-Your node needs to know how to find [peers](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#peers). You'll need to add healthy [seed nodes](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#seed) to `$HOME/.pointd/config/config.toml`. The [`point-chaing-config`](https://github.com/pointnetwork/point-chain-config) repo contains links to some seed nodes.
+Your node needs to know how to find [peers](https://docs.tendermint.com/v0.34/tendermint-core/using-tendermint.html#peers). You'll need to add healthy [seed nodes](https://docs.tendermint.com/v0.34/tendermint-core/using-tendermint.html#seed) to `$HOME/.pointd/config/config.toml`. The [`point-chaing-config`](https://github.com/pointnetwork/point-chain-config) repo contains links to some seed nodes.
 
 Edit the file located in `~/.pointd/config/config.toml` and the `seeds` to the following:
 
@@ -98,7 +98,7 @@ For more information on seeds and peers, you can the Tendermint [P2P documentati
 
 ### Add Persistent Peers
 
-We can set the [`persistent_peers`](https://docs.tendermint.com/master/tendermint-core/using-tendermint.html#persistent-peer) field in `~/.pointd/config/config.toml` to specify peers that your node will maintain persistent connections with.
+We can set the [`persistent_peers`](https://docs.tendermint.com/v0.34/tendermint-core/using-tendermint.html#persistent-peer) field in `~/.pointd/config/config.toml` to specify peers that your node will maintain persistent connections with.
 
 A list of available persistent peers is also available in the `#find-peers` channel in the [Point Chain Discord](https://discord.com/invite/DkH6zxCXWz). You can get a random 10 entries from the `peers.txt` file in the `PEERS` variable by running the following command:
 
