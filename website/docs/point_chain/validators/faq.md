@@ -30,7 +30,7 @@ Of course, it is possible and encouraged for any user to run full nodes even if 
 
 ### What is a delegator?
 
-Delegators are POINT holders who cannot, or do not want to run validator operations themselves. Users can delegate POINT to a validator and obtain a part of its revenue in exchange (for more detail on how revenue is distributed, see [What is the incentive to stake?](#what-is-the-incentive-to-stake) and [What is a validator's commission?](#what-is-a-validators-commission) sections below).
+Delegators are POINT holders who cannot, or do not want to run validator operations themselves. Users can delegate POINT to a validator and obtain a part of its revenue in exchange (for more detail on how revenue is distributed, see [What is the incentive to stake?](#what-is-the-incentive-to-stake) and [What is a validator's commission?](#what-is-a-validators-commission) sections below). 
 
 Because they share revenue with their validators, delegators also share responsibility. Should a validator misbehave, each of its delegators will be partially slashed in proportion to their stake. This is why delegators should perform due-diligence on validators before delegating, as well as diversifying by spreading their stake over multiple validators.
 
@@ -100,7 +100,7 @@ A validator's operator key is directly tied to an application key, but uses rese
 After a validator is created with a `create-validator` transaction, it can be in three states:
 
 - `bonded`: Validator is in the active set and participates in consensus. Validator is earning rewards and can be slashed for misbehaviour.
-- `unbonding`: Validator is not in the active set and does not participate in consensus. Validator is not earning rewards, but can still be slashed for misbehaviour. This is a transition state from `bonded` to `unbonded`. If validator does not send a `rebond` transaction while in `unbonding` mode, it will take three weeks for the state transition to complete.
+- `unbonding`: Validator is not in the active set and does not participate in consensus. Validator is not earning rewards, but can still be slashed for misbehaviour. This is a transition state from `bonded` to `unbonded`. If the validator does not send a `rebond` transaction while in `unbonding` mode, it will take three weeks for the state transition to complete.
 - `unbonded`: Validator is not in the active set, and therefore not signing blocks. Unbonded validators cannot be slashed, but do not earn any rewards from their operation. It is still possible to delegate POINT to this validator. Un-delegating from an `unbonded` validator is immediate.
 
 Delegators have the same state as their validator.
@@ -148,7 +148,7 @@ Validators have three main responsibilities:
 
 - **Be able to constantly run a correct version of the software:** validators need to make sure that their servers are always online and their private keys are not compromised.
 
-- **Provide oversight and feedback on correct deployment of community pool funds:** the Point Chain protocol includes the a governance system for proposals to the facilitate adoption of its currencies. Validators are expected to hold budget executors to account to provide transparency and efficient use of funds.
+- **Provide oversight and feedback on correct deployment of community pool funds:** the Point Chain protocol includes a governance system for proposals to the facilitate adoption of its currencies. Validators are expected to hold budget executors to account to provide transparency and efficient use of funds.
 
 Additionally, validators are expected to be active members of the community. They should always be up-to-date with the current state of the ecosystem so that they can easily adapt to any change.
 
@@ -198,8 +198,8 @@ Block provisions (rewards) are distributed proportionally to all validators rela
 Let us take an example where we have 10 validators with equal staking power and a commission rate of 1%. Let us also assume that the provision for a block is 1000 POINT and that each validator has 20% of self-bonded POINT. These tokens do not go directly to the proposer. Instead, they are evenly spread among validators. So now each validator's pool has 100 POINT. These 100 POINT will be distributed according to each participant's stake:
 
 - Commission: `100*80%*1% = 0.8 POINT`
-- Validator gets: `100\*20% + Commission = 20.8 POINT`
-- All delegators get: `100\*80% - Commission = 79.2 POINT`
+- Validator gets: `100*20% + Commission = 20.8 POINT`
+- All delegators get: `100*80% - Commission = 79.2 POINT`
 
 Then, each delegator can claim its part of the 79.2 POINT in proportion to their stake in the validator's staking pool. Note that the validator's commission is not applied on block provisions. Note that block rewards (paid in POINT) are distributed according to the same mechanism.
 
@@ -213,19 +213,21 @@ Let's take a concrete example to illustrate the aforementioned concept. In this 
 
 We have to solve this simple equation to find the reward $R$ for each validator:
 
-$$9R ~ + ~ R ~ + ~ 5\%(R) ~ = ~ 1005 ~ \Leftrightarrow ~ R ~ = ~ 1005 ~/ ~10.05 ~ = ~ 100$$
+9*R + (R + R*5%) = 1005 ⇔ R = 1005/10.05 = 100
 
 - For the proposer validator:
 
-    - The pool obtains $R ~ + ~ 5\%(R)$: 105 POINT
-    - Commission: $105 ~ *~ 80\% ~* ~ 1\%$ = 0.84 POINT
-    - Validator's reward: $105 ~ * ~ 20\% ~ + ~ Commission$ = 21.84 POINT
-    - Delegators' rewards: $105 ~ * ~ 80\% ~ - ~ Commission$ = 83.16 POINT \(each delegator will be able to claim its portion of these rewards in proportion to their stake\)
+    - The pool obtains R + R * 5%: 105 POINT
+    - Commission: 105 * 80% * 1% = 0.84 POINT
+    - Validator's reward: 105 * 20% + Commission = 21.84 POINT
+    - Delegators' rewards: 105 * 80% - Commission = 83.16 POINT (each delegator will be able to claim its portion of these rewards in proportion to their stake)
 
-    - The pool obtains $R$: 100 POINT
-    - Commission: $100 ~ *~ 80\% ~* ~ 1\%$ = 0.8 POINT
-    - Validator's reward: $100 ~ * ~ 20\% ~ + ~ Commission$ = 20.8 POINT
-    - Delegators' rewards: $100 ~ * ~ 80\% ~ - ~ Commission$ = 79.2 POINT \(each delegator will be able to claim its portion of these rewards in proportion to their stake\)
+- For each non-proposer validator:
+
+    - The pool obtains R: 100 POINT
+    - Commission: 100 * 80% * 1% = 0.8 POINT
+    - Validator's reward: 100 * 20% + Commission = 20.8 POINT
+    - Delegators' rewards: 100 * 80% - Commission = 79.2 POINT (each delegator will be able to claim their portion of these rewards in proportion to their stake)
 
 ### What are the slashing conditions?
 
@@ -307,7 +309,7 @@ One recommended way to mitigate these risks is for validators to carefully struc
 
 Validator nodes should only connect to full-nodes they trust because they operate them themselves or are run by other validators they know socially. A validator node will typically run in a data center. Most data centers provide direct links the networks of major cloud providers. The validator can use those links to connect to sentry nodes in the cloud. This shifts the burden of denial-of-service from the validator's node directly to its sentry nodes, and may require new sentry nodes be spun up or activated to mitigate attacks on existing ones.
 
-Sentry nodes can be quickly spun up or change their IP addresses. Because the links to the sentry nodes are in private IP space, an internet based attacked cannot disturb them directly. This will ensure validator block proposals and votes always make it to the rest of the network.
+Sentry nodes can be quickly spun up or change their IP addresses. Because the links to the sentry nodes are in private IP space, an internet based attack cannot disturb them directly. This will ensure validator block proposals and votes always make it to the rest of the network.
 
 It is expected that good operating procedures on that part of validators will completely mitigate these threats.
 
