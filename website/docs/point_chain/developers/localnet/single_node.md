@@ -1,6 +1,7 @@
-<!--
-order: 1
--->
+---
+title: Single Node
+sidebar_label: Single Node
+---
 
 # Single Node
 

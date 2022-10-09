@@ -20,7 +20,7 @@ Following this document and/or performing validation activities requires highly 
 
 This document describes step-by-step instructions on joining Point-Mainnet as a validator.
 
-Validators have the responsibility to keep the network operational 24/7. Do not attempt to join the mainnet (and especially mainnet) if you don’t have enough experience. For example, if you install it on your laptop, join as a validator, and then close the laptop, the network will penalize you for being offline by slashing your stake (+the network quality might degrade).
+Validators have the responsibility to keep the network operational 24/7. Do not attempt to join mainnet (*especially* mainnet!) if you don’t have enough experience. For example, if you install it on your laptop, join as a validator, and then close the laptop, the network will penalize you for being offline by slashing your stake (+the network quality might degrade).
 
 If you have any questions, join our Discord: https://pointnetwork.io/discord and ask in #validators channel (in order to see #validators channel, you should add yourself a Validator role at #roles). This is the channel where we will sync our mainnet efforts and communicate with each other about what's happening.
 
@@ -216,8 +216,7 @@ Finally, send enough POINT to your validator address
 
 Now you have to wait for the node to fully sync, because otherwise it will not "find" your address which only appears on the blockchain from the moment of the first transaction.
 
-You can use state state sync to speed up synchronization: [State Sync](./setup/statesync)
-
+You can use state sync to speed up synchronization: [State Sync](./setup/statesync)
 
 Once the node is fully synced, and you got some POINT to stake, check your balance in the node:
 

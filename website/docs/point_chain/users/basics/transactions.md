@@ -58,11 +58,12 @@ Point Chain supports the following Ethereum transactions.
 - Dynamic Fee Transactions ([EIP-1559](https://eips.ethereum.org/EIPS/eip-1559))
 - Access List Transactions ([EIP-2930](https://eips.ethereum.org/EIPS/eip-2930))
 - Legacy Transactions ([EIP-2718](https://eips.ethereum.org/EIPS/eip-2718))
-
-### Interchain Transactions
+- Interchain Transactions **(Details soon)**
 
 <!-- TODO: transactions that use IBC or bridges to send them to other chains -->
 
 ## Transaction Receipts
+
+**(Details soon)**
 
 <!-- TODO: explain Ethereum transaction receipts -->

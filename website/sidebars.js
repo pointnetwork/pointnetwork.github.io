@@ -177,6 +177,7 @@ module.exports = {
               items: [
                 "point_chain/validators/quickstart/installation",
                 "point_chain/validators/quickstart/run_node",
+                "point_chain/validators/quickstart/binary",
               ],
             },
             {

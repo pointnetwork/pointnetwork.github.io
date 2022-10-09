@@ -77,9 +77,10 @@ Also ensure your log rotation is configured properly.
 ## Results
 
 Below is the disk usage after two weeks of Point Chain testnet. The default
-configuration results in disk usage of 90GB.
+configuration results in disk usage of **90GB**.
 
 ```bash
+90G     .
 5.3G    ./state.db
 70G     ./application.db
 20K     ./snapshots/metadata.db
@@ -88,18 +89,17 @@ configuration results in disk usage of 90GB.
 20K     ./evidence.db
 1018M   ./cs.wal
 4.7G    ./tx_index.db
-90G     .
 ```
 
-This optimized configuration has reduced the disk usage to 17 GB.
+This optimized configuration has reduced the disk usage to **17 GB**.
 
 ```bash
 17G     .
-1.1G    ./cs.wal
-946M    ./application.db
-20K     ./evidence.db
-9.1G    ./blockstore.db
-24K     ./snapshots
-20K     ./snapshots/metadata.db
 5.3G    ./state.db
+946M    ./application.db
+20K     ./snapshots/metadata.db
+24K     ./snapshots
+9.1G    ./blockstore.db
+20K     ./evidence.db
+1.1G    ./cs.wal
 ```

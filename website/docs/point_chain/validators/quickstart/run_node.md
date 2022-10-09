@@ -2,6 +2,7 @@
 title: Run a node
 sidebar_label: Run a node
 ---
+
 # Run a Node
 
 Configure and run an Point Chain node
