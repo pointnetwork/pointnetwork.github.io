@@ -6,8 +6,17 @@ slug: ../getting-started
 ---
 
 Welcome to the Point Network Wiki! This central source of truth contains guides for interacting with the
-core functionality. Our wiki has four main sections: Learn (for learners), Build (for people that
-want to build on Point Network ), Maintain (for people that want to maintain the network) and Use (for end users).
+core functionality. 
+
+:::note
+Our wiki has five main sections.
+
+* [Learn](learn-index) (for learners)
+* [Build](build-index) (for people that want to build on Point Network)
+* [Maintain](maintain-index) (for people that want to maintain the network)
+* [Use](use-index) (for end users)
+* [Point Chain](point_chain/about/overview) (for learning about the Point Chain Blockchain and Point Chain Validators)
+:::
 
 For the project site please visit [pointnetwork.io](http://pointnetwork.io).
 
@@ -25,7 +34,7 @@ Sometimes it’s visible, when "Big Tech" social media corporations **deplatform
 
 ## Fix Cybersecurity
 
-The internet, initially, **wasn't designed** with security and privacy in mind. Decades later, we still **struggle to add security and privacy** as an afterthought. As evident from news every single week, it is so utterly broken, that the only way to get us out of this mess is to **completely redesign basic internet protocols**, drawing on the lessons of the legacy technology, but this time, **using the best principles** right from the start. In 2021, it is long overdue.
+The internet, initially, **wasn't designed** with security and privacy in mind. Decades later, we still **struggle to add security and privacy** as an afterthought. As evident from news every single week, it is so utterly broken, that the only way to get us out of this mess is to **completely redesign basic internet protocols**, drawing on the lessons of the legacy technology, but this time, **using the best principles** right from the start. It is certainly long overdue!
 
 ## Solution
 

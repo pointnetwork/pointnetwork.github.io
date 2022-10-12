@@ -7,7 +7,6 @@ module.exports = {
         'general/getting-started',
         'general/pointnetwork-demo',
         'general/troubleshooting',
-        'general/debugging',
         'general/contributing',
         'general/point-token'
       ],
@@ -55,6 +54,7 @@ module.exports = {
           label: "Development Guide",
           items: [
             'build/build-environments',
+            'build/build-debugging',
             "build/build-zapp-dev-environment-docker",
             "build/build-zapp-dev-environment-direct-install",
             "build/build-create-a-dev-point-network-profile-in-firefox",

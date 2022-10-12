@@ -1,13 +1,13 @@
 ---
-id: debugging
+id: build-debugging
 title: Debugging
 sidebar_label: Debugging
-slug: ../debugging
+slug: ../build-debugging
 ---
 
 ### Run a Point Network Node in a VS Code Debugger
 
-**NOTE**: You need to setup your local [dev environment](../build/build-zapp-dev-environment-direct-install.md) first (without Docker).
+**NOTE**: You need to setup your local [dev environment](../build/build-zapp-dev-environment-direct-install.md) first.
 
 To debug the Point Network node in VS code:
 
@@ -23,14 +23,14 @@ This will create a `dist` directory including `*.js.map` files which are used by
 1. Open the Debugger tool
 1. Click `create a launch.json` file (located under the blue "Run and Debug" button)
 1. Select 'Node JS' from the environment drop down
-1. Replace the file created with the sample launch.json file shown below.
-1. Make sure all the dependent dev services are running such as Arlocal and Ganache (as per the local dev environment setup instructions)
+1. Replace the file created with the sample `launch.json` file shown below.
+1. Make sure all the dependent dev services are running such as Arlocal and Ganache (as per the local [dev environment setup instructions](../build/build-zapp-dev-environment-direct-install.md))
 1. Click the 'Play' icon next to 'Launch Program' dropdown on the top left
 1. Open a 'Debug Console' tab in VS Code and you will see the running Point Node logs
 1. Add a breakpoint to any part of the Point Node JS code (perhaps in one of the common handlers in the client proxy)
 1. Open the Point Browser by running the alias `point-browser-owner`
 1. Now you can inspect the variables in VS Code and use the debugger as usual.
-1. Continue to add breakpoints where you need to assist with your debugging!
+1. Continue to add breakpoints where you need to assist with your build-debugging!
 
 ### Sample launch.json file
 

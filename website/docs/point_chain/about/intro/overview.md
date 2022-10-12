@@ -5,7 +5,7 @@ sidebar_label: Overview
 slug: ../overview
 ---
 
-# High-level Overview
+# Point Chain High-level Overview
 
 :::note
 Learn about Point Chain and its primary features.

@@ -7,12 +7,12 @@ slug: ../pointnetwork-demo
 
 ### Run Point Network Alpha!
 
-The Alpha version of Point Network and can be installed by following the [Point Network Alpha Testing Guide](https://github.com/pointnetwork/pointnetwork-dashboard/blob/main/ALPHA.md)
+The Alpha version of Point Network can be installed by downloading the installation packages for your operating systen from our offical [downloads page](https://pointnetwork.io/download). Once the download is complete, extract the files and install on your system following the on screen instructions provided by the Point Network installer.
 
-### Run Point Network Developer Demo using Docker
+### Run Point Network Developer Demo directly on your machine
 
-To run the demo simply follow the steps outlined in the [Setup Zapp Development Environment using Docker](./build-zapp-dev-environment-docker) Guide.
+To run the demo simply follow the steps outlined in the [dApp Development Environment](./build-zapp-dev-environment-direct-install) Guide.  
 
-### Run Point Network Developer Demo directly on your machine (without Docker)
-
-To run the demo simply follow the steps outlined in the [Zapp Development Environment (without Docker)](./build-zapp-dev-environment-direct-install) Guide.
+:::warning
+Running the developer demo requires building Point Network from source and requires technical expertise.
+:::
