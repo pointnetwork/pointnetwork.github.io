@@ -31,7 +31,7 @@ module.exports = {
           type: "category",
           label: "Advanced",
           items: [
-            'learn/learn-layer2-payments'
+            'learn/learn-payments'
           ]
         },
         {

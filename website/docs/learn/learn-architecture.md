@@ -12,7 +12,9 @@ slug: ../learn-architecture
 
 ## Overview
 
-**NOTE** Some of the following maybe outdated. Its receommended to check the [source code directly](https://github.com/pointnetwork/pointnetwork) for very latest approach implemented in Point Node.
+:::warning
+Some of the following maybe outdated. Its receommended to check the [source code directly](https://github.com/pointnetwork/pointnetwork) for very latest approach implemented in Point Node.
+:::
 
 Below is a list of modules that are used for the Point Network Node prototype implementation.
 

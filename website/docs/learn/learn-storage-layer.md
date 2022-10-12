@@ -9,7 +9,10 @@ Point Network is a system for building decentralized websites with a distributed
 
 # Point Network Storage Layer
 
-**NOTE** Some of the following maybe outdated. Its receommended to check the [source code directly](https://github.com/pointnetwork/pointnetwork) for very latest approach implemented in Point Node which is using [Arweave](https://www.arweave.org/) for the storage layer.
+:::warning
+Some of the following maybe outdated. Its receommended to check the [source code directly](https://github.com/pointnetwork/pointnetwork) for very latest approach implemented in Point Node which is using [Arweave](https://www.arweave.org/) for the storage layer.
+:::
+
 
 To save a file in the storage layer, a developer can call the putFile function passing in the file like so: `storage.putFile(filePath)`. This is a function call that will return the unique file id of the file originally located at the `filePath`.
 
