@@ -24,7 +24,9 @@ Set the node name
 moniker="NODE_NAME"
 ```
 
-## Use commands below for Mainnet setup
+## Use commands below
+
+#### For Mainnet setup
 
 ```bash
 SNAP_RPC1="http://rpc-mainnet-1.point.space:26659"
@@ -34,6 +36,15 @@ PEER="8673c1f04c29c464189e8bf29e51fb0b38da2f19@rpc-mainnet-1.point.space:26656"
 wget -O $HOME/genesis.json https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/mainnet-1/genesis.json
 ```
 
+#### For Uranus Testnet setup
+```bash
+SNAP_RPC1="https://xnet-uranus-1.point.space:26657"
+SNAP_RPC="https://xnet-uranus-1.point.space:26657"
+CHAIN_ID="point_10731-1"
+PEER="9f68144936ca8131c29ce15b690fd92e12388187@xnet-uranus-1.point.space:26656"
+wget -O $HOME/genesis.json https://raw.githubusercontent.com/pointnetwork/point-chain-config/main/testnet-xNet-Uranus-1/genesis.json
+```
+#### Common part
 Reset the node
 
 ```bash
