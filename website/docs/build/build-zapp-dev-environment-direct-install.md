@@ -71,7 +71,7 @@ git clone https://github.com/pointnetwork/template.point.git ../template.point
 cd ../template.point
 npm i && npm run build
 cd ../pointnetwork
-point-deploy ../template.point --contracts
+NODE_CONFIG_ENV=devlocal MODE=zappdev point-deploy ../template.point --contracts
 ```
  
 ## Open the deployed Template dApp in the Owner Point Browser
