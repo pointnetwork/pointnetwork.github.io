@@ -11,9 +11,13 @@ Learn all about Point Network from our [official YouTube channel](https://www.yo
 | ------------- | --------------- |
 | [![Intro](https://img.youtube.com/vi/3zICuHh_Hso/0.jpg)](https://www.youtube.com/watch?v=3zICuHh_Hso) | [![Intro](https://img.youtube.com/vi/czCPXJKDfFw/0.jpg)](https://www.youtube.com/watch?v=czCPXJKDfFw) |
 
-| Tutorial: Deploy a Website | How to Stake POINT |
+| Tutorial 1: Deploy a Website | Tutorial 2: Use Subdomains in Web3 |
 | ------------- | --------------- |
-| [![Intro](https://img.youtube.com/vi/k3bylAoesNI/0.jpg)](https://www.youtube.com/watch?v=k3bylAoesNI) | [![Intro](https://img.youtube.com/vi/oJ0ss3a37rQ/0.jpg)](https://www.youtube.com/watch?v=oJ0ss3a37rQ) |
+| [![Intro](https://img.youtube.com/vi/k3bylAoesNI/0.jpg)](https://www.youtube.com/watch?v=k3bylAoesNI) | [![Intro](https://img.youtube.com/vi/4utshszeQHw/0.jpg)](https://www.youtube.com/watch?v=4utshszeQHwQ) |
+
+| Tutorial 3: Delegate deployers for your Web3 site | How to Stake POINT |
+| ------------- | --------------- |
+| [![Intro](https://img.youtube.com/vi/nbXNJrIKzGE/0.jpg)](https://www.youtube.com/watch?v=nbXNJrIKzGE) | [![Intro](https://img.youtube.com/vi/oJ0ss3a37rQ/0.jpg)](https://www.youtube.com/watch?v=oJ0ss3a37rQ) |
 
 ## Introductions
 
