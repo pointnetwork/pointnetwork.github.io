@@ -5,6 +5,10 @@ sidebar_label: Web Sockets
 slug: ../learn-websockets
 ---
 
+:::tip
+This documentation page is currently under work in progress.
+:::
+
 ## WebSocket Endpoints
 
 The Point Network node has two WebSocket endpoints defined:

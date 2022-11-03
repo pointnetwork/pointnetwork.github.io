@@ -20,15 +20,11 @@ Learn all about Point Network from our [official YouTube channel](https://www.yo
 - [Point Network Web 3.0 Intro](https://www.youtube.com/watch?v=3zICuHh_Hso)
 - [Point Network Web 3.0 Technical Intro](https://www.youtube.com/watch?v=czCPXJKDfFw)
 
-## Demos
-
-- [Point Network Demo #1](https://vimeo.com/499192915)
-- [Point Network Demo #2 (Decentralized Twitter)](https://vimeo.com/499193710)
-
 ## Tutorials
 
 ### For builders
 
+- [Deploy a basic website on Point Network](https://www.youtube.com/watch?v=k3bylAoesNI)
 - [Creating Decentralized Twitter From Scratch On Point Network](https://www.youtube.com/watch?v=JZaxuQBrTgU)
 
 ### Technical Content
